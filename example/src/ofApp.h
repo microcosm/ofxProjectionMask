@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "MaskEditor.h"
+#include "HueCyclePattern.h"
 
 class ofApp : public ofBaseApp{
 
@@ -19,4 +21,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+    MaskEditor maskEditor;
+    HueCyclePattern pattern;
 };
