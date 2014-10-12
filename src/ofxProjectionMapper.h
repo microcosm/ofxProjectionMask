@@ -11,13 +11,12 @@ class ofxProjectionMapper{
 public:
     
     void setup();
-    void update();
+    void update(int _mouseX, int _mouseY);
     void draw();
     
     void undo();
     void redo();
     
-    void setMousePosition(int x, int y);
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
     void setPattern(BufferPattern* pattern);
     

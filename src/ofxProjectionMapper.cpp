@@ -40,7 +40,10 @@ void ofxProjectionMapper::setup(){
     xml.assign(&designCanvas, &liveCanvas, &objectStore);
 }
 
-void ofxProjectionMapper::update(){
+void ofxProjectionMapper::update(int _mouseX, int _mouseY){
+    mouseX = _mouseX;
+    mouseY = _mouseY;
+    
     if(!isTransforming()){
         objectStore.updateHighlights(mouseX, mouseY);
     }
@@ -75,11 +78,6 @@ void ofxProjectionMapper::draw(){
     textArea.draw();
     
     drawLiveCursor();
-}
-
-void ofxProjectionMapper::setMousePosition(int x, int y){
-    mouseX = x;
-    mouseY = y;
 }
 
 void ofxProjectionMapper::setPattern(BufferPattern *pattern){

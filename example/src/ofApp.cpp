@@ -21,8 +21,7 @@ void ofApp::update(){
     int mouseXAdjusted = mouseX + mouseXAdjustment;
     int mouseYAdjusted = mouseY + mouseYAdjustment;
     pattern.update();
-    mapper.setMousePosition(mouseXAdjusted, mouseYAdjusted);
-    mapper.update();
+    mapper.update(mouseXAdjusted, mouseYAdjusted);
 }
 
 void ofApp::draw(){
