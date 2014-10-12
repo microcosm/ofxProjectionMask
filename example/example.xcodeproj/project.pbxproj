@@ -10,7 +10,7 @@
 		1224FA8F91E62D76865462CC /* ofxProjectionMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A922D5E3B504D8C98F4265FF /* ofxProjectionMapper.cpp */; };
 		84137DC019E9D1C80035A71B /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DA219E9D1C80035A71B /* Presets.cpp */; };
 		84137DC119E9D1C80035A71B /* ofExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DA519E9D1C80035A71B /* ofExtensions.cpp */; };
-		84137DC319E9D1C80035A71B /* ObjectStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DAA19E9D1C80035A71B /* ObjectStore.cpp */; };
+		84137DC319E9D1C80035A71B /* CanvasContents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DAA19E9D1C80035A71B /* CanvasContents.cpp */; };
 		84137DC419E9D1C80035A71B /* SafeDeque.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DAC19E9D1C80035A71B /* SafeDeque.cpp */; };
 		84137DC519E9D1C80035A71B /* XmlPersistence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DAF19E9D1C80035A71B /* XmlPersistence.cpp */; };
 		84137DC619E9D1C80035A71B /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DB319E9D1C80035A71B /* Canvas.cpp */; };
@@ -84,8 +84,8 @@
 		84137DA319E9D1C80035A71B /* Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Presets.h; path = ../src/Presets.h; sourceTree = "<group>"; };
 		84137DA519E9D1C80035A71B /* ofExtensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofExtensions.cpp; sourceTree = "<group>"; };
 		84137DA619E9D1C80035A71B /* ofExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
-		84137DAA19E9D1C80035A71B /* ObjectStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectStore.cpp; sourceTree = "<group>"; };
-		84137DAB19E9D1C80035A71B /* ObjectStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectStore.h; sourceTree = "<group>"; };
+		84137DAA19E9D1C80035A71B /* CanvasContents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CanvasContents.cpp; sourceTree = "<group>"; };
+		84137DAB19E9D1C80035A71B /* CanvasContents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasContents.h; sourceTree = "<group>"; };
 		84137DAC19E9D1C80035A71B /* SafeDeque.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafeDeque.cpp; sourceTree = "<group>"; };
 		84137DAD19E9D1C80035A71B /* SafeDeque.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeDeque.h; sourceTree = "<group>"; };
 		84137DAF19E9D1C80035A71B /* XmlPersistence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlPersistence.cpp; sourceTree = "<group>"; };
@@ -204,8 +204,8 @@
 		84137DA919E9D1C80035A71B /* ObjectStore */ = {
 			isa = PBXGroup;
 			children = (
-				84137DAA19E9D1C80035A71B /* ObjectStore.cpp */,
-				84137DAB19E9D1C80035A71B /* ObjectStore.h */,
+				84137DAA19E9D1C80035A71B /* CanvasContents.cpp */,
+				84137DAB19E9D1C80035A71B /* CanvasContents.h */,
 				84137DAC19E9D1C80035A71B /* SafeDeque.cpp */,
 				84137DAD19E9D1C80035A71B /* SafeDeque.h */,
 			);
@@ -555,7 +555,7 @@
 				84858D6319E9E41A00E682A2 /* HueCyclePattern.cpp in Sources */,
 				84137DC519E9D1C80035A71B /* XmlPersistence.cpp in Sources */,
 				84137DE819E9D2D60035A71B /* tinyxml.cpp in Sources */,
-				84137DC319E9D1C80035A71B /* ObjectStore.cpp in Sources */,
+				84137DC319E9D1C80035A71B /* CanvasContents.cpp in Sources */,
 				84137DCB19E9D1C80035A71B /* PointObject.cpp in Sources */,
 				84137DE719E9D2D60035A71B /* ofxXmlSettings.cpp in Sources */,
 				84137DDB19E9D2A60035A71B /* ofxTriangle.cpp in Sources */,

@@ -1,13 +1,13 @@
-#include "ObjectStore.h"
+#include "CanvasContents.h"
 
 //Public
-void ObjectStore::add(MaskFrame *maskFrame){
+void CanvasContents::add(MaskFrame *maskFrame){
     maskFrames.backup();
     maskFrames.push_back(*maskFrame);
     assignMaskFrameIds();
 }
 
-void ObjectStore::nudge(Direction direction){
+void CanvasContents::nudge(Direction direction){
     if(this->hasHighlightedMaskFrame()){
         maskFrames.backup();
         MaskFrame* maskFrame = this->getHighlightedMaskFrame();
@@ -27,7 +27,7 @@ void ObjectStore::nudge(Direction direction){
     }
 }
 
-void ObjectStore::erase(){
+void CanvasContents::erase(){
     int i = getHighlightedMaskFrameIndex();
     if(i > -1){
         if(maskFrames[i]->hasHighlightedMaskPoint()){
@@ -40,7 +40,7 @@ void ObjectStore::erase(){
     }
 }
 
-void ObjectStore::createMaskPointAt(int x, int y){
+void CanvasContents::createMaskPointAt(int x, int y){
     MaskFrame* highlightedMaskFrame = this->getHighlightedMaskFrame();
     if(highlightedMaskFrame != 0){
         maskFrames.backup();
@@ -48,7 +48,7 @@ void ObjectStore::createMaskPointAt(int x, int y){
     }   
 }
 
-void ObjectStore::updateHighlights(int x, int y){
+void CanvasContents::updateHighlights(int x, int y){
     this->unhighlightAllMaskFrames();
     
     for (int i = 0; i < maskFrames.size(); i++){
@@ -61,11 +61,11 @@ void ObjectStore::updateHighlights(int x, int y){
     }
 }
 
-void ObjectStore::toggleFrameNudge(){
+void CanvasContents::toggleFrameNudge(){
     frameNudge = !frameNudge;
 }
 
-MaskFrame* ObjectStore::beginTransform(){
+MaskFrame* CanvasContents::beginTransform(){
     for(int i = 0; i < maskFrames.size(); i++){
         if(maskFrames[i]->hasHighlightedDragHandle()){
             maskFrames[i]->setTransformState(Scaling);
@@ -88,48 +88,48 @@ MaskFrame* ObjectStore::beginTransform(){
     return 0;
 }
 
-void ObjectStore::endTransform(){
+void CanvasContents::endTransform(){
     for(int i = 0; i < maskFrames.size(); i++){
         maskFrames[i]->setTransformState(NoTransform);
     }
 }
 
-void ObjectStore::undo(){
+void CanvasContents::undo(){
     maskFrames.undo();
 }
 
-void ObjectStore::redo(){
+void CanvasContents::redo(){
     maskFrames.redo();
 }
 
-bool ObjectStore::getFrameNudgeEnabled(){
+bool CanvasContents::getFrameNudgeEnabled(){
     return frameNudge;
 }
 
-void ObjectStore::drawDesign(){
+void CanvasContents::drawDesign(){
     for (int i = 0; i < maskFrames.size(); i++){
         maskFrames[i]->drawDesign();
     }
 }
 	
-void ObjectStore::drawLive(Mode mode){
+void CanvasContents::drawLive(Mode mode){
     for (int i = 0; i < maskFrames.size(); i++){
         maskFrames[i]->drawLive(mode);
     }
 }
 
-SafeDeque<MaskFrame> *ObjectStore::getMaskFrames(){
+SafeDeque<MaskFrame> *CanvasContents::getMaskFrames(){
     return &this->maskFrames;
 }
 
 //Protected
-void ObjectStore::unhighlightAllMaskFrames(){
+void CanvasContents::unhighlightAllMaskFrames(){
     for(int i = 0; i < maskFrames.size(); i++){
         maskFrames[i]->setHighlighted(false);
     }
 }
 
-int ObjectStore::getHighlightedMaskFrameIndex(){
+int CanvasContents::getHighlightedMaskFrameIndex(){
     for(int i = 0; i < maskFrames.size(); i++){
         if(maskFrames[i]->isHighlighted()){
             return i;
@@ -138,7 +138,7 @@ int ObjectStore::getHighlightedMaskFrameIndex(){
     return -1;
 }
 
-MaskFrame* ObjectStore::getHighlightedMaskFrame(){
+MaskFrame* CanvasContents::getHighlightedMaskFrame(){
     int i = getHighlightedMaskFrameIndex();
     if(i > -1){
         return maskFrames[i];
@@ -146,12 +146,12 @@ MaskFrame* ObjectStore::getHighlightedMaskFrame(){
     return 0;
 }
 
-bool ObjectStore::hasHighlightedMaskFrame(){
+bool CanvasContents::hasHighlightedMaskFrame(){
     int i = getHighlightedMaskFrameIndex();
     return i > -1;
 }
 
-int ObjectStore::assignMaskFrameIds(){
+int CanvasContents::assignMaskFrameIds(){
     for(int i = 0; i < maskFrames.size(); i++){
         maskFrames[i]->setId(i);
     }

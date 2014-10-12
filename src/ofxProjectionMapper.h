@@ -1,6 +1,6 @@
 #pragma once
 #include "ofMain.h"
-#include "ObjectStore.h"
+#include "CanvasContents.h"
 #include "MaskFrame.h"
 #include "TextArea.h"
 #include "XmlPersistence.h"
@@ -14,8 +14,10 @@ public:
     void update(int mouseX, int mouseY);
     void draw();
     
-    void undo();
-    void redo();
+    void keyReleased(int key);
+    void mouseDragged();
+    void mousePressed();
+    void mouseReleased();
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
     void setPattern(BufferPattern* pattern);
@@ -26,22 +28,20 @@ public:
     void saveObjects();
     void autoSaveObjects();
     
-    void mouseDragged();
-    void mousePressed();
-    void mouseReleased();
-    void keyReleased(int key);
-    
 protected:
     Presets presets;
     Mode mode;
     TextArea textArea;
     Canvas designCanvas, liveCanvas;
+    CanvasContents canvasContents;
     MaskFrame *selectedMaskFrame;
-    ObjectStore objectStore;
     ofVec2f mouse, mouseOffset;
     Corner selectedCorner;
     XmlPersistence xml;
     BufferPattern *pattern;
+    
+    void undo();
+    void redo();
     
     void nudge(Direction direction);
     void toggleFrameNudge();

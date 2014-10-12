@@ -40,7 +40,7 @@ void ofxProjectionMapper::setup(){
     
     selectedMaskFrame = 0;
     
-    xml.assign(&designCanvas, &liveCanvas, &objectStore);
+    xml.assign(&designCanvas, &liveCanvas, &canvasContents);
 }
 
 void ofxProjectionMapper::update(int mouseX, int mouseY){
@@ -49,7 +49,7 @@ void ofxProjectionMapper::update(int mouseX, int mouseY){
     mouse.y = mouseY + mouseYAdjustment;
     
     if(!isTransforming()){
-        objectStore.updateHighlights(mouseX, mouseY);
+        canvasContents.updateHighlights(mouseX, mouseY);
     }
     
     if(mode == Design){
@@ -68,7 +68,7 @@ void ofxProjectionMapper::draw(){
     ofPushMatrix();
     ofTranslate(designCanvas.getX(), designCanvas.getY());
     designCanvas.draw();
-    objectStore.drawDesign();
+    canvasContents.drawDesign();
     ofPopMatrix();
     
     ofPushMatrix();
@@ -76,63 +76,12 @@ void ofxProjectionMapper::draw(){
     if(mode == Design){
         liveCanvas.draw();
     }
-    objectStore.drawLive(mode);
+    canvasContents.drawLive(mode);
     ofPopMatrix();
     
     textArea.draw();
     
     drawLiveCursor();
-}
-
-void ofxProjectionMapper::setPattern(BufferPattern *pattern){
-    this->pattern = pattern;
-    xml.assign(pattern->getBuffers());
-}
-
-void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
-    textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
-}
-
-Canvas *ofxProjectionMapper::getLiveCanvas(){
-    return &this->liveCanvas;
-}
-
-void ofxProjectionMapper::loadObjects(){
-    this->xml.load();
-}
-
-void ofxProjectionMapper::saveObjects(){
-    this->xml.save();
-}
-
-void ofxProjectionMapper::autoSaveObjects(){
-    this->xml.save(true);
-}
-
-void ofxProjectionMapper::mouseDragged(){
-    if(selectedMaskFrame != 0){
-        TransformState transformState = selectedMaskFrame->getTransformState();
-        if(transformState == Translating){
-            selectedMaskFrame->setPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
-        }else if(transformState == Scaling){
-            scaleSelectedMaskFrame();
-        }else if(transformState == Masking){
-            selectedMaskFrame->setSelectedMaskPointPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
-        }
-    }
-}
-
-void ofxProjectionMapper::mousePressed(){
-    selectedMaskFrame = objectStore.beginTransform();
-    if(selectedMaskFrame != 0){
-        setMouseOffsetFromSelectedMaskFrame();
-    }
-}
-
-void ofxProjectionMapper::mouseReleased(){
-    selectedMaskFrame = 0;
-    objectStore.endTransform();
-    autoSaveObjects();
 }
 
 void ofxProjectionMapper::keyReleased(int key){
@@ -174,22 +123,73 @@ void ofxProjectionMapper::keyReleased(int key){
     }
 }
 
+void ofxProjectionMapper::mouseDragged(){
+    if(selectedMaskFrame != 0){
+        TransformState transformState = selectedMaskFrame->getTransformState();
+        if(transformState == Translating){
+            selectedMaskFrame->setPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
+        }else if(transformState == Scaling){
+            scaleSelectedMaskFrame();
+        }else if(transformState == Masking){
+            selectedMaskFrame->setSelectedMaskPointPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
+        }
+    }
+}
+
+void ofxProjectionMapper::mousePressed(){
+    selectedMaskFrame = canvasContents.beginTransform();
+    if(selectedMaskFrame != 0){
+        setMouseOffsetFromSelectedMaskFrame();
+    }
+}
+
+void ofxProjectionMapper::mouseReleased(){
+    selectedMaskFrame = 0;
+    canvasContents.endTransform();
+    autoSaveObjects();
+}
+
+void ofxProjectionMapper::setPattern(BufferPattern *pattern){
+    this->pattern = pattern;
+    xml.assign(pattern->getBuffers());
+}
+
+void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
+    textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
+}
+
+Canvas *ofxProjectionMapper::getLiveCanvas(){
+    return &this->liveCanvas;
+}
+
+void ofxProjectionMapper::loadObjects(){
+    this->xml.load();
+}
+
+void ofxProjectionMapper::saveObjects(){
+    this->xml.save();
+}
+
+void ofxProjectionMapper::autoSaveObjects(){
+    this->xml.save(true);
+}
+
 //Protected
 void ofxProjectionMapper::undo(){
-    objectStore.undo();
+    canvasContents.undo();
 }
 
 void ofxProjectionMapper::redo(){
-    objectStore.redo();
+    canvasContents.redo();
 }
 
 void ofxProjectionMapper::nudge(Direction direction){
-    objectStore.nudge(direction);
+    canvasContents.nudge(direction);
 }
 
 void ofxProjectionMapper::toggleFrameNudge(){
-    objectStore.toggleFrameNudge();
-    textArea.setFrameNudgeEnabled(objectStore.getFrameNudgeEnabled());
+    canvasContents.toggleFrameNudge();
+    textArea.setFrameNudgeEnabled(canvasContents.getFrameNudgeEnabled());
 }
 
 void ofxProjectionMapper::createNewMaskFrame(){
@@ -198,15 +198,15 @@ void ofxProjectionMapper::createNewMaskFrame(){
     maskFrame.setBuffers(pattern->getBuffers());
     maskFrame.setSize(presets.newMaskFrameWidth, presets.newMaskFrameHeight);
     maskFrame.setPosition(mouse.x, mouse.y);
-    objectStore.add(&maskFrame);
+    canvasContents.add(&maskFrame);
 }
 
 void ofxProjectionMapper::createNewMaskPoint(){
-    objectStore.createMaskPointAt(mouse.x, mouse.y);
+    canvasContents.createMaskPointAt(mouse.x, mouse.y);
 }
 
 void ofxProjectionMapper::deleteHighlightedItem(){
-    objectStore.erase();
+    canvasContents.erase();
 }
 
 void ofxProjectionMapper::cycleMode(){

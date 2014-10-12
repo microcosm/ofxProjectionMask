@@ -42,10 +42,10 @@ const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 
-void XmlPersistence::assign(Canvas *designCanvas, Canvas *liveCanvas, ObjectStore *objectStore){
+void XmlPersistence::assign(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
-    this->objectStore = objectStore;
+    this->canvasContents = canvasContents;
 }
 
 void XmlPersistence::assign(vector<ofFbo> *buffers){
@@ -70,7 +70,7 @@ void XmlPersistence::save(bool autoSave){
     addTimestamp(&xml);
     addCanvas(&xml, designCanvas, designCanvasTag);
     addCanvas(&xml, liveCanvas, liveCanvasTag);
-    addMaskFrames(&xml, objectStore);
+    addMaskFrames(&xml, canvasContents);
     
     xml.popTag();
     
@@ -149,12 +149,12 @@ void XmlPersistence::addCanvas(ofxXmlSettings *xml, Canvas *canvas, string tagNa
     xml->popTag();
 }
 
-void XmlPersistence::addMaskFrames(ofxXmlSettings *xml, ObjectStore *objectStore){
+void XmlPersistence::addMaskFrames(ofxXmlSettings *xml, CanvasContents *canvasContents){
     
     xml->addTag(maskFramesTag);
     xml->pushTag(maskFramesTag);
     
-    SafeDeque<MaskFrame> *maskFrames = objectStore->getMaskFrames();
+    SafeDeque<MaskFrame> *maskFrames = canvasContents->getMaskFrames();
     
     for(int i = 0; i < maskFrames->size(); i++){
         addMaskFrame(xml, maskFrames->getPointer(i), i);
@@ -223,7 +223,7 @@ void XmlPersistence::loadMaskFrames(ofxXmlSettings *xml){
     
     xml->pushTag(maskFramesTag);
     
-    SafeDeque<MaskFrame> *maskFrames = objectStore->getMaskFrames();
+    SafeDeque<MaskFrame> *maskFrames = canvasContents->getMaskFrames();
     maskFrames->deleteAll();
     
     int numFrames = xml->getNumTags(maskFrameTag);

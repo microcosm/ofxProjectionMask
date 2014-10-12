@@ -3,9 +3,9 @@
 #include "SafeDeque.h"
 #include "MaskFrame.h"
 
-class ObjectStore{
+class CanvasContents{
 public:
-    ObjectStore(){
+    CanvasContents(){
         frameNudge = false;
     }
     void add(MaskFrame *maskFrame);
