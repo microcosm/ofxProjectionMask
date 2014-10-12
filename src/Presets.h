@@ -1,15 +1,16 @@
 #pragma once
 
-enum EnvironmentMode { Development, Production };
+enum PresetMode { Development, Production };
 
-class Environment{
+class Presets{
 public:
-    Environment(){
-        /* Switch environmet here */
+    Presets(){
+        /* Switch preset mode here */
+        
         //mode = Development;
         mode = Production;
         
-        loadConstants();
+        load();
     }
     
     int windowWidth;
@@ -56,6 +57,6 @@ public:
     bool startFullscreen;
     
 protected:
-    void loadConstants();
-    EnvironmentMode mode;
+    void load();
+    PresetMode mode;
 };

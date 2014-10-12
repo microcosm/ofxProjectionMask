@@ -154,25 +154,25 @@ void MaskEditor::initialise(){
     ofSetHexColor(0xFFFFFF);
 	ofBackground(0, 0, 0);
     ofSetWindowPosition(0, 0);
-    ofSetWindowShape(env.windowWidth, env.windowHeight);
+    ofSetWindowShape(presets.windowWidth, presets.windowHeight);
     ofEnableAlphaBlending();
     
-    designCanvas.setPosition(env.designCanvasX, env.designCanvasY);
-    designCanvas.setSize(env.designCanvasWidth, env.designCanvasHeight);
-    designCanvas.setNumGridLines(env.numGridLinesX, env.numGridLinesY);
+    designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
+    designCanvas.setSize(presets.designCanvasWidth, presets.designCanvasHeight);
+    designCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
     
-    liveCanvas.setPosition(env.liveCanvasX, env.liveCanvasY);
-    liveCanvas.setSize(env.liveCanvasWidth, env.liveCanvasHeight);
-    liveCanvas.setNumGridLines(env.numGridLinesX, env.numGridLinesY);
+    liveCanvas.setPosition(presets.liveCanvasX, presets.liveCanvasY);
+    liveCanvas.setSize(presets.liveCanvasWidth, presets.liveCanvasHeight);
+    liveCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
     
-    textArea.setInstructionsPosition(env.instructionsX, env.instructionsY);
-    textArea.setPlaybackVolumePosition(env.playbackVolumeX, env.playbackVolumeY);
-    textArea.setNonPlaybackVolumesPosition(env.nonPlaybackVolumeX, env.nonPlaybackVolumeY);
-    textArea.setNumberBoxSize(env.numberBoxWidth, env.numberBoxHeight);
-    textArea.setOffsets(env.numberTagOffsetX, env.numberTagOffsetY);
-    textArea.setMargins(env.numberTagMargin, env.numberBoxMargin);
+    textArea.setInstructionsPosition(presets.instructionsX, presets.instructionsY);
+    textArea.setPlaybackVolumePosition(presets.playbackVolumeX, presets.playbackVolumeY);
+    textArea.setNonPlaybackVolumesPosition(presets.nonPlaybackVolumeX, presets.nonPlaybackVolumeY);
+    textArea.setNumberBoxSize(presets.numberBoxWidth, presets.numberBoxHeight);
+    textArea.setOffsets(presets.numberTagOffsetX, presets.numberTagOffsetY);
+    textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
     
-    ofSetFullscreen(env.startFullscreen);
+    ofSetFullscreen(presets.startFullscreen);
     
     selectedMaskFrame = 0;
     
@@ -192,7 +192,7 @@ void MaskEditor::createNewMaskFrame(){
     MaskFrame maskFrame;
     maskFrame.assignCanvases(designCanvas, liveCanvas);
     maskFrame.setBuffers(pattern->getBuffers());
-    maskFrame.setSize(env.newMaskFrameWidth, env.newMaskFrameHeight);
+    maskFrame.setSize(presets.newMaskFrameWidth, presets.newMaskFrameHeight);
     maskFrame.setPosition(mouseX, mouseY);
     objectStore.add(&maskFrame);
 }
@@ -232,7 +232,7 @@ void MaskEditor::drawLiveCursor(){
 
 void MaskEditor::drawBufferPreviews(){
     ofPushMatrix();
-    ofTranslate(env.bufferPreviewX, env.bufferPreviewY);
+    ofTranslate(presets.bufferPreviewX, presets.bufferPreviewY);
     
     ofSetColor(255, 255, 255, 255);
     ofNoFill();
@@ -242,18 +242,18 @@ void MaskEditor::drawBufferPreviews(){
     
     for(int i = 0; i < buffers->size(); i++){
         ofTranslate(x, y);
-        if(i > 0 && i % env.stackAfter == 0){
+        if(i > 0 && i % presets.stackAfter == 0){
             ofPopMatrix();
             ofPushMatrix();
             count++;
-            ofTranslate(env.bufferPreviewX + ((env.bufferPreviewWidth + env.bufferMargin) * count), env.bufferPreviewY);
+            ofTranslate(presets.bufferPreviewX + ((presets.bufferPreviewWidth + presets.bufferMargin) * count), presets.bufferPreviewY);
         }
-        y = env.bufferPreviewHeight + (env.bufferMargin * 2);
+        y = presets.bufferPreviewHeight + (presets.bufferMargin * 2);
         if(ofGetFrameNum() > bufferStartFrameNum){
-            buffers->at(i).draw(0, 0, env.bufferPreviewWidth, env.bufferPreviewHeight);
+            buffers->at(i).draw(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         }
-        ofRect(0, 0, env.bufferPreviewWidth, env.bufferPreviewHeight);
-        ofDrawBitmapString("Buffer " + ofToString(i + 1), 0, env.bufferPreviewHeight + env.bufferMargin);
+        ofRect(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
+        ofDrawBitmapString("Buffer " + ofToString(i + 1), 0, presets.bufferPreviewHeight + presets.bufferMargin);
     }
     
     ofPopMatrix();

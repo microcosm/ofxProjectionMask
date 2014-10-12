@@ -5,7 +5,7 @@
 #include "TextArea.h"
 #include "XmlPersistence.h"
 #include "BufferPattern.h"
-#include "Environment.h"
+#include "Presets.h"
 
 class MaskEditor{
 public:
@@ -35,7 +35,7 @@ public:
     void respondToKey(int key);
     
 protected:
-    Environment env;
+    Presets presets;
     Mode mode;
     int mouseX, mouseY;
     TextArea textArea;

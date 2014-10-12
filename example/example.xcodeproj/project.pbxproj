@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1224FA8F91E62D76865462CC /* ofxProjectionMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A922D5E3B504D8C98F4265FF /* ofxProjectionMapper.cpp */; };
-		84137DC019E9D1C80035A71B /* Environment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DA219E9D1C80035A71B /* Environment.cpp */; };
+		84137DC019E9D1C80035A71B /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DA219E9D1C80035A71B /* Presets.cpp */; };
 		84137DC119E9D1C80035A71B /* ofExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DA519E9D1C80035A71B /* ofExtensions.cpp */; };
 		84137DC219E9D1C80035A71B /* MaskEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DA719E9D1C80035A71B /* MaskEditor.cpp */; };
 		84137DC319E9D1C80035A71B /* ObjectStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DAA19E9D1C80035A71B /* ObjectStore.cpp */; };
@@ -81,8 +81,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		84137DA219E9D1C80035A71B /* Environment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Environment.cpp; path = ../src/Environment.cpp; sourceTree = "<group>"; };
-		84137DA319E9D1C80035A71B /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Environment.h; path = ../src/Environment.h; sourceTree = "<group>"; };
+		84137DA219E9D1C80035A71B /* Presets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Presets.cpp; path = ../src/Presets.cpp; sourceTree = "<group>"; };
+		84137DA319E9D1C80035A71B /* Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Presets.h; path = ../src/Presets.h; sourceTree = "<group>"; };
 		84137DA519E9D1C80035A71B /* ofExtensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofExtensions.cpp; sourceTree = "<group>"; };
 		84137DA619E9D1C80035A71B /* ofExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
 		84137DA719E9D1C80035A71B /* MaskEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaskEditor.cpp; path = ../src/MaskEditor.cpp; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 			children = (
 				A922D5E3B504D8C98F4265FF /* ofxProjectionMapper.cpp */,
 				E779CB14423652FA55338C0A /* ofxProjectionMapper.h */,
-				84137DA219E9D1C80035A71B /* Environment.cpp */,
-				84137DA319E9D1C80035A71B /* Environment.h */,
+				84137DA219E9D1C80035A71B /* Presets.cpp */,
+				84137DA319E9D1C80035A71B /* Presets.h */,
 				84137DA719E9D1C80035A71B /* MaskEditor.cpp */,
 				84137DA819E9D1C80035A71B /* MaskEditor.h */,
 				84137DEB19E9D4240035A71B /* Patterns */,
@@ -569,7 +569,7 @@
 				84137DDC19E9D2A60035A71B /* assert.cpp in Sources */,
 				84137DC819E9D1C80035A71B /* TextArea.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				84137DC019E9D1C80035A71B /* Environment.cpp in Sources */,
+				84137DC019E9D1C80035A71B /* Presets.cpp in Sources */,
 				84137DEA19E9D2D60035A71B /* tinyxmlparser.cpp in Sources */,
 				84137DE919E9D2D60035A71B /* tinyxmlerror.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,

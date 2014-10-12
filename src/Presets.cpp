@@ -1,16 +1,18 @@
-#include "MaskEditor.h"
+#include "Presets.h"
 
-/* Note: Switch between environment modes in constructor (Environment.h) */
-/* ===================================================================== */
+/* Edit your presets here
+   ======================
+   This file is full of presets, to help you easily switch between when
+   you are developing your patterns and when you want to display live
+   on a projector.
 
+   Go to Presets.h to switch between Development and Production modes.
 
-/* Development mode presets
+   Development mode presets
    ========================
-   This mode is useful when you are developing patterns, you are working on your
-   laptop and don't have a projector plugged in. All visual elements appear on
-   one screen.
- 
-   The default presets below are designed to fit neatly on a 1680x1050 screen.
+   Usually a single screen, in my case:
+   -----------------------------------
+   Late 2011 MacBook Pro (1680 x 1050px)
 */
 const int developmentWindowWidth = 1600;
 const int developmentWindowHeight = 792;
@@ -56,14 +58,9 @@ const int developmentNewMaskFrameHeight = 100;
 const bool developmentStartFullscreen = false;
 
 /* Production mode presets
-   ========================
-   This mode is for when you want to display your work on a projector. The presets below
-   are set up for a 1024x768 projector positioned directly to the right of a 1680x1050
-   display, top-aligned. If you want to use different resolutions / alignment, adjust 
-   the values here. 
-*/
-/*
-   Settings for top-aligned monitors
+   =======================
+   Usually a laptop and a projector. These presets are for top-aligned
+   monitors:
    ---------------------------------             +-----+-------+
    Left:     Retina MacBook Pro (1440 x 900px)   |  L  |   R   |
    Right:    Monoprice          (2560 x 1600px)  +-----|       |
@@ -113,8 +110,10 @@ const int productionNewMaskFrameHeight = 300;
 
 const bool productionStartFullscreen = true;
 
-void Environment::loadConstants(){
-    if(mode == Development){
+void Presets::load() {
+    
+    if(mode == Development) {
+        
         windowWidth = developmentWindowWidth;
         windowHeight = developmentWindowHeight;
         
@@ -158,7 +157,7 @@ void Environment::loadConstants(){
         
         startFullscreen = developmentStartFullscreen;
         
-    }else if(mode == Production){
+    } else if(mode == Production) {
         
         windowWidth = productionWindowWidth;
         windowHeight = productionWindowHeight;
