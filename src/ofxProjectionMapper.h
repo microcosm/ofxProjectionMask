@@ -10,29 +10,27 @@
 class ofxProjectionMapper{
 public:
     
-    ofxProjectionMapper(){
-        initialise();
-        mode = Design;
-    }
+    void setup();
+    void update();
+    void draw();
+    
+    void undo();
+    void redo();
+    
     void setMousePosition(int x, int y);
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
     void setPattern(BufferPattern* pattern);
-    void update();
     
     Canvas *getLiveCanvas();
-    
-    void draw();
-    void undo();
-    void redo();
     
     void loadObjects();
     void saveObjects();
     void autoSaveObjects();
     
-    void respondToMouseDrag();
-    void respondToMouseDown();
-    void respondToMouseRelease();
-    void respondToKey(int key);
+    void mouseDragged();
+    void mousePressed();
+    void mouseReleased();
+    void keyReleased(int key);
     
 protected:
     Presets presets;
@@ -46,8 +44,6 @@ protected:
     Corner selectedCorner;
     XmlPersistence xml;
     BufferPattern *pattern;
-    
-    void initialise();
     
     void nudge(Direction direction);
     void toggleFrameNudge();

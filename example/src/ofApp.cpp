@@ -9,6 +9,7 @@ void ofApp::setup(){
     //ofSetDataPathRoot("");
     ofEnableSmoothing();
     
+    mapper.setup();
     pattern.setup();
     
     mapper.setPattern((BufferPattern*)&pattern);
@@ -33,7 +34,7 @@ void ofApp::keyPressed(int key){
 }
 
 void ofApp::keyReleased(int key){
-    mapper.respondToKey(key);
+    mapper.keyReleased(key);
 }
 
 void ofApp::mouseMoved(int x, int y){
@@ -41,15 +42,15 @@ void ofApp::mouseMoved(int x, int y){
 }
 
 void ofApp::mouseDragged(int x, int y, int button){
-    mapper.respondToMouseDrag();
+    mapper.mouseDragged();
 }
 
 void ofApp::mousePressed(int x, int y, int button){
-    mapper.respondToMouseDown();
+    mapper.mousePressed();
 }
 
 void ofApp::mouseReleased(int x, int y, int button){
-    mapper.respondToMouseRelease();
+    mapper.mouseReleased();
 }
 
 void ofApp::windowResized(int w, int h){

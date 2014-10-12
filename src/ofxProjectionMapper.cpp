@@ -8,18 +8,36 @@ const string previewTagText = "Buffer preview";
 const int bufferStartFrameNum = 120;
 
 //Public
-void ofxProjectionMapper::setMousePosition(int x, int y){
-    mouseX = x;
-    mouseY = y;
-}
-
-void ofxProjectionMapper::setPattern(BufferPattern *pattern){
-    this->pattern = pattern;
-    xml.assign(pattern->getBuffers());
-}
-
-void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
-    textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
+void ofxProjectionMapper::setup(){
+    
+    mode = Design;
+    
+    ofSetHexColor(0xFFFFFF);
+	ofBackground(0, 0, 0);
+    ofSetWindowPosition(0, 0);
+    ofSetWindowShape(presets.windowWidth, presets.windowHeight);
+    ofEnableAlphaBlending();
+    
+    designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
+    designCanvas.setSize(presets.designCanvasWidth, presets.designCanvasHeight);
+    designCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
+    
+    liveCanvas.setPosition(presets.liveCanvasX, presets.liveCanvasY);
+    liveCanvas.setSize(presets.liveCanvasWidth, presets.liveCanvasHeight);
+    liveCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
+    
+    textArea.setInstructionsPosition(presets.instructionsX, presets.instructionsY);
+    textArea.setPlaybackVolumePosition(presets.playbackVolumeX, presets.playbackVolumeY);
+    textArea.setNonPlaybackVolumesPosition(presets.nonPlaybackVolumeX, presets.nonPlaybackVolumeY);
+    textArea.setNumberBoxSize(presets.numberBoxWidth, presets.numberBoxHeight);
+    textArea.setOffsets(presets.numberTagOffsetX, presets.numberTagOffsetY);
+    textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
+    
+    ofSetFullscreen(presets.startFullscreen);
+    
+    selectedMaskFrame = 0;
+    
+    xml.assign(&designCanvas, &liveCanvas, &objectStore);
 }
 
 void ofxProjectionMapper::update(){
@@ -34,10 +52,6 @@ void ofxProjectionMapper::update(){
     }else if(mode == Live){
         textArea.setRenderMode(liveModeText);
     }
-}
-
-Canvas *ofxProjectionMapper::getLiveCanvas(){
-    return &this->liveCanvas;
 }
 
 void ofxProjectionMapper::draw(){
@@ -63,12 +77,22 @@ void ofxProjectionMapper::draw(){
     drawLiveCursor();
 }
 
-void ofxProjectionMapper::undo(){
-    objectStore.undo();
+void ofxProjectionMapper::setMousePosition(int x, int y){
+    mouseX = x;
+    mouseY = y;
 }
 
-void ofxProjectionMapper::redo(){
-    objectStore.redo();
+void ofxProjectionMapper::setPattern(BufferPattern *pattern){
+    this->pattern = pattern;
+    xml.assign(pattern->getBuffers());
+}
+
+void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
+    textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
+}
+
+Canvas *ofxProjectionMapper::getLiveCanvas(){
+    return &this->liveCanvas;
 }
 
 void ofxProjectionMapper::loadObjects(){
@@ -83,7 +107,7 @@ void ofxProjectionMapper::autoSaveObjects(){
     this->xml.save(true);
 }
 
-void ofxProjectionMapper::respondToMouseDrag(){
+void ofxProjectionMapper::mouseDragged(){
     if(selectedMaskFrame != 0){
         TransformState transformState = selectedMaskFrame->getTransformState();
         if(transformState == Translating){
@@ -96,20 +120,20 @@ void ofxProjectionMapper::respondToMouseDrag(){
     }
 }
 
-void ofxProjectionMapper::respondToMouseDown(){
+void ofxProjectionMapper::mousePressed(){
     selectedMaskFrame = objectStore.beginTransform();
     if(selectedMaskFrame != 0){
         setMouseOffsetFromSelectedMaskFrame();
     }
 }
 
-void ofxProjectionMapper::respondToMouseRelease(){
+void ofxProjectionMapper::mouseReleased(){
     selectedMaskFrame = 0;
     objectStore.endTransform();
     autoSaveObjects();
 }
 
-void ofxProjectionMapper::respondToKey(int key){
+void ofxProjectionMapper::keyReleased(int key){
     if(key == 'f' || key == 'F'){
         this->createNewMaskFrame();
         autoSaveObjects();
@@ -149,34 +173,12 @@ void ofxProjectionMapper::respondToKey(int key){
 }
 
 //Protected
-void ofxProjectionMapper::initialise(){
-    
-    ofSetHexColor(0xFFFFFF);
-	ofBackground(0, 0, 0);
-    ofSetWindowPosition(0, 0);
-    ofSetWindowShape(presets.windowWidth, presets.windowHeight);
-    ofEnableAlphaBlending();
-    
-    designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
-    designCanvas.setSize(presets.designCanvasWidth, presets.designCanvasHeight);
-    designCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
-    
-    liveCanvas.setPosition(presets.liveCanvasX, presets.liveCanvasY);
-    liveCanvas.setSize(presets.liveCanvasWidth, presets.liveCanvasHeight);
-    liveCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
-    
-    textArea.setInstructionsPosition(presets.instructionsX, presets.instructionsY);
-    textArea.setPlaybackVolumePosition(presets.playbackVolumeX, presets.playbackVolumeY);
-    textArea.setNonPlaybackVolumesPosition(presets.nonPlaybackVolumeX, presets.nonPlaybackVolumeY);
-    textArea.setNumberBoxSize(presets.numberBoxWidth, presets.numberBoxHeight);
-    textArea.setOffsets(presets.numberTagOffsetX, presets.numberTagOffsetY);
-    textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
-    
-    ofSetFullscreen(presets.startFullscreen);
-    
-    selectedMaskFrame = 0;
-    
-    xml.assign(&designCanvas, &liveCanvas, &objectStore);
+void ofxProjectionMapper::undo(){
+    objectStore.undo();
+}
+
+void ofxProjectionMapper::redo(){
+    objectStore.redo();
 }
 
 void ofxProjectionMapper::nudge(Direction direction){
