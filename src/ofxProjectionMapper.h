@@ -11,7 +11,7 @@ class ofxProjectionMapper{
 public:
     
     void setup();
-    void update(int _mouseX, int _mouseY);
+    void update(int mouseX, int mouseY);
     void draw();
     
     void undo();
@@ -34,12 +34,11 @@ public:
 protected:
     Presets presets;
     Mode mode;
-    int mouseX, mouseY;
     TextArea textArea;
     Canvas designCanvas, liveCanvas;
     MaskFrame *selectedMaskFrame;
     ObjectStore objectStore;
-    ofVec2f mouseOffset;
+    ofVec2f mouse, mouseOffset;
     Corner selectedCorner;
     XmlPersistence xml;
     BufferPattern *pattern;

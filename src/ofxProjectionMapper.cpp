@@ -43,10 +43,10 @@ void ofxProjectionMapper::setup(){
     xml.assign(&designCanvas, &liveCanvas, &objectStore);
 }
 
-void ofxProjectionMapper::update(int _mouseX, int _mouseY){
+void ofxProjectionMapper::update(int mouseX, int mouseY){
     
-    mouseX = _mouseX + mouseXAdjustment;
-    mouseY = _mouseY + mouseYAdjustment;
+    mouse.x = mouseX + mouseXAdjustment;
+    mouse.y = mouseY + mouseYAdjustment;
     
     if(!isTransforming()){
         objectStore.updateHighlights(mouseX, mouseY);
@@ -113,11 +113,11 @@ void ofxProjectionMapper::mouseDragged(){
     if(selectedMaskFrame != 0){
         TransformState transformState = selectedMaskFrame->getTransformState();
         if(transformState == Translating){
-            selectedMaskFrame->setPosition(mouseX - mouseOffset.x, mouseY - mouseOffset.y);
+            selectedMaskFrame->setPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
         }else if(transformState == Scaling){
             scaleSelectedMaskFrame();
         }else if(transformState == Masking){
-            selectedMaskFrame->setSelectedMaskPointPosition(mouseX - mouseOffset.x, mouseY - mouseOffset.y);
+            selectedMaskFrame->setSelectedMaskPointPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
         }
     }
 }
@@ -197,12 +197,12 @@ void ofxProjectionMapper::createNewMaskFrame(){
     maskFrame.assignCanvases(designCanvas, liveCanvas);
     maskFrame.setBuffers(pattern->getBuffers());
     maskFrame.setSize(presets.newMaskFrameWidth, presets.newMaskFrameHeight);
-    maskFrame.setPosition(mouseX, mouseY);
+    maskFrame.setPosition(mouse.x, mouse.y);
     objectStore.add(&maskFrame);
 }
 
 void ofxProjectionMapper::createNewMaskPoint(){
-    objectStore.createMaskPointAt(mouseX, mouseY);
+    objectStore.createMaskPointAt(mouse.x, mouse.y);
 }
 
 void ofxProjectionMapper::deleteHighlightedItem(){
@@ -220,14 +220,14 @@ void ofxProjectionMapper::cycleMode(){
 }
 
 bool ofxProjectionMapper::mouseIsOverDesignCanvas(){
-    return mouseX > this->designCanvas.getX() && mouseX < (this->designCanvas.getX() + this->designCanvas.getWidth())
-    && mouseY > this->designCanvas.getY() && mouseY < (this->designCanvas.getY() + this->designCanvas.getHeight());
+    return mouse.x > this->designCanvas.getX() && mouse.x < (this->designCanvas.getX() + this->designCanvas.getWidth())
+    && mouse.y > this->designCanvas.getY() && mouse.y < (this->designCanvas.getY() + this->designCanvas.getHeight());
 }
 
 void ofxProjectionMapper::drawLiveCursor(){
     if(mouseIsOverDesignCanvas() && mode != Live){
-        int liveMouseX = ofMap(mouseX, designCanvas.getX(), designCanvas.getX() + designCanvas.getWidth(), liveCanvas.getX(), liveCanvas.getX() + liveCanvas.getWidth());
-        int liveMouseY = ofMap(mouseY, designCanvas.getY(), designCanvas.getY() + designCanvas.getHeight(), liveCanvas.getY(), liveCanvas.getY() + liveCanvas.getHeight());
+        int liveMouseX = ofMap(mouse.x, designCanvas.getX(), designCanvas.getX() + designCanvas.getWidth(), liveCanvas.getX(), liveCanvas.getX() + liveCanvas.getWidth());
+        int liveMouseY = ofMap(mouse.y, designCanvas.getY(), designCanvas.getY() + designCanvas.getHeight(), liveCanvas.getY(), liveCanvas.getY() + liveCanvas.getHeight());
         
         ofLine(liveMouseX - 5, liveMouseY - 5, liveMouseX + 5, liveMouseY + 5);
         ofLine(liveMouseX + 5, liveMouseY - 5, liveMouseX - 5, liveMouseY + 5);
@@ -268,8 +268,8 @@ bool ofxProjectionMapper::isTransforming(){
 }
 
 void ofxProjectionMapper::scaleSelectedMaskFrame(){
-    int mouseXConstrained = clampInt(mouseX, designCanvas.getX() + mouseOffset.x, designCanvas.getX() + designCanvas.getWidth() + mouseOffset.x);
-    int mouseYConstrained = clampInt(mouseY, designCanvas.getY() + mouseOffset.y, designCanvas.getY() + designCanvas.getHeight() + mouseOffset.y);
+    int mouseXConstrained = clampInt(mouse.x, designCanvas.getX() + mouseOffset.x, designCanvas.getX() + designCanvas.getWidth() + mouseOffset.x);
+    int mouseYConstrained = clampInt(mouse.y, designCanvas.getY() + mouseOffset.y, designCanvas.getY() + designCanvas.getHeight() + mouseOffset.y);
     int newWidth, newHeight;
     
     if(selectedCorner == TopLeft){
@@ -312,8 +312,8 @@ void ofxProjectionMapper::setMouseOffsetFromSelectedMaskFrame(){
 }
 
 void ofxProjectionMapper::setMouseOffsetFromSelectedMaskPoint(){
-    mouseOffset.x = mouseX - selectedMaskFrame->getSelectedMaskPointX();
-    mouseOffset.y = mouseY - selectedMaskFrame->getSelectedMaskPointY();
+    mouseOffset.x = mouse.x - selectedMaskFrame->getSelectedMaskPointX();
+    mouseOffset.y = mouse.y - selectedMaskFrame->getSelectedMaskPointY();
 }
 
 void ofxProjectionMapper::setMouseOffsetFromSelectedCorner(){
@@ -330,21 +330,21 @@ void ofxProjectionMapper::setMouseOffsetFromSelectedCorner(){
 }
 
 void ofxProjectionMapper::setMouseOffsetFromTopLeftCorner(){
-    mouseOffset.x = mouseX - selectedMaskFrame->getX();
-    mouseOffset.y = mouseY - selectedMaskFrame->getY();
+    mouseOffset.x = mouse.x - selectedMaskFrame->getX();
+    mouseOffset.y = mouse.y - selectedMaskFrame->getY();
 }
 
 void ofxProjectionMapper::setMouseOffsetFromTopRightCorner(){
-    mouseOffset.x = mouseX - selectedMaskFrame->getX() - selectedMaskFrame->getWidth();
-    mouseOffset.y = mouseY - selectedMaskFrame->getY();
+    mouseOffset.x = mouse.x - selectedMaskFrame->getX() - selectedMaskFrame->getWidth();
+    mouseOffset.y = mouse.y - selectedMaskFrame->getY();
 }
 
 void ofxProjectionMapper::setMouseOffsetFromBottomRightCorner(){
-    mouseOffset.x = mouseX - selectedMaskFrame->getX() - selectedMaskFrame->getWidth();
-    mouseOffset.y = mouseY - selectedMaskFrame->getY() - selectedMaskFrame->getHeight();
+    mouseOffset.x = mouse.x - selectedMaskFrame->getX() - selectedMaskFrame->getWidth();
+    mouseOffset.y = mouse.y - selectedMaskFrame->getY() - selectedMaskFrame->getHeight();
 }
 
 void ofxProjectionMapper::setMouseOffsetFromBottomLeftCorner(){
-    mouseOffset.x = mouseX - selectedMaskFrame->getX();
-    mouseOffset.y = mouseY - selectedMaskFrame->getY() - selectedMaskFrame->getHeight();
+    mouseOffset.x = mouse.x - selectedMaskFrame->getX();
+    mouseOffset.y = mouse.y - selectedMaskFrame->getY() - selectedMaskFrame->getHeight();
 }
