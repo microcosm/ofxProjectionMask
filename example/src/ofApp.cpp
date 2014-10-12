@@ -1,12 +1,8 @@
 #include "ofApp.h"
 
-const int mouseXAdjustment = -1;
-const int mouseYAdjustment = -2;
-
 void ofApp::setup(){
 	ofSetVerticalSync(true);
     ofSetFrameRate(60);
-    //ofSetDataPathRoot("");
     ofEnableSmoothing();
     
     mapper.setup();
@@ -18,10 +14,8 @@ void ofApp::setup(){
 }
 
 void ofApp::update(){
-    int mouseXAdjusted = mouseX + mouseXAdjustment;
-    int mouseYAdjusted = mouseY + mouseYAdjustment;
     pattern.update();
-    mapper.update(mouseXAdjusted, mouseYAdjusted);
+    mapper.update(mouseX, mouseY);
 }
 
 void ofApp::draw(){

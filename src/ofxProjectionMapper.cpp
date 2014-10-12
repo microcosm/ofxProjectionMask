@@ -7,6 +7,9 @@ const string previewTagText = "Buffer preview";
 
 const int bufferStartFrameNum = 120;
 
+const int mouseXAdjustment = -1;
+const int mouseYAdjustment = -2;
+
 //Public
 void ofxProjectionMapper::setup(){
     
@@ -41,8 +44,9 @@ void ofxProjectionMapper::setup(){
 }
 
 void ofxProjectionMapper::update(int _mouseX, int _mouseY){
-    mouseX = _mouseX;
-    mouseY = _mouseY;
+    
+    mouseX = _mouseX + mouseXAdjustment;
+    mouseY = _mouseY + mouseYAdjustment;
     
     if(!isTransforming()){
         objectStore.updateHighlights(mouseX, mouseY);
