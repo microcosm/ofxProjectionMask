@@ -116,7 +116,7 @@ void ofxProjectionMapper::keyReleased(int key){
         xml.load();
     }else if(key == 'm' || key == 'M'){
         cycleMode();
-    }else if(key == 'e' || key == 'E'){
+    }else if(key == 'n' || key == 'N'){
         toggleFrameNudge();
     }
 }
