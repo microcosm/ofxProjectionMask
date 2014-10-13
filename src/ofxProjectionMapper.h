@@ -12,6 +12,7 @@ class ofxProjectionMapper{
 public:
     
     void setup(BufferPattern* pattern, PresetMode _mode);
+    void setup(BufferPattern* pattern);
     void setup();
     void update(int mouseX, int mouseY);
     void draw();

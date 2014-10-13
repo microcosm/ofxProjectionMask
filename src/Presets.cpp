@@ -119,6 +119,14 @@ PresetMode Presets::getMode(){
     return mode;
 }
 
+void Presets::cycleMode(){
+    if(mode == PRESETS_DEVELOPMENT){
+        setMode(PRESETS_PRODUCTION);
+    }else if(mode == PRESETS_PRODUCTION){
+        setMode(PRESETS_DEVELOPMENT);
+    }
+}
+
 void Presets::load() {
     
     if(mode == PRESETS_DEVELOPMENT) {

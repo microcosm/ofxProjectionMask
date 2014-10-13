@@ -9,6 +9,11 @@ void ofxProjectionMapper::setup(BufferPattern* _pattern, PresetMode _mode){
     setup();
 }
 
+void ofxProjectionMapper::setup(BufferPattern* _pattern){
+    pattern = _pattern;
+    setup();
+}
+
 void ofxProjectionMapper::setup(){
     
     displayMode = Design;
@@ -84,6 +89,9 @@ void ofxProjectionMapper::keyReleased(int key){
     }else if(key == 'p' || key == 'P'){
         createNewMaskPoint();
         xml.autoSave();
+    }else if(key == 'o' || key == 'O'){
+        presets.cycleMode();
+        setup();
     }else if (key == ' '){
         ofToggleFullscreen();
     }else if(key == 'u' || key == 'U'){

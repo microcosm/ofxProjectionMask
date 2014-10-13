@@ -10,6 +10,7 @@ public:
     
     void setMode(PresetMode _mode);
     PresetMode getMode();
+    void cycleMode();
     
     int windowWidth;
     int windowHeight;
