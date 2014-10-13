@@ -32,6 +32,7 @@ public:
     bool hasHighlightedDragHandle();
     bool hasHighlightedMaskPoint();
     bool hasGhostPoint();
+    bool canDrawLive();
     MaskPoint* getHighlightedMaskPoint();
     DragHandle* getHighlightedDragHandle();
     int getSelectedMaskPointX();

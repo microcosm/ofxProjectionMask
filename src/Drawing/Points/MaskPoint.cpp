@@ -52,3 +52,7 @@ void MaskPoint::drawLive(){
         ofCircle(this->getLiveX(), this->getLiveY(), this->getRadius());
     }
 }
+
+bool MaskPoint::equals(MaskPoint* otherPoint){
+    return position.x == otherPoint->getX() && position.y == otherPoint->getY();
+}

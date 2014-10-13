@@ -13,6 +13,8 @@ public:
     
     void drawDesign();
     void drawLive();
+    
+    bool equals(MaskPoint* otherPoint);
 
 protected:
     MaskPointType type;

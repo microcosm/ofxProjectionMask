@@ -96,6 +96,21 @@ bool MaskFrame::hasGhostPoint(){
     return this->hasAGhostPoint;
 }
 
+bool MaskFrame::canDrawLive(){
+    if(maskPoints.size() > 3){
+        return true;
+    }else if(maskPoints.size() == 3){
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(!maskPoints[i]->equals(maskPoints[j])){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 int MaskFrame::getSelectedMaskPointX(){
     return selectedMaskPoint->getX();
 }
@@ -160,7 +175,7 @@ void MaskFrame::drawLive(DisplayMode mode){
     ofPushMatrix();
     ofTranslate(this->livePosition.x, this->livePosition.y);
     
-    if(maskPoints.size() >= 3){
+    if(this->canDrawLive()){
         if(mode == Design){
             this->clearBuffer();
         }
