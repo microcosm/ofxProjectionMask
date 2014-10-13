@@ -22,6 +22,8 @@ public:
     int designCanvasY;
     int designCanvasWidth;
     int designCanvasHeight;
+    int designCanvasLabelX;
+    int designCanvasLabelY;
     
     int liveCanvasX;
     int liveCanvasY;

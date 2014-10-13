@@ -70,6 +70,12 @@ void ofxProjectionMapper::draw(){
     ofPopMatrix();
     
     ofPushMatrix();
+    ofTranslate(presets.designCanvasLabelX, presets.designCanvasLabelY);
+    ofSetColor(ofColor::white);
+    ofDrawBitmapString("Design Canvas", ofPoint(0, 0));
+    ofPopMatrix();
+    
+    ofPushMatrix();
     ofTranslate(liveCanvas.getX(), liveCanvas.getY());
     if(displayMode == Design){
         liveCanvas.draw();

@@ -20,28 +20,30 @@ const int developmentWindowHeight = 400;
 const int developmentNumGridLinesX = 14;
 const int developmentNumGridLinesY = 10;
 
-const int developmentDesignCanvasX = 8;
-const int developmentDesignCanvasY = 10;
-const int developmentDesignCanvasWidth = 320;
-const int developmentDesignCanvasHeight = 240;
+const int developmentDesignCanvasX = 402;
+const int developmentDesignCanvasY = 8;
+const int developmentDesignCanvasWidth = 240;
+const int developmentDesignCanvasHeight = 180;
+const int developmentDesignCanvasLabelX = 402;
+const int developmentDesignCanvasLabelY = 204;
 
-const int developmentLiveCanvasX = 342;
-const int developmentLiveCanvasY = 10;
-const int developmentLiveCanvasWidth = 668;
-const int developmentLiveCanvasHeight = 480;
+const int developmentLiveCanvasX = 402;
+const int developmentLiveCanvasY = 340;
+const int developmentLiveCanvasWidth = 610;
+const int developmentLiveCanvasHeight = 410;
 
-const int developmentBufferPreviewX = 342;
-const int developmentBufferPreviewY = 505;
-const int developmentBufferPreviewWidth = 100;
-const int developmentBufferPreviewHeight = 100;
+const int developmentBufferPreviewX = 402;
+const int developmentBufferPreviewY = 224;
+const int developmentBufferPreviewWidth = 80;
+const int developmentBufferPreviewHeight = 80;
 const int developmentBufferMargin = 16;
-const int developmentStackAfter = 5;
+const int developmentStackAfter = 50;
 
 const int developmentNumberBoxWidth = 100;
 const int developmentNumberBoxHeight = 20;
 
 const int developmentInstructionsX = 8;
-const int developmentInstructionsY = 274;
+const int developmentInstructionsY = 18;
 const int developmentPlaybackVolumeX = 9;
 const int developmentPlaybackVolumeY = 726;
 const int developmentNonPlaybackVolumeX = 320;
@@ -77,6 +79,8 @@ const int productionDesignCanvasX = 10;
 const int productionDesignCanvasY = 10;
 const int productionDesignCanvasWidth = 1004;
 const int productionDesignCanvasHeight = 710;
+const int productionDesignCanvasLabelX = -1000;
+const int productionDesignCanvasLabelY = -1000;
 
 const int productionLiveCanvasX = 1440;
 const int productionLiveCanvasY = 0;
@@ -141,6 +145,8 @@ void Presets::load() {
         designCanvasY = developmentDesignCanvasY;
         designCanvasWidth = developmentDesignCanvasWidth;
         designCanvasHeight = developmentDesignCanvasHeight;
+        designCanvasLabelX = developmentDesignCanvasLabelX;
+        designCanvasLabelY = developmentDesignCanvasLabelY;
         
         liveCanvasX = developmentLiveCanvasX;
         liveCanvasY = developmentLiveCanvasY;
@@ -186,6 +192,8 @@ void Presets::load() {
         designCanvasY = productionDesignCanvasY;
         designCanvasWidth = productionDesignCanvasWidth;
         designCanvasHeight = productionDesignCanvasHeight;
+        designCanvasLabelX = productionDesignCanvasLabelX;
+        designCanvasLabelY = productionDesignCanvasLabelY;
         
         liveCanvasX = productionLiveCanvasX;
         liveCanvasY = productionLiveCanvasY;
