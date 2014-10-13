@@ -2,10 +2,18 @@
 
 const ofColor textColor = ofColor(255, 255, 255, 255);
 
-const string stringOne = "      RENDER\n      ------\n       Mode: ";
-const string stringTwo = "\n  Framerate: ";
-const string stringThree = "\nFrame nudge: ";
-const string stringFour = "\n\n\n      KEYS\n      ----\n         F : new mask frame\n         P : new point inside frame\n \narrow keys : nudge\n       del : delete\n\n         M : cycle render mode\n         N : enable frame nudge\n\n         U : undo (keep pressing)\n         R : redo (keep pressing)\n\n         S : save\n         L : load\n\n     space : toggle fullscreen\n\n\n     GUIDE\n     -----\n  1. Position your mouse over the design\n     canvas. Notice there is a corresponding\n     crosshair on the live canvas.\n\n  2. Press 'f' to create a new mask frame. You\n     can click, drag, and re-size the frame\n     with the mouse.\n\n  3. Position the mouse inside the mask frame,\n     and press 'p' in 3 different locations\n     to create your first triangle.\n\n  4. Hover your mouse over the edges of the\n     triangle. You can now click and drag to\n     create more points.\n\n  5. Click 'u' for 'undo' a few times, and\n     then 'r' for 'redo'.\n\n  6. Hover over one of the points on your\n     shape, and use the arrow keys. Each press\n     nudges the point on the live canvas by 1\n     pixel.\n\n  7. Press 'm' to cycle through render modes.\n\n  8. Check out the bin/data/xml folder. Every\n     time you make a change, a backup is saved\n     in there. If you ever want to get back to\n     a previous state, just overwrite\n     'saved.xml' and press 'l' for 'load'.";
+const string designModeText = "Design";
+const string designLiveModeText = "Design / Live";
+const string liveModeText = "Live";
+
+const string developmentModeText = "Development";
+const string productionModeText = "Production";
+
+const string stringOne = "      RENDER\n      ------\nRender mode: ";
+const string stringTwo = "\nPreset mode: ";
+const string stringThree = "\n  Framerate: ";
+const string stringFour = "\nFrame nudge: ";
+const string stringFive = "\n\n\n      KEYS\n      ----\n         F : new mask frame\n         P : new point inside frame\n \narrow keys : nudge\n       del : delete\n\n         M : cycle render mode\n         N : enable frame nudge\n\n         U : undo (keep pressing)\n         R : redo (keep pressing)\n\n         S : save\n         L : load\n\n     space : toggle fullscreen\n\n\n     GUIDE\n     -----\n  1. Position your mouse over the design\n     canvas. Notice there is a corresponding\n     crosshair on the live canvas.\n\n  2. Press 'f' to create a new mask frame. You\n     can click, drag, and re-size the frame\n     with the mouse.\n\n  3. Position the mouse inside the mask frame,\n     and press 'p' in 3 different locations\n     to create your first triangle.\n\n  4. Hover your mouse over the edges of the\n     triangle. You can now click and drag to\n     create more points.\n\n  5. Click 'u' for 'undo' a few times, and\n     then 'r' for 'redo'.\n\n  6. Hover over one of the points on your\n     shape, and use the arrow keys. Each press\n     nudges the point on the live canvas by 1\n     pixel.\n\n  7. Press 'm' to cycle through render modes.\n\n  8. Check out the bin/data/xml folder. Every\n     time you make a change, a backup is saved\n     in there. If you ever want to get back to\n     a previous state, just overwrite\n     'saved.xml' and press 'l' for 'load'.";
 
 const string playbackVolumeTag = "Vol: ";
 const string nonPlaybackVolumeTag = "Non-Playback";
@@ -43,8 +51,22 @@ void TextArea::setOffsets(int numberTagOffsetX, int numberTagOffsetY){
     this->numberTagOffsetY = numberTagOffsetY;
 }
 
-void TextArea::setRenderMode(string mode){
-    renderModeText = mode;
+void TextArea::setDisplayMode(DisplayMode displayMode){
+    if(displayMode == Design){
+        renderModeText = designModeText;
+    }else if(displayMode == HalfLive){
+        renderModeText = designLiveModeText;
+    }else if(displayMode == Live){
+        renderModeText = liveModeText;
+    }
+}
+
+void TextArea::setPresetMode(PresetMode presetMode){
+    if(presetMode == PRESETS_DEVELOPMENT){
+        presetModeText = developmentModeText;
+    }else if(presetMode == PRESETS_PRODUCTION){
+        presetModeText = productionModeText;
+    }
 }
 
 void TextArea::setFrameNudgeEnabled(bool enabled){
@@ -105,5 +127,5 @@ void TextArea::drawNonPlaybackVolumes(){
 }
 
 string TextArea::getTextToDisplay(){
-    return stringOne + renderModeText + stringTwo + ofToString(ofGetFrameRate()) + stringThree + frameNudgeStatus + stringFour;
+    return stringOne + renderModeText + stringTwo + presetModeText + stringThree + ofToString(ofGetFrameRate()) + stringFour + frameNudgeStatus + stringFive;
 }

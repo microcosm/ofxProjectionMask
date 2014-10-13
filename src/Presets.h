@@ -5,10 +5,11 @@ enum PresetMode { PRESETS_DEVELOPMENT, PRESETS_PRODUCTION };
 class Presets{
 public:
     Presets(){
-        setPresetMode(PRESETS_DEVELOPMENT);
+        setMode(PRESETS_DEVELOPMENT);
     }
     
-    void setPresetMode(PresetMode _mode);
+    void setMode(PresetMode _mode);
+    PresetMode getMode();
     
     int windowWidth;
     int windowHeight;

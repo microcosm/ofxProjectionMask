@@ -1,6 +1,8 @@
 #pragma once
 #include "ofMain.h"
 #include "ofTrueTypeFont.h"
+#include "MaskFrame.h"
+#include "Presets.h"
 
 class TextArea{
 public:
@@ -16,7 +18,8 @@ public:
     void setMargins(int numberTagMargin, int numberBoxMargin);
     void setOffsets(int numberTagOffsetX, int numberTagOffsetY);
     
-    void setRenderMode(string mode);
+    void setDisplayMode(DisplayMode mode);
+    void setPresetMode(PresetMode mode);
     void setFrameNudgeEnabled(bool enabled);
     void setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes);
     
@@ -30,7 +33,7 @@ protected:
     int numberTagMargin, numberBoxMargin;
     int numberTagOffsetX, numberTagOffsetY;
     
-    string renderModeText;
+    string renderModeText, presetModeText;
     string frameNudgeStatus;
     string textToDisplay;
     float *playbackVolume;

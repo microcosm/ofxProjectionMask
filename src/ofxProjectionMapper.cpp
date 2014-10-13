@@ -1,15 +1,10 @@
 #include "ofxProjectionMapper.h"
 
-const string designModeText = "Design";
-const string designLiveModeText = "Design / Live";
-const string liveModeText = "Live";
-const string previewTagText = "Buffer preview";
-
 const int bufferStartFrameNum = 120;
 
 //Public
 void ofxProjectionMapper::setup(BufferPattern* _pattern, PresetMode _mode){
-    presets.setPresetMode(_mode);
+    presets.setMode(_mode);
     pattern = _pattern;
     setup();
 }
@@ -55,13 +50,8 @@ void ofxProjectionMapper::update(int mouseX, int mouseY){
         canvasContents.updateHighlights(mouseX, mouseY);
     }
     
-    if(displayMode == Design){
-        textArea.setRenderMode(designModeText);
-    }else if(displayMode == HalfLive){
-        textArea.setRenderMode(designLiveModeText);
-    }else if(displayMode == Live){
-        textArea.setRenderMode(liveModeText);
-    }
+    textArea.setDisplayMode(displayMode);
+    textArea.setPresetMode(presets.getMode());
 }
 
 void ofxProjectionMapper::draw(){
