@@ -24,7 +24,7 @@ public:
     
 protected:
     Presets presets;
-    Mode mode;
+    DisplayMode displayMode;
     TextArea textArea;
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;

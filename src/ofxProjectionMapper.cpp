@@ -14,7 +14,7 @@ const int mouseYAdjustment = -2;
 void ofxProjectionMapper::setup(BufferPattern* _pattern){
     
     pattern = _pattern;
-    mode = Design;
+    displayMode = Design;
     
     ofSetHexColor(0xFFFFFF);
 	ofBackground(0, 0, 0);
@@ -52,11 +52,11 @@ void ofxProjectionMapper::update(int mouseX, int mouseY){
         canvasContents.updateHighlights(mouseX, mouseY);
     }
     
-    if(mode == Design){
+    if(displayMode == Design){
         textArea.setRenderMode(designModeText);
-    }else if(mode == DesignLive){
+    }else if(displayMode == HalfLive){
         textArea.setRenderMode(designLiveModeText);
-    }else if(mode == Live){
+    }else if(displayMode == Live){
         textArea.setRenderMode(liveModeText);
     }
 }
@@ -73,10 +73,10 @@ void ofxProjectionMapper::draw(){
     
     ofPushMatrix();
     ofTranslate(liveCanvas.getX(), liveCanvas.getY());
-    if(mode == Design){
+    if(displayMode == Design){
         liveCanvas.draw();
     }
-    canvasContents.drawLive(mode);
+    canvasContents.drawLive(displayMode);
     ofPopMatrix();
     
     textArea.draw();
@@ -193,12 +193,12 @@ void ofxProjectionMapper::deleteHighlightedItem(){
 }
 
 void ofxProjectionMapper::cycleMode(){
-    if(mode == Design){
-        mode = DesignLive;
-    }else if(mode == DesignLive){
-        mode = Live;
-    }else if(mode == Live){
-        mode = Design;
+    if(displayMode == Design){
+        displayMode = HalfLive;
+    }else if(displayMode == HalfLive){
+        displayMode = Live;
+    }else if(displayMode == Live){
+        displayMode = Design;
     }
 }
 
@@ -208,7 +208,7 @@ bool ofxProjectionMapper::mouseIsOverDesignCanvas(){
 }
 
 void ofxProjectionMapper::drawLiveCursor(){
-    if(mouseIsOverDesignCanvas() && mode != Live){
+    if(mouseIsOverDesignCanvas() && displayMode != Live){
         int liveMouseX = ofMap(mouse.x, designCanvas.getX(), designCanvas.getX() + designCanvas.getWidth(), liveCanvas.getX(), liveCanvas.getX() + liveCanvas.getWidth());
         int liveMouseY = ofMap(mouse.y, designCanvas.getY(), designCanvas.getY() + designCanvas.getHeight(), liveCanvas.getY(), liveCanvas.getY() + liveCanvas.getHeight());
         

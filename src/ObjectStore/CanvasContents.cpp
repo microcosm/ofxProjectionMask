@@ -112,7 +112,7 @@ void CanvasContents::drawDesign(){
     }
 }
 	
-void CanvasContents::drawLive(Mode mode){
+void CanvasContents::drawLive(DisplayMode mode){
     for (int i = 0; i < maskFrames.size(); i++){
         maskFrames[i]->drawLive(mode);
     }

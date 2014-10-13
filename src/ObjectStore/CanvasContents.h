@@ -23,7 +23,7 @@ public:
     bool getFrameNudgeEnabled();
     
     void drawDesign();
-    void drawLive(Mode mode);
+    void drawLive(DisplayMode mode);
     
     SafeDeque<MaskFrame> *getMaskFrames();
     

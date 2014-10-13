@@ -8,7 +8,7 @@
 #include "SafeDeque.h"
 #include "ofxTriangle.h"
 
-enum Mode { Design, DesignLive, Live };
+enum DisplayMode { Design, HalfLive, Live };
 
 class MaskFrame{
 public:
@@ -42,7 +42,7 @@ public:
     void setTransformState(TransformState transformState);
     
     void drawDesign();
-    void drawLive(Mode mode);
+    void drawLive(DisplayMode mode);
     
     void setSize(int width, int height);
     void setSize(int width, int height, Corner movingCorner);

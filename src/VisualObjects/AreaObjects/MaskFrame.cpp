@@ -156,7 +156,7 @@ void MaskFrame::drawDesign(){
     ofPopMatrix();
 }
 
-void MaskFrame::drawLive(Mode mode){
+void MaskFrame::drawLive(DisplayMode mode){
     ofPushMatrix();
     ofTranslate(this->livePosition.x, this->livePosition.y);
     
