@@ -82,8 +82,8 @@
 /* Begin PBXFileReference section */
 		84137DA219E9D1C80035A71B /* Presets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Presets.cpp; path = ../src/Presets.cpp; sourceTree = "<group>"; };
 		84137DA319E9D1C80035A71B /* Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Presets.h; path = ../src/Presets.h; sourceTree = "<group>"; };
-		84137DA519E9D1C80035A71B /* ofExtensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofExtensions.cpp; sourceTree = "<group>"; };
-		84137DA619E9D1C80035A71B /* ofExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
+		84137DA519E9D1C80035A71B /* ofExtensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofExtensions.cpp; path = ../src/Extensions/ofExtensions.cpp; sourceTree = "<group>"; };
+		84137DA619E9D1C80035A71B /* ofExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofExtensions.h; path = ../src/Extensions/ofExtensions.h; sourceTree = "<group>"; };
 		84137DAA19E9D1C80035A71B /* CanvasContents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CanvasContents.cpp; sourceTree = "<group>"; };
 		84137DAB19E9D1C80035A71B /* CanvasContents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasContents.h; sourceTree = "<group>"; };
 		84137DAC19E9D1C80035A71B /* SafeDeque.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SafeDeque.cpp; sourceTree = "<group>"; };
@@ -180,28 +180,16 @@
 			children = (
 				A922D5E3B504D8C98F4265FF /* ofxProjectionMapper.cpp */,
 				E779CB14423652FA55338C0A /* ofxProjectionMapper.h */,
+				84137DEB19E9D4240035A71B /* Patterns */,
+				84137DAE19E9D1C80035A71B /* Storage */,
+				84137DB119E9D1C80035A71B /* Drawing */,
 				84137DA219E9D1C80035A71B /* Presets.cpp */,
 				84137DA319E9D1C80035A71B /* Presets.h */,
-				84137DEB19E9D4240035A71B /* Patterns */,
-				84137DA419E9D1C80035A71B /* Extensions */,
-				84137DA919E9D1C80035A71B /* ObjectStore */,
-				84137DAE19E9D1C80035A71B /* Persistence */,
-				84137DB119E9D1C80035A71B /* VisualObjects */,
 			);
 			name = src;
 			sourceTree = "<group>";
 		};
-		84137DA419E9D1C80035A71B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				84137DA519E9D1C80035A71B /* ofExtensions.cpp */,
-				84137DA619E9D1C80035A71B /* ofExtensions.h */,
-			);
-			name = Extensions;
-			path = ../src/Extensions;
-			sourceTree = "<group>";
-		};
-		84137DA919E9D1C80035A71B /* ObjectStore */ = {
+		84137DA919E9D1C80035A71B /* Collections */ = {
 			isa = PBXGroup;
 			children = (
 				84137DAA19E9D1C80035A71B /* CanvasContents.cpp */,
@@ -209,31 +197,32 @@
 				84137DAC19E9D1C80035A71B /* SafeDeque.cpp */,
 				84137DAD19E9D1C80035A71B /* SafeDeque.h */,
 			);
-			name = ObjectStore;
-			path = ../src/ObjectStore;
+			name = Collections;
+			path = ../ObjectStore;
 			sourceTree = "<group>";
 		};
-		84137DAE19E9D1C80035A71B /* Persistence */ = {
+		84137DAE19E9D1C80035A71B /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				84137DAF19E9D1C80035A71B /* Xml.cpp */,
 				84137DB019E9D1C80035A71B /* Xml.h */,
 			);
-			name = Persistence;
+			name = Storage;
 			path = ../src/Persistence;
 			sourceTree = "<group>";
 		};
-		84137DB119E9D1C80035A71B /* VisualObjects */ = {
+		84137DB119E9D1C80035A71B /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				84137DB219E9D1C80035A71B /* AreaObjects */,
-				84137DB919E9D1C80035A71B /* PointObjects */,
+				84137DB219E9D1C80035A71B /* Area */,
+				84137DB919E9D1C80035A71B /* Point */,
+				84137DA919E9D1C80035A71B /* Collections */,
 			);
-			name = VisualObjects;
+			name = Drawing;
 			path = ../src/VisualObjects;
 			sourceTree = "<group>";
 		};
-		84137DB219E9D1C80035A71B /* AreaObjects */ = {
+		84137DB219E9D1C80035A71B /* Area */ = {
 			isa = PBXGroup;
 			children = (
 				84137DB319E9D1C80035A71B /* Canvas.cpp */,
@@ -243,10 +232,11 @@
 				84137DB719E9D1C80035A71B /* TextArea.cpp */,
 				84137DB819E9D1C80035A71B /* TextArea.h */,
 			);
+			name = Area;
 			path = AreaObjects;
 			sourceTree = "<group>";
 		};
-		84137DB919E9D1C80035A71B /* PointObjects */ = {
+		84137DB919E9D1C80035A71B /* Point */ = {
 			isa = PBXGroup;
 			children = (
 				84137DBA19E9D1C80035A71B /* DragHandle.cpp */,
@@ -256,6 +246,7 @@
 				84137DBE19E9D1C80035A71B /* PointObject.cpp */,
 				84137DBF19E9D1C80035A71B /* PointObject.h */,
 			);
+			name = Point;
 			path = PointObjects;
 			sourceTree = "<group>";
 		};
@@ -372,6 +363,8 @@
 			isa = PBXGroup;
 			children = (
 				3139BE4973E10301B7B8A6B9 /* src */,
+				84137DA519E9D1C80035A71B /* ofExtensions.cpp */,
+				84137DA619E9D1C80035A71B /* ofExtensions.h */,
 			);
 			name = ofxProjectionMapper;
 			sourceTree = "<group>";
