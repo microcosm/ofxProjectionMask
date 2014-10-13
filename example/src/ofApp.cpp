@@ -1,10 +1,10 @@
 #include "ofApp.h"
 
-//To use this addon, we need to work with Pattern objects and
-//the ofxProjectionMapper. You can write as many Patterns as
+//To use this addon, we need to work with pattern objects and
+//the ofxProjectionMapper. You can write as many patterns as
 //you like. Just put them in a folder in your src directory
 //and name them in the convention MyCrazyPattern, and have
-//them inherit from the base class 'Pattern'.
+//them inherit from the base class 'BufferPattern'.
 
 //To try this out, look in the Patterns/TestPatterns directory
 //of the addon. Those can serve as templates and give you a
