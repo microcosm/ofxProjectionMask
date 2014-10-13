@@ -1,4 +1,4 @@
-#include "XmlPersistence.h"
+#include "Xml.h"
 
 const string sessionTag = "session";
 const string typeTag = "type";
@@ -42,18 +42,36 @@ const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 
-void XmlPersistence::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers){
+void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
     this->buffers = buffers;
 }
 
-void XmlPersistence::save(){
+void Xml::save(){
     save(false);
 }
+
+void Xml::autoSave(){
+    save(true);
+}
+
+void Xml::load(){
     
-void XmlPersistence::save(bool autoSave){
+	ofxXmlSettings xml;
+    
+    if(xml.loadFile(xmlSubPath + directoryDivider + filePath)){
+        xml.pushTag(sessionTag);
+        
+        loadSourceCanvasDimensions(&xml);
+        loadMaskFrames(&xml);
+        
+        xml.popTag();   
+    }
+}
+
+void Xml::save(bool autoSave){
     
     ensureDirectory();
     backupExistingFile();
@@ -74,21 +92,18 @@ void XmlPersistence::save(bool autoSave){
 	xml.saveFile(xmlSubPath + directoryDivider + filePath);
 }
 
-void XmlPersistence::load(){
+void Xml::backupExistingFile(){
     
 	ofxXmlSettings xml;
     
     if(xml.loadFile(xmlSubPath + directoryDivider + filePath)){
         xml.pushTag(sessionTag);
-        
-        loadSourceCanvasDimensions(&xml);
-        loadMaskFrames(&xml);
-        
-        xml.popTag();   
+        string timestamp = xml.getValue(timestampTag, defaultTimestamp);
+        xml.saveFile(xmlSubPath + directoryDivider + fileName + timestamp + fileExtension);
     }
 }
 
-void XmlPersistence::ensureDirectory(){
+void Xml::ensureDirectory(){
     
     ofDirectory directory;
     
@@ -103,18 +118,12 @@ void XmlPersistence::ensureDirectory(){
     }
 }
 
-void XmlPersistence::backupExistingFile(){
-    
-	ofxXmlSettings xml;
-    
-    if(xml.loadFile(xmlSubPath + directoryDivider + filePath)){
-        xml.pushTag(sessionTag);
-        string timestamp = xml.getValue(timestampTag, defaultTimestamp);
-        xml.saveFile(xmlSubPath + directoryDivider + fileName + timestamp + fileExtension);
-    }
+void Xml::addTimestamp(ofxXmlSettings *xml){
+    xml->addTag(timestampTag);
+    xml->setValue(timestampTag, ofGetTimestampString());
 }
 
-void XmlPersistence::addType(ofxXmlSettings *xml, bool autoSave){
+void Xml::addType(ofxXmlSettings *xml, bool autoSave){
     xml->addTag(typeTag);
     if(autoSave){
         xml->setValue(typeTag, typeAuto);
@@ -123,12 +132,7 @@ void XmlPersistence::addType(ofxXmlSettings *xml, bool autoSave){
     }
 }
 
-void XmlPersistence::addTimestamp(ofxXmlSettings *xml){
-    xml->addTag(timestampTag);
-    xml->setValue(timestampTag, ofGetTimestampString());
-}
-
-void XmlPersistence::addCanvas(ofxXmlSettings *xml, Canvas *canvas, string tagName){
+void Xml::addCanvas(ofxXmlSettings *xml, Canvas *canvas, string tagName){
     
     xml->addTag(tagName);
     xml->pushTag(tagName);
@@ -146,7 +150,7 @@ void XmlPersistence::addCanvas(ofxXmlSettings *xml, Canvas *canvas, string tagNa
     xml->popTag();
 }
 
-void XmlPersistence::addMaskFrames(ofxXmlSettings *xml, CanvasContents *canvasContents){
+void Xml::addMaskFrames(ofxXmlSettings *xml, CanvasContents *canvasContents){
     
     xml->addTag(maskFramesTag);
     xml->pushTag(maskFramesTag);
@@ -160,7 +164,7 @@ void XmlPersistence::addMaskFrames(ofxXmlSettings *xml, CanvasContents *canvasCo
     xml->popTag();
 }
 
-void XmlPersistence::addMaskFrame(ofxXmlSettings *xml, MaskFrame *maskFrame, int i){
+void Xml::addMaskFrame(ofxXmlSettings *xml, MaskFrame *maskFrame, int i){
     
     xml->addTag(maskFrameTag);
     xml->setValue(maskFrameTag + levelDivider + idTag, maskFrame->getId(), i);
@@ -180,7 +184,7 @@ void XmlPersistence::addMaskFrame(ofxXmlSettings *xml, MaskFrame *maskFrame, int
     xml->popTag();
 }
 
-void XmlPersistence::addMaskPoints(ofxXmlSettings *xml, MaskFrame *maskFrame){
+void Xml::addMaskPoints(ofxXmlSettings *xml, MaskFrame *maskFrame){
     
     xml->addTag(maskPointsTag);
     xml->pushTag(maskPointsTag);
@@ -194,7 +198,7 @@ void XmlPersistence::addMaskPoints(ofxXmlSettings *xml, MaskFrame *maskFrame){
     xml->popTag();
 }
 
-void XmlPersistence::addMaskPoint(ofxXmlSettings *xml, MaskPoint *maskPoint, int i){
+void Xml::addMaskPoint(ofxXmlSettings *xml, MaskPoint *maskPoint, int i){
     
     xml->addTag(maskPointTag);
     
@@ -204,7 +208,7 @@ void XmlPersistence::addMaskPoint(ofxXmlSettings *xml, MaskPoint *maskPoint, int
     xml->setValue(maskPointTag + levelDivider + liveYTag, maskPoint->getLiveY(), i);
 }
 
-void XmlPersistence::loadSourceCanvasDimensions(ofxXmlSettings *xml){
+void Xml::loadSourceCanvasDimensions(ofxXmlSettings *xml){
     xml->pushTag(designCanvasTag);
     sourceDesignCanvasWidth = xml->getValue(widthTag, 0);
     sourceDesignCanvasHeight = xml->getValue(heightTag, 0);
@@ -216,7 +220,7 @@ void XmlPersistence::loadSourceCanvasDimensions(ofxXmlSettings *xml){
     xml->popTag();
 }
 
-void XmlPersistence::loadMaskFrames(ofxXmlSettings *xml){
+void Xml::loadMaskFrames(ofxXmlSettings *xml){
     
     xml->pushTag(maskFramesTag);
     
@@ -232,7 +236,7 @@ void XmlPersistence::loadMaskFrames(ofxXmlSettings *xml){
     xml->popTag();
 }
 
-void XmlPersistence::loadMaskFrame(ofxXmlSettings *xml, SafeDeque<MaskFrame> *maskFrames, int i){
+void Xml::loadMaskFrame(ofxXmlSettings *xml, SafeDeque<MaskFrame> *maskFrames, int i){
     
     xml->pushTag(maskFrameTag, i);
     
@@ -257,7 +261,7 @@ void XmlPersistence::loadMaskFrame(ofxXmlSettings *xml, SafeDeque<MaskFrame> *ma
     xml->popTag();
 }
 
-void XmlPersistence::loadMaskPoints(ofxXmlSettings *xml, MaskFrame *maskFrame){
+void Xml::loadMaskPoints(ofxXmlSettings *xml, MaskFrame *maskFrame){
     
     xml->pushTag(maskPointsTag, 0);
     
@@ -272,7 +276,7 @@ void XmlPersistence::loadMaskPoints(ofxXmlSettings *xml, MaskFrame *maskFrame){
     xml->popTag();
 }
 
-void XmlPersistence::loadMaskPoint(ofxXmlSettings *xml, SafeDeque<MaskPoint> *maskPoints, MaskFrame *maskFrame, int i){
+void Xml::loadMaskPoint(ofxXmlSettings *xml, SafeDeque<MaskPoint> *maskPoints, MaskFrame *maskFrame, int i){
     
     xml->pushTag(maskPointTag, i);
     
@@ -285,36 +289,36 @@ void XmlPersistence::loadMaskPoint(ofxXmlSettings *xml, SafeDeque<MaskPoint> *ma
     xml->popTag();
 }
 
-int XmlPersistence::getMaskFrameId(ofxXmlSettings *xml){
+int Xml::getMaskFrameId(ofxXmlSettings *xml){
     return xml->getValue(idTag, 0);
 }
 
-int XmlPersistence::getMaskFrameLiveWidth(ofxXmlSettings *xml){
+int Xml::getMaskFrameLiveWidth(ofxXmlSettings *xml){
     sourceMaskFrameWidth = xml->getValue(liveWidthTag, 0);
     return ofMap(sourceMaskFrameWidth, 0, sourceLiveCanvasWidth, 0, liveCanvas->getWidth());
 }
 
-int XmlPersistence::getMaskFrameLiveHeight(ofxXmlSettings *xml){
+int Xml::getMaskFrameLiveHeight(ofxXmlSettings *xml){
     sourceMaskFrameHeight = xml->getValue(liveHeightTag, 0);
     return ofMap(sourceMaskFrameHeight, 0, sourceLiveCanvasHeight, 0, liveCanvas->getHeight());
 }
 
-int XmlPersistence::getMaskFrameLiveX(ofxXmlSettings *xml){
+int Xml::getMaskFrameLiveX(ofxXmlSettings *xml){
     int maskFrameLiveX = xml->getValue(liveXTag, 0);
     return ofMap(maskFrameLiveX, 0, sourceLiveCanvasWidth, 0, liveCanvas->getWidth());
 }
 
-int XmlPersistence::getMaskFrameLiveY(ofxXmlSettings *xml){
+int Xml::getMaskFrameLiveY(ofxXmlSettings *xml){
     int maskFrameLiveY = xml->getValue(liveYTag, 0);
     return ofMap(maskFrameLiveY, 0, sourceLiveCanvasHeight, 0, liveCanvas->getHeight());
 }
 
-int XmlPersistence::getMaskPointLiveX(ofxXmlSettings *xml, MaskFrame *maskFrame){
+int Xml::getMaskPointLiveX(ofxXmlSettings *xml, MaskFrame *maskFrame){
     int maskPointLiveX = xml->getValue(liveXTag, 0);
     return ofMap(maskPointLiveX, 0, sourceMaskFrameWidth, 0, maskFrame->getWidth());
 }
 
-int XmlPersistence::getMaskPointLiveY(ofxXmlSettings *xml, MaskFrame *maskFrame){
+int Xml::getMaskPointLiveY(ofxXmlSettings *xml, MaskFrame *maskFrame){
     int maskPointLiveY = xml->getValue(liveYTag, 0);
     return ofMap(maskPointLiveY, 0, sourceMaskFrameHeight, 0, maskFrame->getHeight());
 }

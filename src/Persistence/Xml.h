@@ -4,11 +4,11 @@
 #include "CanvasContents.h"
 
 
-class XmlPersistence{
+class Xml{
 public:
     void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers);
     void save();
-    void save(bool autoSave);
+    void autoSave();
     void load();
 protected:
     Canvas *designCanvas, *liveCanvas;
@@ -18,6 +18,7 @@ protected:
     CanvasContents *canvasContents;
     vector<ofFbo> *buffers;
     
+    void save(bool autoSave);
     void backupExistingFile();
     void ensureDirectory();
     

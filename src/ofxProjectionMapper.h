@@ -3,7 +3,7 @@
 #include "CanvasContents.h"
 #include "MaskFrame.h"
 #include "TextArea.h"
-#include "XmlPersistence.h"
+#include "Xml.h"
 #include "BufferPattern.h"
 #include "Presets.h"
 
@@ -20,12 +20,7 @@ public:
     void mouseReleased();
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
-    
     Canvas *getLiveCanvas();
-    
-    void loadObjects();
-    void saveObjects();
-    void autoSaveObjects();
     
 protected:
     Presets presets;
@@ -36,7 +31,7 @@ protected:
     MaskFrame *selectedMaskFrame;
     ofVec2f mouse, mouseOffset;
     Corner selectedCorner;
-    XmlPersistence xml;
+    Xml xml;
     BufferPattern *pattern;
     
     void undo();

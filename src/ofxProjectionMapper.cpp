@@ -40,6 +40,7 @@ void ofxProjectionMapper::setup(BufferPattern* _pattern){
     ofSetFullscreen(presets.startFullscreen);
     selectedMaskFrame = 0;
     xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
+    xml.load();
 }
 
 void ofxProjectionMapper::update(int mouseX, int mouseY){
@@ -85,40 +86,40 @@ void ofxProjectionMapper::draw(){
 
 void ofxProjectionMapper::keyReleased(int key){
     if(key == 'f' || key == 'F'){
-        this->createNewMaskFrame();
-        autoSaveObjects();
+        createNewMaskFrame();
+        xml.autoSave();
     }else if(key == 'p' || key == 'P'){
-        this->createNewMaskPoint();
-        autoSaveObjects();
+        createNewMaskPoint();
+        xml.autoSave();
     }else if (key == ' '){
         ofToggleFullscreen();
     }else if(key == 'u' || key == 'U'){
-        this->undo();
+        undo();
     }else if(key == 'r' || key == 'R'){
-        this->redo();
+        redo();
     }else if(key == 127 || key == 8){
-        this->deleteHighlightedItem();
-        autoSaveObjects();
+        deleteHighlightedItem();
+        xml.autoSave();
     }else if(key == 356){
-        this->nudge(Left);
-        autoSaveObjects();
+        nudge(Left);
+        xml.autoSave();
     }else if(key == 357){
-        this->nudge(Up);
-        autoSaveObjects();
+        nudge(Up);
+        xml.autoSave();
     }else if(key == 358){
-        this->nudge(Right);
-        autoSaveObjects();
+        nudge(Right);
+        xml.autoSave();
     }else if(key == 359){
-        this->nudge(Down);
-        autoSaveObjects();
+        nudge(Down);
+        xml.autoSave();
     }else if(key == 's' || key == 'S'){
-        this->saveObjects();
+        xml.save();
     }else if(key == 'l' || key == 'L'){
-        this->loadObjects();
+        xml.load();
     }else if(key == 'm' || key == 'M'){
-        this->cycleMode();
+        cycleMode();
     }else if(key == 'e' || key == 'E'){
-        this->toggleFrameNudge();
+        toggleFrameNudge();
     }
 }
 
@@ -145,7 +146,7 @@ void ofxProjectionMapper::mousePressed(){
 void ofxProjectionMapper::mouseReleased(){
     selectedMaskFrame = 0;
     canvasContents.endTransform();
-    autoSaveObjects();
+    xml.autoSave();
 }
 
 void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
@@ -154,18 +155,6 @@ void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPl
 
 Canvas *ofxProjectionMapper::getLiveCanvas(){
     return &this->liveCanvas;
-}
-
-void ofxProjectionMapper::loadObjects(){
-    this->xml.load();
-}
-
-void ofxProjectionMapper::saveObjects(){
-    this->xml.save();
-}
-
-void ofxProjectionMapper::autoSaveObjects(){
-    this->xml.save(true);
 }
 
 //Protected

@@ -7,8 +7,6 @@ void ofApp::setup(){
     
     pattern.setup();
     mapper.setup((BufferPattern*)&pattern);
-    mapper.loadObjects();
-    
 }
 
 void ofApp::update(){
