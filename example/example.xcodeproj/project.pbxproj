@@ -30,6 +30,7 @@
 		B470214D19EB60FB00C1227C /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213B19EB60FB00C1227C /* Presets.cpp */; };
 		B470214E19EB60FB00C1227C /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213E19EB60FB00C1227C /* Xml.cpp */; };
 		B470215219EB938B00C1227C /* SetupPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470215019EB938B00C1227C /* SetupPattern.cpp */; };
+		B470215519EB964A00C1227C /* ArgumentPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470215319EB964A00C1227C /* ArgumentPattern.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -129,6 +130,8 @@
 		B470213F19EB60FB00C1227C /* Xml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xml.h; sourceTree = "<group>"; };
 		B470215019EB938B00C1227C /* SetupPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetupPattern.cpp; sourceTree = "<group>"; };
 		B470215119EB938B00C1227C /* SetupPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupPattern.h; sourceTree = "<group>"; };
+		B470215319EB964A00C1227C /* ArgumentPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArgumentPattern.cpp; sourceTree = "<group>"; };
+		B470215419EB964A00C1227C /* ArgumentPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgumentPattern.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -357,6 +360,8 @@
 		B470213819EB60FB00C1227C /* TestPatterns */ = {
 			isa = PBXGroup;
 			children = (
+				B470215319EB964A00C1227C /* ArgumentPattern.cpp */,
+				B470215419EB964A00C1227C /* ArgumentPattern.h */,
 				B470213919EB60FB00C1227C /* HueCyclePattern.cpp */,
 				B470213A19EB60FB00C1227C /* HueCyclePattern.h */,
 				B470215019EB938B00C1227C /* SetupPattern.cpp */,
@@ -574,6 +579,7 @@
 				B470214119EB60FB00C1227C /* MaskFrame.cpp in Sources */,
 				84137DDD19E9D2A60035A71B /* del_impl.cpp in Sources */,
 				B470214819EB60FB00C1227C /* PointObject.cpp in Sources */,
+				B470215519EB964A00C1227C /* ArgumentPattern.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

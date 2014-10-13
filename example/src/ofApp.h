@@ -4,6 +4,7 @@
 #include "ofxProjectionMapper.h"
 #include "HueCyclePattern.h"
 #include "SetupPattern.h"
+#include "ArgumentPattern.h"
 
 class ofApp : public ofBaseApp{
 
@@ -34,4 +35,8 @@ public:
     
     /* Just plain white, good for checking the edges of your shapes */
     //SetupPattern pattern;
+    
+    /* Shows how you can use arguments, and multiple FBOs */
+    //Don't forget to send in the arguments as described in ofApp.cpp
+    //ArgumentPattern pattern;
 };

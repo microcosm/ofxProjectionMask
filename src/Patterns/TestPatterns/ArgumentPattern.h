@@ -3,8 +3,12 @@
 #include "Canvas.h"
 #include "BufferPattern.h"
 
-class SetupPattern : public BufferPattern{
+class ArgumentPattern : public BufferPattern{
 public:
+    vector<ofColor> colors;
     void setup();
     void update();
+    void mapToColors(int mouseX, int mouseY);
+    ofColor color;
+    ofVec2f hues;
 };
