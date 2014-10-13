@@ -10,7 +10,7 @@
 class ofxProjectionMapper{
 public:
     
-    void setup();
+    void setup(BufferPattern* pattern);
     void update(int mouseX, int mouseY);
     void draw();
     
@@ -20,7 +20,6 @@ public:
     void mouseReleased();
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
-    void setPattern(BufferPattern* pattern);
     
     Canvas *getLiveCanvas();
     

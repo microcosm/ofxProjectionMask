@@ -42,13 +42,10 @@ const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 
-void XmlPersistence::assign(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents){
+void XmlPersistence::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
-}
-
-void XmlPersistence::assign(vector<ofFbo> *buffers){
     this->buffers = buffers;
 }
 

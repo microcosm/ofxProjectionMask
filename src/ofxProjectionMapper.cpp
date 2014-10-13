@@ -11,8 +11,9 @@ const int mouseXAdjustment = -1;
 const int mouseYAdjustment = -2;
 
 //Public
-void ofxProjectionMapper::setup(){
+void ofxProjectionMapper::setup(BufferPattern* _pattern){
     
+    pattern = _pattern;
     mode = Design;
     
     ofSetHexColor(0xFFFFFF);
@@ -37,10 +38,8 @@ void ofxProjectionMapper::setup(){
     textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
     
     ofSetFullscreen(presets.startFullscreen);
-    
     selectedMaskFrame = 0;
-    
-    xml.assign(&designCanvas, &liveCanvas, &canvasContents);
+    xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
 }
 
 void ofxProjectionMapper::update(int mouseX, int mouseY){
@@ -147,11 +146,6 @@ void ofxProjectionMapper::mouseReleased(){
     selectedMaskFrame = 0;
     canvasContents.endTransform();
     autoSaveObjects();
-}
-
-void ofxProjectionMapper::setPattern(BufferPattern *pattern){
-    this->pattern = pattern;
-    xml.assign(pattern->getBuffers());
 }
 
 void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){

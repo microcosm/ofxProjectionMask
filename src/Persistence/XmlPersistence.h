@@ -6,8 +6,7 @@
 
 class XmlPersistence{
 public:
-    void assign(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents);
-    void assign(vector<ofFbo> *buffers);
+    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers);
     void save();
     void save(bool autoSave);
     void load();

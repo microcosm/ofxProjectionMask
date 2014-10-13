@@ -5,10 +5,8 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofEnableSmoothing();
     
-    mapper.setup();
     pattern.setup();
-    
-    mapper.setPattern((BufferPattern*)&pattern);
+    mapper.setup((BufferPattern*)&pattern);
     mapper.loadObjects();
     
 }
