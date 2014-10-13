@@ -7,9 +7,6 @@ const string previewTagText = "Buffer preview";
 
 const int bufferStartFrameNum = 120;
 
-const int mouseXAdjustment = -1;
-const int mouseYAdjustment = -2;
-
 //Public
 void ofxProjectionMapper::setup(BufferPattern* _pattern){
     
@@ -39,14 +36,15 @@ void ofxProjectionMapper::setup(BufferPattern* _pattern){
     
     ofSetFullscreen(presets.startFullscreen);
     selectedMaskFrame = 0;
+    
     xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
     xml.load();
+    mouse.setup(&designCanvas);
 }
 
 void ofxProjectionMapper::update(int mouseX, int mouseY){
     
-    mouse.x = mouseX + mouseXAdjustment;
-    mouse.y = mouseY + mouseYAdjustment;
+    mouse.set(mouseX, mouseY);
     
     if(!isTransforming()){
         canvasContents.updateHighlights(mouseX, mouseY);
@@ -125,13 +123,23 @@ void ofxProjectionMapper::keyReleased(int key){
 
 void ofxProjectionMapper::mouseDragged(){
     if(selectedMaskFrame != 0){
-        TransformState transformState = selectedMaskFrame->getTransformState();
-        if(transformState == Translating){
-            selectedMaskFrame->setPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
-        }else if(transformState == Scaling){
-            scaleSelectedMaskFrame();
-        }else if(transformState == Masking){
-            selectedMaskFrame->setSelectedMaskPointPosition(mouse.x - mouseOffset.x, mouse.y - mouseOffset.y);
+        TransformState state = selectedMaskFrame->getTransformState();
+        
+        if(state == Translating){
+            float x = mouse.newSelectionX();
+            float y = mouse.newSelectionY();
+            selectedMaskFrame->setPosition(x, y);
+            
+        }else if(state == Scaling){
+            int width = mouse.newSelectionWidth();
+            int height = mouse.newSelectionHeight();
+            Corner corner = selectedMaskFrame->highlightedCorner();
+            selectedMaskFrame->setSize(width, height, corner);
+            
+        }else if(state == Masking){
+            float x = mouse.newSelectionX();
+            float y = mouse.newSelectionY();
+            selectedMaskFrame->setSelectedMaskPointPosition(x, y);
         }
     }
 }
@@ -139,7 +147,7 @@ void ofxProjectionMapper::mouseDragged(){
 void ofxProjectionMapper::mousePressed(){
     selectedMaskFrame = canvasContents.beginTransform();
     if(selectedMaskFrame != 0){
-        setMouseOffsetFromSelectedMaskFrame();
+        mouse.setSelection(selectedMaskFrame);
     }
 }
 
@@ -244,86 +252,4 @@ void ofxProjectionMapper::drawBufferPreviews(){
 
 bool ofxProjectionMapper::isTransforming(){
     return selectedMaskFrame != 0 && selectedMaskFrame->getTransformState() != NoTransform;
-}
-
-void ofxProjectionMapper::scaleSelectedMaskFrame(){
-    int mouseXConstrained = clampInt(mouse.x, designCanvas.getX() + mouseOffset.x, designCanvas.getX() + designCanvas.getWidth() + mouseOffset.x);
-    int mouseYConstrained = clampInt(mouse.y, designCanvas.getY() + mouseOffset.y, designCanvas.getY() + designCanvas.getHeight() + mouseOffset.y);
-    int newWidth, newHeight;
-    
-    if(selectedCorner == TopLeft){
-        
-        newWidth = (selectedMaskFrame->getX() + selectedMaskFrame->getWidth() + mouseOffset.x) - mouseXConstrained;
-        newHeight = (selectedMaskFrame->getY() + selectedMaskFrame->getHeight() + mouseOffset.y) - mouseYConstrained;
-        
-    }else if(selectedCorner == TopRight){
-        
-        newWidth = mouseXConstrained - (selectedMaskFrame->getX() + mouseOffset.x);
-        newHeight = (selectedMaskFrame->getY() + selectedMaskFrame->getHeight() + mouseOffset.y) - mouseYConstrained;
-        
-    }else if(selectedCorner == BottomRight){
-        
-        newWidth = mouseXConstrained - (selectedMaskFrame->getX() + mouseOffset.x);
-        newHeight = mouseYConstrained - (selectedMaskFrame->getY() + mouseOffset.y);
-        
-    }else if(selectedCorner == BottomLeft){
-        
-        newWidth = (selectedMaskFrame->getX() + selectedMaskFrame->getWidth() + mouseOffset.x) - mouseXConstrained;
-        newHeight = mouseYConstrained - (selectedMaskFrame->getY() + mouseOffset.y);
-    }
-    
-    int smallestLegalWidth = selectedMaskFrame->getSmallestLegalWidth(selectedCorner);
-    int smallestLegalHeight = selectedMaskFrame->getSmallestLegalHeight(selectedCorner);
-    int newWidthClamped = clampInt(newWidth, smallestLegalWidth);
-    int newHeightClamped = clampInt(newHeight, smallestLegalHeight);
-    selectedMaskFrame->setSize(newWidthClamped, newHeightClamped, selectedCorner);
-}
-
-void ofxProjectionMapper::setMouseOffsetFromSelectedMaskFrame(){
-    TransformState transformState = selectedMaskFrame->getTransformState();
-    if(transformState == Translating){
-        setMouseOffsetFromTopLeftCorner();
-    }else if(transformState == Scaling){
-        setMouseOffsetFromSelectedCorner();
-    }else if(transformState == Masking){
-        setMouseOffsetFromSelectedMaskPoint();
-    }
-}
-
-void ofxProjectionMapper::setMouseOffsetFromSelectedMaskPoint(){
-    mouseOffset.x = mouse.x - selectedMaskFrame->getSelectedMaskPointX();
-    mouseOffset.y = mouse.y - selectedMaskFrame->getSelectedMaskPointY();
-}
-
-void ofxProjectionMapper::setMouseOffsetFromSelectedCorner(){
-    selectedCorner = selectedMaskFrame->highlightedCorner();
-    if(selectedCorner == TopLeft){
-        setMouseOffsetFromTopLeftCorner();
-    }else if(selectedCorner == TopRight){
-        setMouseOffsetFromTopRightCorner();
-    }else if(selectedCorner == BottomRight){
-        setMouseOffsetFromBottomRightCorner();
-    }else if(selectedCorner == BottomLeft){
-        setMouseOffsetFromBottomLeftCorner();
-    }
-}
-
-void ofxProjectionMapper::setMouseOffsetFromTopLeftCorner(){
-    mouseOffset.x = mouse.x - selectedMaskFrame->getX();
-    mouseOffset.y = mouse.y - selectedMaskFrame->getY();
-}
-
-void ofxProjectionMapper::setMouseOffsetFromTopRightCorner(){
-    mouseOffset.x = mouse.x - selectedMaskFrame->getX() - selectedMaskFrame->getWidth();
-    mouseOffset.y = mouse.y - selectedMaskFrame->getY();
-}
-
-void ofxProjectionMapper::setMouseOffsetFromBottomRightCorner(){
-    mouseOffset.x = mouse.x - selectedMaskFrame->getX() - selectedMaskFrame->getWidth();
-    mouseOffset.y = mouse.y - selectedMaskFrame->getY() - selectedMaskFrame->getHeight();
-}
-
-void ofxProjectionMapper::setMouseOffsetFromBottomLeftCorner(){
-    mouseOffset.x = mouse.x - selectedMaskFrame->getX();
-    mouseOffset.y = mouse.y - selectedMaskFrame->getY() - selectedMaskFrame->getHeight();
 }

@@ -6,6 +6,7 @@
 #include "Xml.h"
 #include "BufferPattern.h"
 #include "Presets.h"
+#include "Mouse.h"
 
 class ofxProjectionMapper{
 public:
@@ -29,9 +30,8 @@ protected:
     CanvasContents canvasContents;
     BufferPattern *pattern;
     
-    ofVec2f mouse, mouseOffset;
+    Mouse mouse;
     MaskFrame *selectedMaskFrame;
-    Corner selectedCorner;
     TextArea textArea;
     
     Xml xml;
@@ -53,15 +53,4 @@ protected:
     void drawBufferPreviews();
     
     bool isTransforming();
-    void scaleSelectedMaskFrame();
-    void scaleSelectedMaskFrame(int x, int y, int newWidth, int newHeight, int smallestLegalWidth, int smallestLegalHeight, bool floatX, bool floatY);
-    
-    void setMouseOffsetFromSelectedMaskFrame();
-    void setMouseOffsetFromSelectedMaskPoint();
-    void setMouseOffsetFromSelectedCorner();
-    
-    void setMouseOffsetFromTopLeftCorner();
-    void setMouseOffsetFromTopRightCorner();
-    void setMouseOffsetFromBottomRightCorner();
-    void setMouseOffsetFromBottomLeftCorner();
 };
