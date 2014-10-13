@@ -153,10 +153,6 @@ void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPl
     textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
 }
 
-Canvas *ofxProjectionMapper::getLiveCanvas(){
-    return &this->liveCanvas;
-}
-
 //Protected
 void ofxProjectionMapper::undo(){
     canvasContents.undo();

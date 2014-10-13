@@ -20,19 +20,21 @@ public:
     void mouseReleased();
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
-    Canvas *getLiveCanvas();
     
 protected:
     Presets presets;
     DisplayMode displayMode;
-    TextArea textArea;
+    
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
-    MaskFrame *selectedMaskFrame;
-    ofVec2f mouse, mouseOffset;
-    Corner selectedCorner;
-    Xml xml;
     BufferPattern *pattern;
+    
+    ofVec2f mouse, mouseOffset;
+    MaskFrame *selectedMaskFrame;
+    Corner selectedCorner;
+    TextArea textArea;
+    
+    Xml xml;
     
     void undo();
     void redo();
