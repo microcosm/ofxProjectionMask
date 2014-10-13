@@ -8,9 +8,14 @@ const string previewTagText = "Buffer preview";
 const int bufferStartFrameNum = 120;
 
 //Public
-void ofxProjectionMapper::setup(BufferPattern* _pattern){
-    
+void ofxProjectionMapper::setup(BufferPattern* _pattern, PresetMode _mode){
+    presets.setPresetMode(_mode);
     pattern = _pattern;
+    setup();
+}
+
+void ofxProjectionMapper::setup(){
+    
     displayMode = Design;
     
     ofSetHexColor(0xFFFFFF);

@@ -1,17 +1,14 @@
 #pragma once
 
-enum PresetMode { Development, Production };
+enum PresetMode { PRESETS_DEVELOPMENT, PRESETS_PRODUCTION };
 
 class Presets{
 public:
     Presets(){
-        /* Switch preset mode here */
-        
-        //mode = Development;
-        mode = Production;
-        
-        load();
+        setPresetMode(PRESETS_DEVELOPMENT);
     }
+    
+    void setPresetMode(PresetMode _mode);
     
     int windowWidth;
     int windowHeight;

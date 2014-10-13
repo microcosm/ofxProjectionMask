@@ -110,9 +110,14 @@ const int productionNewMaskFrameHeight = 300;
 
 const bool productionStartFullscreen = true;
 
+void Presets::setPresetMode(PresetMode _mode){
+    mode = _mode;
+    load();
+}
+
 void Presets::load() {
     
-    if(mode == Development) {
+    if(mode == PRESETS_DEVELOPMENT) {
         
         windowWidth = developmentWindowWidth;
         windowHeight = developmentWindowHeight;
@@ -157,7 +162,7 @@ void Presets::load() {
         
         startFullscreen = developmentStartFullscreen;
         
-    } else if(mode == Production) {
+    } else if(mode == PRESETS_PRODUCTION) {
         
         windowWidth = productionWindowWidth;
         windowHeight = productionWindowHeight;

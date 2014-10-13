@@ -34,8 +34,10 @@ void ofApp::setup(){
     pattern.setup();
     
     //Then we assign the pattern to the mapper, which displays
-    //canvas and drawing tools and renders the buffers
-    mapper.setup((BufferPattern*)&pattern);
+    //canvas and drawing tools, and renders the buffers. Use
+    //PRESETS_PRODUCTION when you are setting up for real with
+    //a projector.
+    mapper.setup((BufferPattern*)&pattern, PRESETS_DEVELOPMENT);
 }
 
 void ofApp::update(){
