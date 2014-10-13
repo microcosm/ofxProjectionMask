@@ -63,7 +63,7 @@ void ofxProjectionMapper::update(int mouseX, int mouseY){
 
 void ofxProjectionMapper::draw(){
     
-    //drawBufferPreviews();
+    drawBufferPreviews();
     
     ofPushMatrix();
     ofTranslate(designCanvas.getX(), designCanvas.getY());

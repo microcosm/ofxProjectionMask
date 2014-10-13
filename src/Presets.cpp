@@ -14,8 +14,8 @@
    -----------------------------------
    Late 2011 MacBook Pro (1680 x 1050px)
 */
-const int developmentWindowWidth = 1600;
-const int developmentWindowHeight = 792;
+const int developmentWindowWidth = 800;
+const int developmentWindowHeight = 400;
 
 const int developmentNumGridLinesX = 14;
 const int developmentNumGridLinesY = 10;
@@ -25,13 +25,13 @@ const int developmentDesignCanvasY = 10;
 const int developmentDesignCanvasWidth = 320;
 const int developmentDesignCanvasHeight = 240;
 
-const int developmentLiveCanvasX = 340;
-const int developmentLiveCanvasY = 6;
-const int developmentLiveCanvasWidth = 1024;
-const int developmentLiveCanvasHeight = 768;
+const int developmentLiveCanvasX = 342;
+const int developmentLiveCanvasY = 10;
+const int developmentLiveCanvasWidth = 668;
+const int developmentLiveCanvasHeight = 480;
 
-const int developmentBufferPreviewX = 1375;
-const int developmentBufferPreviewY = 10;
+const int developmentBufferPreviewX = 342;
+const int developmentBufferPreviewY = 505;
 const int developmentBufferPreviewWidth = 100;
 const int developmentBufferPreviewHeight = 100;
 const int developmentBufferMargin = 16;
@@ -76,7 +76,7 @@ const int productionNumGridLinesY = 46;
 const int productionDesignCanvasX = 10;
 const int productionDesignCanvasY = 10;
 const int productionDesignCanvasWidth = 1004;
-const int productionDesignCanvasHeight = 748;
+const int productionDesignCanvasHeight = 710;
 
 const int productionLiveCanvasX = 1440;
 const int productionLiveCanvasY = 0;
@@ -84,7 +84,7 @@ const int productionLiveCanvasWidth = 2560;
 const int productionLiveCanvasHeight = 1600;
 
 const int productionBufferPreviewX = 10;
-const int productionBufferPreviewY = 770;
+const int productionBufferPreviewY = 730;
 const int productionBufferPreviewWidth = 150;
 const int productionBufferPreviewHeight = 150;
 const int productionBufferMargin = 16;
