@@ -22,21 +22,11 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-		
-    ofxProjectionMask designer;
-    
-    /* You can only have one 'pattern' at a time, but the pattern
-       can have multiple FBOs. Uncomment these one at a time to
-       get an example, and use these classes as templates for your
-       own patterns: */
-    
-    /* Cycle through colors, good test pattern */
-    HueCyclePattern pattern;
-    
-    /* Just plain white, good for checking the edges of your shapes */
-    //SetupPattern pattern;
-    
-    /* Shows how you can use arguments, and multiple FBOs */
-    //Don't forget to send in the arguments as described in ofApp.cpp
-    //ArgumentPattern pattern;
+	
+    ofxProjectionMask designer; //essentially, the UI
+
+    //Uncomment these one at a time to try them:
+    HueCyclePattern pattern; //cycle rainbow colors - default
+    //SetupPattern pattern;  //plain white
+    //ArgumentPattern pattern; //control the pattern with args, plus multiple buffers
 };
