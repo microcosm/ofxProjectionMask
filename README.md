@@ -25,3 +25,7 @@ Project dependencies
 - [ofxTriangle](https://github.com/obviousjim/ofxTriangle) to build renderable triangles out of the points in your mask
 - [ofxXmlSettings](http://www.openframeworks.cc/documentation/ofxXmlSettings/ofxXmlSettings.html) to store masks as you draw them - it's part of the openFrameworks core
 - Tested against [openFrameworks 0.8.4](http://openframeworks.cc/download/)
+
+With thanks
+-----------
+This codebase was created with support from [I-Park Foundation](http://www.i-park.org/) and the [Contemporary Artist Center](http://www.cactroy.org/).
