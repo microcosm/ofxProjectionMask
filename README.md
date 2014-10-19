@@ -8,6 +8,12 @@ Unlike projection mapping, this is not about creating the illusion that a light 
 
 In other words, this addon separates out the masking from the mapping, and only does the former without doing the latter. You can of course, still pre-transform your patterns in code if you want to achieve traditional projection mapping.
 
+Why?
+----
+Sometimes you don't want to map, you just want to mask. Sometimes you want the light to 'drape' over an object at it's original rendered resolution. Sometimes you want to transform the media in a way unrelated to it's masking. This addon is for those occasions.
+
+Also, there is a difference in emphasis here. This isn't about 'creating an illusion', this is about experimenting with projected media in the form of light. From this perspective, things don't have to match up in the way we expect them to in the real world - in fact it's better if they don't.
+
 How does it work?
 -----------------
 There is a design UI allowing you to slice out a shape with your mouse, representing some physical object within view of your projector. At the same time you can draw() anything you like into a pattern class that you will create, based on a template included in the addon.
