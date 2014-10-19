@@ -12,6 +12,8 @@ Why?
 ----
 Sometimes you don't want to map, you just want to mask. Sometimes you want the light to 'drape' over an object at it's original rendered resolution. Sometimes you want to transform the media in a way unrelated to it's masking. This addon is for those occasions.
 
+[![See a demo of the addon over rocks](/vimeo.png)](https://vimeo.com/109387735)
+
 Also, there is a difference in emphasis here. This isn't about 'creating an illusion', this is about experimenting with projected media in the form of light. From this perspective, things don't have to match up in the way we expect them to in the real world - in fact it's better if they don't.
 
 How does it work?
