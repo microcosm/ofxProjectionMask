@@ -240,16 +240,10 @@ void ofxProjectionMask::drawBufferPreviews(){
     
     for(int i = 0; i < buffers->size(); i++){
         ofTranslate(x, y);
-        if(i > 0 && i % presets.stackAfter == 0){
-            ofPopMatrix();
-            ofPushMatrix();
-            count++;
-            ofTranslate(presets.bufferPreviewX + ((presets.bufferPreviewWidth + presets.bufferMargin) * count), presets.bufferPreviewY);
-        }
-        y = presets.bufferPreviewHeight + (presets.bufferMargin * 2);
         buffers->at(i).draw(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         ofRect(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         ofDrawBitmapString("Buffer " + ofToString(i + 1), 0, presets.bufferPreviewHeight + presets.bufferMargin);
+        x = presets.bufferPreviewWidth + presets.bufferMargin;
     }
     
     ofPopMatrix();

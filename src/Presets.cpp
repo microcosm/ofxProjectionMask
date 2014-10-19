@@ -1,18 +1,20 @@
 #include "Presets.h"
 
-/* Edit your presets here
-   ======================
-   This file is full of presets, to help you easily switch between when
-   you are developing your patterns and when you want to display live
-   on a projector.
+/*
+  Edit your presets here
+  ======================
+  This file is full of presets to help you easily switch between when
+  you are developing your patterns and when you want to display live
+  on a projector.
 
-   Go to Presets.h to switch between Development and Production modes.
+  For fuller instructions on dualscreen/fullscreen setup, check out
+  ofApp.cpp in the example project.
 
-   Development mode presets
-   ========================
-   Usually a single screen, in my case:
-   -----------------------------------
-   Late 2011 MacBook Pro (1680 x 1050px)
+  Development mode presets
+  ========================
+  Usually a single screen, in my case:
+  -----------------------------------
+  Late 2011 MacBook Pro (1680 x 1050px)
 */
 const int developmentWindowWidth = 800;
 const int developmentWindowHeight = 400;
@@ -37,7 +39,6 @@ const int developmentBufferPreviewY = 224;
 const int developmentBufferPreviewWidth = 80;
 const int developmentBufferPreviewHeight = 80;
 const int developmentBufferMargin = 16;
-const int developmentStackAfter = 50;
 
 const int developmentNumberBoxWidth = 100;
 const int developmentNumberBoxHeight = 20;
@@ -59,14 +60,15 @@ const int developmentNewMaskFrameHeight = 100;
 
 const bool developmentStartFullscreen = false;
 
-/* Production mode presets
-   =======================
-   Usually a laptop and a projector. These presets are for top-aligned
-   monitors:
-   ---------------------------------             +-----+-------+
-   Left:     Retina MacBook Pro (1440 x 900px)   |  L  |   R   |
-   Right:    Monoprice          (2560 x 1600px)  +-----|       |
-   Combined: (4000 x 1600px)                           +-------+
+/*
+  Production mode presets
+  =======================
+  Usually a laptop and a projector. These presets are for top-aligned
+  monitors:
+  ---------------------------------             +-----+-------+
+  Left:     Retina MacBook Pro (1440 x 900px)   |  L  |   R   |
+  Right:    Monoprice          (2560 x 1600px)  +-----|       |
+  Combined: (4000 x 1600px)                           +-------+
 */
 
 const int productionWindowWidth = 4000;
@@ -92,7 +94,6 @@ const int productionBufferPreviewY = 730;
 const int productionBufferPreviewWidth = 150;
 const int productionBufferPreviewHeight = 150;
 const int productionBufferMargin = 16;
-const int productionStackAfter = 1;
 
 const int productionNumberBoxWidth = 290;
 const int productionNumberBoxHeight = 48;
@@ -158,7 +159,6 @@ void Presets::load() {
         bufferPreviewWidth = developmentBufferPreviewWidth;
         bufferPreviewHeight = developmentBufferPreviewHeight;
         bufferMargin = developmentBufferMargin;
-        stackAfter = developmentStackAfter;
         
         numberBoxWidth = developmentNumberBoxWidth;
         numberBoxHeight = developmentNumberBoxHeight;
@@ -205,7 +205,6 @@ void Presets::load() {
         bufferPreviewWidth = productionBufferPreviewWidth;
         bufferPreviewHeight = productionBufferPreviewHeight;
         bufferMargin = productionBufferMargin;
-        stackAfter = productionStackAfter;
         
         numberBoxWidth = productionNumberBoxWidth;
         numberBoxHeight = productionNumberBoxHeight;

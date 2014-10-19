@@ -35,7 +35,6 @@ public:
     int bufferPreviewWidth;
     int bufferPreviewHeight;
     int bufferMargin;
-    int stackAfter;
     
     int numberBoxWidth;
     int numberBoxHeight;
