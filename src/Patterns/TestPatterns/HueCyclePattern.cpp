@@ -18,19 +18,16 @@ void HueCyclePattern::update(){
     
     bool colorToggle = false;
     
-    if(currentHue > 253){
-        currentHue = 0;
-    }else{
-        if(ofGetFrameNum() % 6 == 0){
-            currentHue++;
+    if(ofGetFrameNum() % 6 == 0){
+        currentHue++;
+        if(currentHue == 256){
+            currentHue = 0;
         }
     }
     
     for(int i = 0; i < numBuffers; i++){
         
         buffers[i].begin();
-        glClearColor(0, 0, 0, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         ofSetColor(ofColor::fromHsb(currentHue, 255, 255));
         ofFill();
