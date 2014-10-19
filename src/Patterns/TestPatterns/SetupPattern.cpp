@@ -2,9 +2,6 @@
 
 const int numberOfBuffers = 1;
 
-const int playback1Channel = 1;
-const int playback2Channel = 2;
-
 void SetupPattern::setup(){
     
     numBuffers = numberOfBuffers;
