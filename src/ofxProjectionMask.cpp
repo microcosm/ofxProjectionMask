@@ -1,20 +1,20 @@
-#include "ofxProjectionMapper.h"
+#include "ofxProjectionMask.h"
 
 const int bufferStartFrameNum = 120;
 
 //Public
-void ofxProjectionMapper::setup(BufferPattern* _pattern, PresetMode _mode){
+void ofxProjectionMask::setup(BufferPattern* _pattern, PresetMode _mode){
     presets.setMode(_mode);
     pattern = _pattern;
     setup();
 }
 
-void ofxProjectionMapper::setup(BufferPattern* _pattern){
+void ofxProjectionMask::setup(BufferPattern* _pattern){
     pattern = _pattern;
     setup();
 }
 
-void ofxProjectionMapper::setup(){
+void ofxProjectionMask::setup(){
     
     displayMode = Design;
     
@@ -47,7 +47,7 @@ void ofxProjectionMapper::setup(){
     mouse.setup(&designCanvas);
 }
 
-void ofxProjectionMapper::update(int mouseX, int mouseY){
+void ofxProjectionMask::update(int mouseX, int mouseY){
     
     mouse.set(mouseX, mouseY);
     
@@ -59,7 +59,7 @@ void ofxProjectionMapper::update(int mouseX, int mouseY){
     textArea.setPresetMode(presets.getMode());
 }
 
-void ofxProjectionMapper::draw(){
+void ofxProjectionMask::draw(){
     
     drawBufferPreviews();
     
@@ -88,7 +88,7 @@ void ofxProjectionMapper::draw(){
     drawLiveCursor();
 }
 
-void ofxProjectionMapper::keyReleased(int key){
+void ofxProjectionMask::keyReleased(int key){
     if(key == 'f' || key == 'F'){
         createNewMaskFrame();
         xml.autoSave();
@@ -130,7 +130,7 @@ void ofxProjectionMapper::keyReleased(int key){
     }
 }
 
-void ofxProjectionMapper::mouseDragged(){
+void ofxProjectionMask::mouseDragged(){
     if(selectedMaskFrame != 0){
         TransformState state = selectedMaskFrame->getTransformState();
         
@@ -153,42 +153,42 @@ void ofxProjectionMapper::mouseDragged(){
     }
 }
 
-void ofxProjectionMapper::mousePressed(){
+void ofxProjectionMask::mousePressed(){
     selectedMaskFrame = canvasContents.beginTransform();
     if(selectedMaskFrame != 0){
         mouse.setSelection(selectedMaskFrame);
     }
 }
 
-void ofxProjectionMapper::mouseReleased(){
+void ofxProjectionMask::mouseReleased(){
     selectedMaskFrame = 0;
     canvasContents.endTransform();
     xml.autoSave();
 }
 
-void ofxProjectionMapper::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
+void ofxProjectionMask::setVolumes(float *playbackVolume, vector<float> *nonPlaybackVolumes){
     textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
 }
 
 //Protected
-void ofxProjectionMapper::undo(){
+void ofxProjectionMask::undo(){
     canvasContents.undo();
 }
 
-void ofxProjectionMapper::redo(){
+void ofxProjectionMask::redo(){
     canvasContents.redo();
 }
 
-void ofxProjectionMapper::nudge(Direction direction){
+void ofxProjectionMask::nudge(Direction direction){
     canvasContents.nudge(direction);
 }
 
-void ofxProjectionMapper::toggleFrameNudge(){
+void ofxProjectionMask::toggleFrameNudge(){
     canvasContents.toggleFrameNudge();
     textArea.setFrameNudgeEnabled(canvasContents.getFrameNudgeEnabled());
 }
 
-void ofxProjectionMapper::createNewMaskFrame(){
+void ofxProjectionMask::createNewMaskFrame(){
     MaskFrame maskFrame;
     maskFrame.assignCanvases(designCanvas, liveCanvas);
     maskFrame.setBuffers(pattern->getBuffers());
@@ -197,15 +197,15 @@ void ofxProjectionMapper::createNewMaskFrame(){
     canvasContents.add(&maskFrame);
 }
 
-void ofxProjectionMapper::createNewMaskPoint(){
+void ofxProjectionMask::createNewMaskPoint(){
     canvasContents.createMaskPointAt(mouse.x, mouse.y);
 }
 
-void ofxProjectionMapper::deleteHighlightedItem(){
+void ofxProjectionMask::deleteHighlightedItem(){
     canvasContents.erase();
 }
 
-void ofxProjectionMapper::cycleMode(){
+void ofxProjectionMask::cycleMode(){
     if(displayMode == Design){
         displayMode = HalfLive;
     }else if(displayMode == HalfLive){
@@ -215,12 +215,12 @@ void ofxProjectionMapper::cycleMode(){
     }
 }
 
-bool ofxProjectionMapper::mouseIsOverDesignCanvas(){
+bool ofxProjectionMask::mouseIsOverDesignCanvas(){
     return mouse.x > this->designCanvas.getX() && mouse.x < (this->designCanvas.getX() + this->designCanvas.getWidth())
     && mouse.y > this->designCanvas.getY() && mouse.y < (this->designCanvas.getY() + this->designCanvas.getHeight());
 }
 
-void ofxProjectionMapper::drawLiveCursor(){
+void ofxProjectionMask::drawLiveCursor(){
     if(mouseIsOverDesignCanvas() && displayMode != Live){
         int liveMouseX = ofMap(mouse.x, designCanvas.getX(), designCanvas.getX() + designCanvas.getWidth(), liveCanvas.getX(), liveCanvas.getX() + liveCanvas.getWidth());
         int liveMouseY = ofMap(mouse.y, designCanvas.getY(), designCanvas.getY() + designCanvas.getHeight(), liveCanvas.getY(), liveCanvas.getY() + liveCanvas.getHeight());
@@ -230,7 +230,7 @@ void ofxProjectionMapper::drawLiveCursor(){
     }
 }
 
-void ofxProjectionMapper::drawBufferPreviews(){
+void ofxProjectionMask::drawBufferPreviews(){
     ofPushMatrix();
     ofTranslate(presets.bufferPreviewX, presets.bufferPreviewY);
     
@@ -259,6 +259,6 @@ void ofxProjectionMapper::drawBufferPreviews(){
     ofPopMatrix();
 }
 
-bool ofxProjectionMapper::isTransforming(){
+bool ofxProjectionMask::isTransforming(){
     return selectedMaskFrame != 0 && selectedMaskFrame->getTransformState() != NoTransform;
 }

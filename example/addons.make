@@ -1,1 +1,1 @@
-ofxProjectionMapper
+ofxProjectionMask

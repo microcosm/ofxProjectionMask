@@ -1,7 +1,7 @@
 #include "ofApp.h"
 
 //To use this addon, we need to work with pattern objects and
-//the ofxProjectionMapper. You can write as many patterns as
+//the ofxProjectionMask. You can write as many patterns as
 //you like. Just put them in a folder in your src directory
 //and name them in the convention MyCrazyPattern, and have
 //them inherit from the base class 'BufferPattern'.
@@ -33,13 +33,13 @@ void ofApp::setup(){
     //First, we set up our pattern, which sets up its buffer(s)
     pattern.setup();
     
-    //Then we assign the pattern to the mapper, which displays
+    //Then we assign the pattern to the designer, which displays
     //canvas and drawing tools, and renders the buffers.
-    mapper.setup((BufferPattern*)&pattern);
+    designer.setup((BufferPattern*)&pattern);
     
     //Switch out to this line when you are ready to run this for
     //real with a secopnd screen / live projector setup
-    //mapper.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION);
+    //designer.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION);
 }
 
 void ofApp::update(){
@@ -51,11 +51,11 @@ void ofApp::update(){
     //pattern.mapToColors(mouseX, mouseY);
     pattern.update();
     
-    mapper.update(mouseX, mouseY);
+    designer.update(mouseX, mouseY);
 }
 
 void ofApp::draw(){
-    mapper.draw();
+    designer.draw();
 }
 
 void ofApp::keyPressed(int key){
@@ -63,7 +63,7 @@ void ofApp::keyPressed(int key){
 }
 
 void ofApp::keyReleased(int key){
-    mapper.keyReleased(key);
+    designer.keyReleased(key);
 }
 
 void ofApp::mouseMoved(int x, int y){
@@ -71,15 +71,15 @@ void ofApp::mouseMoved(int x, int y){
 }
 
 void ofApp::mouseDragged(int x, int y, int button){
-    mapper.mouseDragged();
+    designer.mouseDragged();
 }
 
 void ofApp::mousePressed(int x, int y, int button){
-    mapper.mousePressed();
+    designer.mousePressed();
 }
 
 void ofApp::mouseReleased(int x, int y, int button){
-    mapper.mouseReleased();
+    designer.mouseReleased();
 }
 
 void ofApp::windowResized(int w, int h){

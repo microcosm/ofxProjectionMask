@@ -24,7 +24,7 @@
 		B470214719EB60FB00C1227C /* MaskPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212D19EB60FB00C1227C /* MaskPoint.cpp */; };
 		B470214819EB60FB00C1227C /* PointObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212F19EB60FB00C1227C /* PointObject.cpp */; };
 		B470214919EB60FB00C1227C /* ofExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213119EB60FB00C1227C /* ofExtensions.cpp */; };
-		B470214A19EB60FB00C1227C /* ofxProjectionMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213319EB60FB00C1227C /* ofxProjectionMapper.cpp */; };
+		B470214A19EB60FB00C1227C /* ofxProjectionMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213319EB60FB00C1227C /* ofxProjectionMask.cpp */; };
 		B470214B19EB60FB00C1227C /* BufferPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213619EB60FB00C1227C /* BufferPattern.cpp */; };
 		B470214C19EB60FB00C1227C /* HueCyclePattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213919EB60FB00C1227C /* HueCyclePattern.cpp */; };
 		B470214D19EB60FB00C1227C /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213B19EB60FB00C1227C /* Presets.cpp */; };
@@ -118,8 +118,8 @@
 		B470213019EB60FB00C1227C /* PointObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointObject.h; sourceTree = "<group>"; };
 		B470213119EB60FB00C1227C /* ofExtensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofExtensions.cpp; sourceTree = "<group>"; };
 		B470213219EB60FB00C1227C /* ofExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
-		B470213319EB60FB00C1227C /* ofxProjectionMapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProjectionMapper.cpp; sourceTree = "<group>"; };
-		B470213419EB60FB00C1227C /* ofxProjectionMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxProjectionMapper.h; sourceTree = "<group>"; };
+		B470213319EB60FB00C1227C /* ofxProjectionMask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProjectionMask.cpp; sourceTree = "<group>"; };
+		B470213419EB60FB00C1227C /* ofxProjectionMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxProjectionMask.h; sourceTree = "<group>"; };
 		B470213619EB60FB00C1227C /* BufferPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BufferPattern.cpp; sourceTree = "<group>"; };
 		B470213719EB60FB00C1227C /* BufferPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferPattern.h; sourceTree = "<group>"; };
 		B470213919EB60FB00C1227C /* HueCyclePattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HueCyclePattern.cpp; sourceTree = "<group>"; };
@@ -273,12 +273,12 @@
 			path = ../../ofxXmlSettings/libs;
 			sourceTree = "<group>";
 		};
-		B470211919EB60FB00C1227C /* ofxProjectionMapper */ = {
+		B470211919EB60FB00C1227C /* ofxProjectionMask */ = {
 			isa = PBXGroup;
 			children = (
 				B470211A19EB60FB00C1227C /* src */,
 			);
-			name = ofxProjectionMapper;
+			name = ofxProjectionMask;
 			sourceTree = "<group>";
 		};
 		B470211A19EB60FB00C1227C /* src */ = {
@@ -287,8 +287,8 @@
 				B470211B19EB60FB00C1227C /* Drawing */,
 				B470213119EB60FB00C1227C /* ofExtensions.cpp */,
 				B470213219EB60FB00C1227C /* ofExtensions.h */,
-				B470213319EB60FB00C1227C /* ofxProjectionMapper.cpp */,
-				B470213419EB60FB00C1227C /* ofxProjectionMapper.h */,
+				B470213319EB60FB00C1227C /* ofxProjectionMask.cpp */,
+				B470213419EB60FB00C1227C /* ofxProjectionMask.h */,
 				B470213519EB60FB00C1227C /* Patterns */,
 				B470213B19EB60FB00C1227C /* Presets.cpp */,
 				B470213C19EB60FB00C1227C /* Presets.h */,
@@ -382,7 +382,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				B470211919EB60FB00C1227C /* ofxProjectionMapper */,
+				B470211919EB60FB00C1227C /* ofxProjectionMask */,
 				84137DDE19E9D2D60035A71B /* ofxXmlSettings */,
 				84137DCC19E9D2A60035A71B /* ofxTriangle */,
 			);
@@ -565,7 +565,7 @@
 				B470214219EB60FB00C1227C /* TextArea.cpp in Sources */,
 				B470214B19EB60FB00C1227C /* BufferPattern.cpp in Sources */,
 				B470214E19EB60FB00C1227C /* Xml.cpp in Sources */,
-				B470214A19EB60FB00C1227C /* ofxProjectionMapper.cpp in Sources */,
+				B470214A19EB60FB00C1227C /* ofxProjectionMask.cpp in Sources */,
 				B470214319EB60FB00C1227C /* CanvasContents.cpp in Sources */,
 				B470214519EB60FB00C1227C /* Mouse.cpp in Sources */,
 				84137DDC19E9D2A60035A71B /* assert.cpp in Sources */,
@@ -616,8 +616,8 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
-					../../../addons/ofxProjectionMapper/libs,
-					../../../addons/ofxProjectionMapper/src,
+					../../../addons/ofxProjectionMask/libs,
+					../../../addons/ofxProjectionMask/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -652,8 +652,8 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
-					../../../addons/ofxProjectionMapper/libs,
-					../../../addons/ofxProjectionMapper/src,
+					../../../addons/ofxProjectionMask/libs,
+					../../../addons/ofxProjectionMask/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (

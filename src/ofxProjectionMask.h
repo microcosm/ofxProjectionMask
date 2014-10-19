@@ -8,7 +8,7 @@
 #include "Presets.h"
 #include "Mouse.h"
 
-class ofxProjectionMapper{
+class ofxProjectionMask{
 public:
     
     void setup(BufferPattern* pattern, PresetMode _mode);

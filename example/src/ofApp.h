@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxProjectionMapper.h"
+#include "ofxProjectionMask.h"
 #include "HueCyclePattern.h"
 #include "SetupPattern.h"
 #include "ArgumentPattern.h"
@@ -23,7 +23,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 		
-    ofxProjectionMapper mapper;
+    ofxProjectionMask designer;
     
     /* You can only have one 'pattern' at a time, but the pattern
        can have multiple FBOs. Uncomment these one at a time to
