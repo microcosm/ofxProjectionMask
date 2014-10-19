@@ -1,7 +1,5 @@
 #include "ofxProjectionMask.h"
 
-const int bufferStartFrameNum = 120;
-
 //Public
 void ofxProjectionMask::setup(BufferPattern* _pattern, PresetMode _mode){
     presets.setMode(_mode);
@@ -249,9 +247,7 @@ void ofxProjectionMask::drawBufferPreviews(){
             ofTranslate(presets.bufferPreviewX + ((presets.bufferPreviewWidth + presets.bufferMargin) * count), presets.bufferPreviewY);
         }
         y = presets.bufferPreviewHeight + (presets.bufferMargin * 2);
-        if(ofGetFrameNum() > bufferStartFrameNum){
-            buffers->at(i).draw(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
-        }
+        buffers->at(i).draw(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         ofRect(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         ofDrawBitmapString("Buffer " + ofToString(i + 1), 0, presets.bufferPreviewHeight + presets.bufferMargin);
     }
