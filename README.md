@@ -1,6 +1,6 @@
 ofxProjectionMask
 =================
-ofxProjectionMask is an addon which allows you to mask out areas of the real world onto which to project any light pattern you like.
+ofxProjectionMask is an addon allowing you to mask projected light over real-world objects, from anything you draw in [openFrameworks](http://openframeworks.cc/).
 
 ![A screenshot of the mask designer UI](screenshot.png)
 
