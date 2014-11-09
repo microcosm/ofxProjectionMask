@@ -65,7 +65,7 @@ void ofApp::setup(){
     //Then we assign the pattern to the designer, which displays
     //canvas and drawing tools, and renders the buffers.
     designer.setup((BufferPattern*)&pattern);
-    //mapper.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION); //explained below
+    //designer.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION); //explained below
 }
 
 void ofApp::update(){
