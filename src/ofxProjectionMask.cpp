@@ -13,7 +13,6 @@ void ofxProjectionMask::setup(BufferPattern* _pattern){
 }
 
 void ofxProjectionMask::setup(){
-    
     displayMode = Design;
     
     ofSetHexColor(0xFFFFFF);
@@ -22,6 +21,17 @@ void ofxProjectionMask::setup(){
     ofSetWindowShape(presets.soloWindowWidth, presets.soloWindowHeight);
     ofEnableAlphaBlending();
     
+    layout();
+    secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
+    
+    selectedMaskFrame = 0;
+    
+    xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
+    xml.load();
+    mouse.setup(&designCanvas);
+}
+
+void ofxProjectionMask::layout() {
     designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
     designCanvas.setSize(presets.designCanvasWidth, presets.designCanvasHeight);
     designCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
@@ -38,13 +48,6 @@ void ofxProjectionMask::setup(){
     textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
     
     ofSetFullscreen(presets.startFullscreen);
-    secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
-    
-    selectedMaskFrame = 0;
-    
-    xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
-    xml.load();
-    mouse.setup(&designCanvas);
 }
 
 void ofxProjectionMask::update(int mouseX, int mouseY){
@@ -104,7 +107,7 @@ void ofxProjectionMask::keyReleased(int key){
         xml.autoSave();
     }else if(key == 'o' || key == 'O'){
         presets.cycleMode();
-        setup();
+        layout();
     }else if (key == ' '){
         ofToggleFullscreen();
     }else if(key == 'u' || key == 'U'){
