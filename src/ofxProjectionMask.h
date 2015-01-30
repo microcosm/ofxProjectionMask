@@ -1,5 +1,6 @@
 #pragma once
 #include "ofMain.h"
+#include "ofxSecondWindow.h"
 #include "CanvasContents.h"
 #include "MaskFrame.h"
 #include "TextArea.h"
@@ -28,6 +29,7 @@ protected:
     Presets presets;
     DisplayMode displayMode;
     
+    ofxSecondWindow secondWindow;
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
     BufferPattern *pattern;

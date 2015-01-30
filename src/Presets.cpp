@@ -15,9 +15,9 @@
   Usually a single screen, in my case:
   -----------------------------------
   Late 2011 MacBook Pro (1680 x 1050px)
-*/
-const int developmentWindowWidth = 800;
-const int developmentWindowHeight = 400;
+ */
+const int developmentSoloWindowWidth = 800;
+const int developmentSoloWindowHeight = 400;
 
 const int developmentNumGridLinesX = 14;
 const int developmentNumGridLinesY = 10;
@@ -65,14 +65,17 @@ const bool developmentStartFullscreen = false;
   =======================
   Usually a laptop and a projector. These presets are for top-aligned
   monitors:
-  ---------------------------------             +-----+-------+
-  Left:     Retina MacBook Pro (1440 x 900px)   |  L  |   R   |
-  Right:    Monoprice          (2560 x 1600px)  +-----|       |
-  Combined: (4000 x 1600px)                           +-------+
+  ---------------------------------           +-----+-------+
+  Left:     2011 MacBook Pro (1680 x 1050px)  |  L  |   R   |
+  Right:    Monoprice        (2560 x 1600px)  +-----|       |
+                                                    +-------+
 */
 
-const int productionWindowWidth = 4000;
-const int productionWindowHeight = 1600;
+const char* productionSecondWindowName = "openFrameworks Window 2";
+const int productionSecondWindowX = 1680;
+const int productionSecondWindowY = 0;
+const int productionSecondWindowWidth = 2560;
+const int productionSecondWindowHeight = 1600;
 
 const int productionNumGridLinesX = 60;
 const int productionNumGridLinesY = 46;
@@ -84,10 +87,10 @@ const int productionDesignCanvasHeight = 710;
 const int productionDesignCanvasLabelX = -1000;
 const int productionDesignCanvasLabelY = -1000;
 
-const int productionLiveCanvasX = 1440;
+const int productionLiveCanvasX = 0;
 const int productionLiveCanvasY = 0;
-const int productionLiveCanvasWidth = 2560;
-const int productionLiveCanvasHeight = 1600;
+const int productionLiveCanvasWidth = productionSecondWindowWidth;
+const int productionLiveCanvasHeight = productionSecondWindowHeight;
 
 const int productionBufferPreviewX = 10;
 const int productionBufferPreviewY = 730;
@@ -132,98 +135,117 @@ void Presets::cycleMode(){
     }
 }
 
+bool Presets::isDevelopmentMode(){
+    return mode == PRESETS_DEVELOPMENT;
+}
+
+bool Presets::isProductionMode(){
+    return mode == PRESETS_PRODUCTION;
+}
+
 void Presets::load() {
+    loadContextIndependantValues();
     
     if(mode == PRESETS_DEVELOPMENT) {
-        
-        windowWidth = developmentWindowWidth;
-        windowHeight = developmentWindowHeight;
-        
-        numGridLinesX = developmentNumGridLinesX;
-        numGridLinesY = developmentNumGridLinesY;
-        
-        designCanvasX = developmentDesignCanvasX;
-        designCanvasY = developmentDesignCanvasY;
-        designCanvasWidth = developmentDesignCanvasWidth;
-        designCanvasHeight = developmentDesignCanvasHeight;
-        designCanvasLabelX = developmentDesignCanvasLabelX;
-        designCanvasLabelY = developmentDesignCanvasLabelY;
-        
-        liveCanvasX = developmentLiveCanvasX;
-        liveCanvasY = developmentLiveCanvasY;
-        liveCanvasWidth = developmentLiveCanvasWidth;
-        liveCanvasHeight = developmentLiveCanvasHeight;
-        
-        bufferPreviewX = developmentBufferPreviewX;
-        bufferPreviewY = developmentBufferPreviewY;
-        bufferPreviewWidth = developmentBufferPreviewWidth;
-        bufferPreviewHeight = developmentBufferPreviewHeight;
-        bufferMargin = developmentBufferMargin;
-        
-        numberBoxWidth = developmentNumberBoxWidth;
-        numberBoxHeight = developmentNumberBoxHeight;
-        
-        instructionsX = developmentInstructionsX;
-        instructionsY = developmentInstructionsY;
-        playbackVolumeX = developmentPlaybackVolumeX;
-        playbackVolumeY = developmentPlaybackVolumeY;
-        nonPlaybackVolumeX = developmentNonPlaybackVolumeX;
-        nonPlaybackVolumeY = developmentNonPlaybackVolumeY;
-        
-        numberTagMargin = developmentNumberTagMargin;
-        numberBoxMargin = developmentNumberBoxMargin;
-        numberTagOffsetX = developmentNumberTagOffsetX;
-        numberTagOffsetY = developmentNumberTagOffsetY;
-        
-        newMaskFrameWidth = developmentNewMaskFrameWidth;
-        newMaskFrameHeight = developmentNewMaskFrameHeight;
-        
-        startFullscreen = developmentStartFullscreen;
-        
+        loadDevelopmentValues();
     } else if(mode == PRESETS_PRODUCTION) {
-        
-        windowWidth = productionWindowWidth;
-        windowHeight = productionWindowHeight;
-        
-        numGridLinesX = productionNumGridLinesX;
-        numGridLinesY = productionNumGridLinesY;
-        
-        designCanvasX = productionDesignCanvasX;
-        designCanvasY = productionDesignCanvasY;
-        designCanvasWidth = productionDesignCanvasWidth;
-        designCanvasHeight = productionDesignCanvasHeight;
-        designCanvasLabelX = productionDesignCanvasLabelX;
-        designCanvasLabelY = productionDesignCanvasLabelY;
-        
-        liveCanvasX = productionLiveCanvasX;
-        liveCanvasY = productionLiveCanvasY;
-        liveCanvasWidth = productionLiveCanvasWidth;
-        liveCanvasHeight = productionLiveCanvasHeight;
-        
-        bufferPreviewX = productionBufferPreviewX;
-        bufferPreviewY = productionBufferPreviewY;
-        bufferPreviewWidth = productionBufferPreviewWidth;
-        bufferPreviewHeight = productionBufferPreviewHeight;
-        bufferMargin = productionBufferMargin;
-        
-        numberBoxWidth = productionNumberBoxWidth;
-        numberBoxHeight = productionNumberBoxHeight;
-        
-        instructionsX = productionInstructionsX;
-        instructionsY = productionInstructionsY;
-        playbackVolumeX = productionPlaybackVolumeX;
-        playbackVolumeY = productionPlaybackVolumeY;
-        nonPlaybackVolumeX = productionNonPlaybackVolumeX;
-        nonPlaybackVolumeY = productionNonPlaybackVolumeY;
-        
-        numberTagMargin = productionNumberTagMargin;
-        numberBoxMargin = productionNumberBoxMargin;
-        numberTagOffsetX = productionNumberTagOffsetX;
-        numberTagOffsetY = productionNumberTagOffsetY;
-        
-        newMaskFrameWidth = productionNewMaskFrameWidth;
-        newMaskFrameHeight = productionNewMaskFrameHeight;
-        
-        startFullscreen = productionStartFullscreen;
+        loadProductionValues();
     }
+}
+
+void Presets::loadContextIndependantValues() {
+    soloWindowWidth = developmentSoloWindowWidth;
+    soloWindowHeight = developmentSoloWindowHeight;
+    
+    secondWindowName = productionSecondWindowName;
+    secondWindowX = productionSecondWindowX;
+    secondWindowY = productionSecondWindowY;
+    secondWindowWidth = productionSecondWindowWidth;
+    secondWindowHeight = productionSecondWindowHeight;
+}
+
+void Presets::loadDevelopmentValues() {
+    numGridLinesX = developmentNumGridLinesX;
+    numGridLinesY = developmentNumGridLinesY;
+    
+    designCanvasX = developmentDesignCanvasX;
+    designCanvasY = developmentDesignCanvasY;
+    designCanvasWidth = developmentDesignCanvasWidth;
+    designCanvasHeight = developmentDesignCanvasHeight;
+    designCanvasLabelX = developmentDesignCanvasLabelX;
+    designCanvasLabelY = developmentDesignCanvasLabelY;
+    
+    liveCanvasX = developmentLiveCanvasX;
+    liveCanvasY = developmentLiveCanvasY;
+    liveCanvasWidth = developmentLiveCanvasWidth;
+    liveCanvasHeight = developmentLiveCanvasHeight;
+    
+    bufferPreviewX = developmentBufferPreviewX;
+    bufferPreviewY = developmentBufferPreviewY;
+    bufferPreviewWidth = developmentBufferPreviewWidth;
+    bufferPreviewHeight = developmentBufferPreviewHeight;
+    bufferMargin = developmentBufferMargin;
+    
+    numberBoxWidth = developmentNumberBoxWidth;
+    numberBoxHeight = developmentNumberBoxHeight;
+    
+    instructionsX = developmentInstructionsX;
+    instructionsY = developmentInstructionsY;
+    playbackVolumeX = developmentPlaybackVolumeX;
+    playbackVolumeY = developmentPlaybackVolumeY;
+    nonPlaybackVolumeX = developmentNonPlaybackVolumeX;
+    nonPlaybackVolumeY = developmentNonPlaybackVolumeY;
+    
+    numberTagMargin = developmentNumberTagMargin;
+    numberBoxMargin = developmentNumberBoxMargin;
+    numberTagOffsetX = developmentNumberTagOffsetX;
+    numberTagOffsetY = developmentNumberTagOffsetY;
+    
+    newMaskFrameWidth = developmentNewMaskFrameWidth;
+    newMaskFrameHeight = developmentNewMaskFrameHeight;
+    
+    startFullscreen = developmentStartFullscreen;
+}
+
+void Presets::loadProductionValues() {
+    numGridLinesX = productionNumGridLinesX;
+    numGridLinesY = productionNumGridLinesY;
+    
+    designCanvasX = productionDesignCanvasX;
+    designCanvasY = productionDesignCanvasY;
+    designCanvasWidth = productionDesignCanvasWidth;
+    designCanvasHeight = productionDesignCanvasHeight;
+    designCanvasLabelX = productionDesignCanvasLabelX;
+    designCanvasLabelY = productionDesignCanvasLabelY;
+    
+    liveCanvasX = productionLiveCanvasX;
+    liveCanvasY = productionLiveCanvasY;
+    liveCanvasWidth = productionLiveCanvasWidth;
+    liveCanvasHeight = productionLiveCanvasHeight;
+    
+    bufferPreviewX = productionBufferPreviewX;
+    bufferPreviewY = productionBufferPreviewY;
+    bufferPreviewWidth = productionBufferPreviewWidth;
+    bufferPreviewHeight = productionBufferPreviewHeight;
+    bufferMargin = productionBufferMargin;
+    
+    numberBoxWidth = productionNumberBoxWidth;
+    numberBoxHeight = productionNumberBoxHeight;
+    
+    instructionsX = productionInstructionsX;
+    instructionsY = productionInstructionsY;
+    playbackVolumeX = productionPlaybackVolumeX;
+    playbackVolumeY = productionPlaybackVolumeY;
+    nonPlaybackVolumeX = productionNonPlaybackVolumeX;
+    nonPlaybackVolumeY = productionNonPlaybackVolumeY;
+    
+    numberTagMargin = productionNumberTagMargin;
+    numberBoxMargin = productionNumberBoxMargin;
+    numberTagOffsetX = productionNumberTagOffsetX;
+    numberTagOffsetY = productionNumberTagOffsetY;
+    
+    newMaskFrameWidth = productionNewMaskFrameWidth;
+    newMaskFrameHeight = productionNewMaskFrameHeight;
+    
+    startFullscreen = productionStartFullscreen;
 }

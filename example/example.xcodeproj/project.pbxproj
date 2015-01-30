@@ -14,6 +14,7 @@
 		84137DE819E9D2D60035A71B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE319E9D2D60035A71B /* tinyxml.cpp */; };
 		84137DE919E9D2D60035A71B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE519E9D2D60035A71B /* tinyxmlerror.cpp */; };
 		84137DEA19E9D2D60035A71B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE619E9D2D60035A71B /* tinyxmlparser.cpp */; };
+		842929891A7C0A5B004A1E20 /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842929871A7C0A5B004A1E20 /* ofxSecondWindow.cpp */; };
 		B470214019EB60FB00C1227C /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470211D19EB60FB00C1227C /* Canvas.cpp */; };
 		B470214119EB60FB00C1227C /* MaskFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470211F19EB60FB00C1227C /* MaskFrame.cpp */; };
 		B470214219EB60FB00C1227C /* TextArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212119EB60FB00C1227C /* TextArea.cpp */; };
@@ -98,6 +99,8 @@
 		84137DE419E9D2D60035A71B /* tinyxml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		84137DE519E9D2D60035A71B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
 		84137DE619E9D2D60035A71B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		842929871A7C0A5B004A1E20 /* ofxSecondWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSecondWindow.cpp; sourceTree = "<group>"; };
+		842929881A7C0A5B004A1E20 /* ofxSecondWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxSecondWindow.h; sourceTree = "<group>"; };
 		B470211D19EB60FB00C1227C /* Canvas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
 		B470211E19EB60FB00C1227C /* Canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		B470211F19EB60FB00C1227C /* MaskFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaskFrame.cpp; sourceTree = "<group>"; };
@@ -273,6 +276,24 @@
 			path = ../../ofxXmlSettings/libs;
 			sourceTree = "<group>";
 		};
+		842929851A7C0A5B004A1E20 /* ofxSecondWindow */ = {
+			isa = PBXGroup;
+			children = (
+				842929861A7C0A5B004A1E20 /* src */,
+			);
+			name = ofxSecondWindow;
+			sourceTree = "<group>";
+		};
+		842929861A7C0A5B004A1E20 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				842929871A7C0A5B004A1E20 /* ofxSecondWindow.cpp */,
+				842929881A7C0A5B004A1E20 /* ofxSecondWindow.h */,
+			);
+			name = src;
+			path = ../../ofxSecondWindow/src;
+			sourceTree = "<group>";
+		};
 		B470211919EB60FB00C1227C /* ofxProjectionMask */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +403,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				842929851A7C0A5B004A1E20 /* ofxSecondWindow */,
 				B470211919EB60FB00C1227C /* ofxProjectionMask */,
 				84137DDE19E9D2D60035A71B /* ofxXmlSettings */,
 				84137DCC19E9D2A60035A71B /* ofxTriangle */,
@@ -568,6 +590,7 @@
 				B470214A19EB60FB00C1227C /* ofxProjectionMask.cpp in Sources */,
 				B470214319EB60FB00C1227C /* CanvasContents.cpp in Sources */,
 				B470214519EB60FB00C1227C /* Mouse.cpp in Sources */,
+				842929891A7C0A5B004A1E20 /* ofxSecondWindow.cpp in Sources */,
 				84137DDC19E9D2A60035A71B /* assert.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				B470214619EB60FB00C1227C /* DragHandle.cpp in Sources */,

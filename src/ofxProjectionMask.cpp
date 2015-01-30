@@ -19,7 +19,7 @@ void ofxProjectionMask::setup(){
     ofSetHexColor(0xFFFFFF);
 	ofBackground(0, 0, 0);
     ofSetWindowPosition(0, 0);
-    ofSetWindowShape(presets.windowWidth, presets.windowHeight);
+    ofSetWindowShape(presets.soloWindowWidth, presets.soloWindowHeight);
     ofEnableAlphaBlending();
     
     designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
@@ -38,6 +38,8 @@ void ofxProjectionMask::setup(){
     textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
     
     ofSetFullscreen(presets.startFullscreen);
+    secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
+
     selectedMaskFrame = 0;
     
     xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
@@ -73,6 +75,10 @@ void ofxProjectionMask::draw(){
     ofDrawBitmapString("Design Canvas", ofPoint(0, 0));
     ofPopMatrix();
     
+    if(presets.isProductionMode()) {
+        secondWindow.begin();
+        ofBackground(0);
+    }
     ofPushMatrix();
     ofTranslate(liveCanvas.getX(), liveCanvas.getY());
     if(displayMode == Design){
@@ -80,6 +86,9 @@ void ofxProjectionMask::draw(){
     }
     canvasContents.drawLive(displayMode);
     ofPopMatrix();
+    if(presets.isProductionMode()) {
+        secondWindow.end();
+    }
     
     textArea.draw();
     
