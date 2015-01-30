@@ -22,7 +22,9 @@ void ofxProjectionMask::setup(){
     ofEnableAlphaBlending();
     
     layout();
-    secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
+    if(presets.isProductionMode()){
+        secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
+    }
     
     selectedMaskFrame = 0;
     
@@ -52,7 +54,6 @@ void ofxProjectionMask::layout() {
 
 void ofxProjectionMask::update(int mouseX, int mouseY){
     
-    presets.isDevelopmentMode() ? secondWindow.hide() : secondWindow.show();
     mouse.set(mouseX, mouseY);
     
     if(!isTransforming()){
@@ -104,9 +105,6 @@ void ofxProjectionMask::keyReleased(int key){
     }else if(key == 'p' || key == 'P'){
         createNewMaskPoint();
         xml.autoSave();
-    }else if(key == 'o' || key == 'O'){
-        presets.cycleMode();
-        layout();
     }else if (key == ' '){
         ofToggleFullscreen();
     }else if(key == 'u' || key == 'U'){
