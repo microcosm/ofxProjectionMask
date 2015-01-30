@@ -39,7 +39,7 @@ void ofxProjectionMask::setup(){
     
     ofSetFullscreen(presets.startFullscreen);
     secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
-
+    
     selectedMaskFrame = 0;
     
     xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
@@ -49,6 +49,7 @@ void ofxProjectionMask::setup(){
 
 void ofxProjectionMask::update(int mouseX, int mouseY){
     
+    presets.isDevelopmentMode() ? secondWindow.hide() : secondWindow.show();
     mouse.set(mouseX, mouseY);
     
     if(!isTransforming()){
@@ -60,7 +61,6 @@ void ofxProjectionMask::update(int mouseX, int mouseY){
 }
 
 void ofxProjectionMask::draw(){
-    
     drawBufferPreviews();
     
     ofPushMatrix();

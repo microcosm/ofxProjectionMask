@@ -16,8 +16,8 @@
   -----------------------------------
   Late 2011 MacBook Pro (1680 x 1050px)
  */
-const int developmentSoloWindowWidth = 800;
-const int developmentSoloWindowHeight = 400;
+const int developmentSoloWindowWidth = 1100;
+const int developmentSoloWindowHeight = 800;
 
 const int developmentNumGridLinesX = 14;
 const int developmentNumGridLinesY = 10;
