@@ -89,13 +89,12 @@ void ofxProjectionMask::draw(){
     }
     canvasContents.drawLive(displayMode);
     ofPopMatrix();
+    drawLiveCursor();
     if(presets.isProductionMode()) {
         secondWindow.end();
     }
     
     textArea.draw();
-    
-    drawLiveCursor();
 }
 
 void ofxProjectionMask::keyReleased(int key){
