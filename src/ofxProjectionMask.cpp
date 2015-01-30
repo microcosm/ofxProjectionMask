@@ -28,7 +28,7 @@ void ofxProjectionMask::setup(){
     
     selectedMaskFrame = 0;
     
-    xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers());
+    xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers(), presets.storageDirectory);
     xml.load();
     mouse.setup(&designCanvas);
 }

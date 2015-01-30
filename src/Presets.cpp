@@ -59,6 +59,7 @@ const int developmentNewMaskFrameWidth = 70;
 const int developmentNewMaskFrameHeight = 100;
 
 const bool developmentStartFullscreen = false;
+const char* developmentStorageDirectory = "development";
 
 /*
   Production mode presets
@@ -117,6 +118,7 @@ const int productionNewMaskFrameWidth = 200;
 const int productionNewMaskFrameHeight = 300;
 
 const bool productionStartFullscreen = true;
+const char* productionStorageDirectory = "production";
 
 void Presets::setMode(PresetMode _mode){
     mode = _mode;
@@ -205,6 +207,7 @@ void Presets::loadDevelopmentValues() {
     newMaskFrameHeight = developmentNewMaskFrameHeight;
     
     startFullscreen = developmentStartFullscreen;
+    storageDirectory = developmentStorageDirectory;
 }
 
 void Presets::loadProductionValues() {
@@ -248,4 +251,5 @@ void Presets::loadProductionValues() {
     newMaskFrameHeight = productionNewMaskFrameHeight;
     
     startFullscreen = productionStartFullscreen;
+    storageDirectory = productionStorageDirectory;
 }

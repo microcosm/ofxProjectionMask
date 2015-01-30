@@ -1,7 +1,8 @@
 #########################
 # ofApp
 #########################
-*/bin/data/xml
+*/bin/data/development
+*/bin/data/production
 
 #########################
 # openFrameworks patterns

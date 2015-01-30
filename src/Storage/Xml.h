@@ -6,7 +6,7 @@
 
 class Xml{
 public:
-    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers);
+    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers, string directory);
     void save();
     void autoSave();
     void load();
@@ -17,6 +17,7 @@ protected:
     int sourceMaskFrameWidth, sourceMaskFrameHeight;
     CanvasContents *canvasContents;
     vector<ofFbo> *buffers;
+    string xmlSubPath;
     
     void save(bool autoSave);
     void backupExistingFile();

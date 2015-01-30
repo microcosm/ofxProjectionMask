@@ -50,6 +50,7 @@ public:
     int newMaskFrameWidth, newMaskFrameHeight;
     
     bool startFullscreen;
+    const char* storageDirectory;
 
 protected:
     void load();

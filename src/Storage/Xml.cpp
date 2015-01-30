@@ -36,17 +36,17 @@ const string typeManual = "manual";
 
 const string defaultTimestamp = "no-timestamp-found";
 
-const string xmlSubPath = "xml";
 const string filePath = "saved.xml";
 const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 
-void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers){
+void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers, string directory){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
     this->buffers = buffers;
+    this->xmlSubPath = directory;
 }
 
 void Xml::save(){
