@@ -25,6 +25,7 @@ The addon has full instructions and samples in the example project, along with i
 Project dependencies
 --------------------
 - [ofxTriangle](https://github.com/obviousjim/ofxTriangle) to build renderable triangles out of the points in your mask
+- [ofxSecondWindow](https://github.com/genekogan/ofxSecondWindow) to allow for a dualscreen setup with a projector
 - [ofxXmlSettings](http://www.openframeworks.cc/documentation/ofxXmlSettings/ofxXmlSettings.html) to store masks as you draw them - it's part of the openFrameworks core
 - Tested against [openFrameworks 0.8.4](http://openframeworks.cc/download/)
 
