@@ -9,7 +9,7 @@
   Unlike projection mapping, this is not about creating the
   illusion that a light surface is 'mapped onto' a physical
   object; instead this addon simply prevents the light from
-  'bleeding' outside of the mask.
+  showing up anywhere outside of the mask you draw.
 
   In other words, this addon separates out the masking from
   the mapping, and only does the former without doing the
@@ -222,31 +222,34 @@ void ofApp::dragEvent(ofDragInfo dragInfo){}
 
   How to switch over to fullscreen/dual-screen setup
   ==================================================
-  The way this addon handles running fullscreen with a projector
-  is to make a fullscreen window large enough to cover both
-  displays. This large window will cover both screens, a bit
-  like this:
+  Ok, so you are done playing with the development mode and you
+  want to get started with a projector! Good, that's not
+  unreasonable :)
+ 
+  This addon uses ofxSecondWindow to handle running fullscreen
+  with a projector. All you need to do is check your operating
+  system's dual-screen display settings, and enter the correct
+  values in the 'production' portion of the Presets.cpp file.
+  
+  How to do that?
+  ---------------
+  You will probably want to arrange your dualscreens like this:
 
-        +--------+----------+
+        +--------+----------+ <-- top aligned
         | design | for-real |
         | canvas | mappings |
-        +--------+----------+
+        +--------|          |
+                 +----------+
          screen 1  screen 2
          (laptop) (projector)
 
-  Therefore you will need to use your operating system's display
-  preferences to position the screens side-by-side. When you
-  have done that, take note of your laptop and projector screen
-  resolutions, and plug in the numbers to this file:
+  When you have done that, take note of your screen and
+  projector screen resolutions, and plug in the numbers to
+  this file:
 
       /addons/ofxProjectionMapper/src/Presets.cpp
 
-  On OSX you may also have to disable a setting in Mission
-  Control preferences, as described here:
-
-      http://forum.openframeworks.cc/t/dual-monitor-full-screen/13654/2
-
-  When you have done all that, you can come back to ofApp.cpp
+  When you have done that, you can come back to ofApp.cpp above,
   and switch out this line:
 
       mapper.setup((BufferPattern*)&pattern);
@@ -255,7 +258,5 @@ void ofApp::dragEvent(ofDragInfo dragInfo){}
 
       mapper.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION);
 
-  This switches from 'development' to 'production' mode. There is
-  also a key which allows you to switch modes at run-time, check
-  out the list of controls when you run the app.
+  That's it! Report any issues via Github.
 */

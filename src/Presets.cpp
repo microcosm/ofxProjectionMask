@@ -10,11 +10,13 @@
   For fuller instructions on dualscreen/fullscreen setup, check out
   ofApp.cpp in the example project.
 
-  Development mode presets
-  ========================
-  Usually a single screen, in my case:
-  -----------------------------------
-  Late 2011 MacBook Pro (1680 x 1050px)
+  Development mode presets                                      |
+  ========================                                      |
+  You probably won't need to change this. Scroll down to find  \|/
+  'production' mode presets.                                    V
+ 
+  In my case, it's a late 2011 MacBook Pro at (1680 x 1050px), so as
+  long as everything fits inside those dimensions:
  */
 const int developmentSoloWindowWidth = 1100;
 const int developmentSoloWindowHeight = 800;
@@ -66,14 +68,15 @@ const char* developmentStorageDirectory = "development";
   =======================
   Usually a laptop and a projector. These presets are for top-aligned
   monitors:
-  ---------------------------------           +-----+-------+
-  Left:     2011 MacBook Pro (1680 x 1050px)  |  L  |   R   |
-  Right:    Monoprice        (2560 x 1600px)  +-----|       |
-                                                    +-------+
+                                                   0    1680    4240
+  ---------------------------------              0 +-----+-------+
+  Left:     2011 MacBook Pro (1680 x 1050px)       |  L  |   R   |
+  Right:    Monoprice        (2560 x 1600px)  1050 +-----|       |
+                                                         +-------+
 */
 
 const char* productionSecondWindowName = "openFrameworks Window 2";
-const int productionSecondWindowX = 1680;
+const int productionSecondWindowX = 1680; //The second window begins at the far right (full width) of the left screen
 const int productionSecondWindowY = 0;
 const int productionSecondWindowWidth = 2560;
 const int productionSecondWindowHeight = 1600;
