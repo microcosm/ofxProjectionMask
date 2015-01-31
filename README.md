@@ -1,5 +1,5 @@
-ofxProjectionMask
-=================
+ofxProjectionMask v0.2.0
+========================
 ofxProjectionMask is an addon allowing you to mask projected light over real-world objects, from anything you draw in [openFrameworks](http://openframeworks.cc/).
 
 ![A screenshot of the mask designer UI](screenshot.png)
@@ -21,6 +21,14 @@ How does it work?
 There is a design UI allowing you to slice out a shape with your mouse, representing some physical object within view of your projector. At the same time you can draw() anything you like into a pattern class that you will create, based on a template included in the addon.
 
 The addon has full instructions and samples in the example project, along with information about running fullscreen/dualscreen.
+
+Versions
+--------
+- 0.2.0
+  - New screen management with ofxSecondWindow
+  - Splits XML storage locations based on preset mode
+  - Drops support for cycling between 'development' and 'production' mode presets at runtime. Now you have to select one mode or another before compiling, as described in `ofApp.cpp`
+- 0.1.0 Initial release
 
 Project dependencies
 --------------------
