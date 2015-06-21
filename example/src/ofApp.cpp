@@ -61,16 +61,25 @@ void ofApp::setup(){
     
     //First, we set up our pattern, which sets up its buffer(s)
     pattern.setup();
-    
+    pattern1.setupSingleLayer(500, 500);
+
     //Then we assign the pattern to the designer, which displays
     //canvas and drawing tools, and renders the buffers.
     designer.setup((BufferPattern*)&pattern);
+    //designer.setup(pattern1);
     //designer.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION); //explained below
 }
 
 void ofApp::update(){
     //Try switching the pattern in ofApp.h
-    pattern.update();
+    pattern1.beginLayer();
+    {
+        ofBackground(ofColor::black);
+        ofSetColor(ofColor::white);
+        ofRect(5, 5, 300, 300);
+    }
+    pattern1.endLayer();
+
     designer.update(mouseX, mouseY);
 
     //When you switch to ArgumentPattern, uncomment this:

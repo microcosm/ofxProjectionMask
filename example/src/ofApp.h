@@ -2,10 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxProjectionMask.h"
+#include "ofxLayerMask.h"
 #include "HueCyclePattern.h"
-#include "SetupPattern.h"
-#include "ArgumentPattern.h"
-#include "YourCustomPattern.h"
 
 class ofApp : public ofBaseApp{
 
@@ -25,6 +23,7 @@ public:
     void gotMessage(ofMessage msg);
 	
     ofxProjectionMask designer; //essentially, the UI
+    ofxLayerMask pattern1;
 
     //Uncomment these one at a time to try them:
     HueCyclePattern pattern; //cycle rainbow colors - default

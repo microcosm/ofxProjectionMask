@@ -29,6 +29,7 @@
 		846F11571B36873D0071ADAC /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11431B36873D0071ADAC /* Presets.cpp */; };
 		846F11581B36873D0071ADAC /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11461B36873D0071ADAC /* Xml.cpp */; };
 		846F11621B368B3D0071ADAC /* YourCustomPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11601B368A010071ADAC /* YourCustomPattern.cpp */; };
+		84BCC1A81B374BDE00CCC5F3 /* ofxLayerMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84BCC19F1B374BDE00CCC5F3 /* ofxLayerMask.cpp */; };
 		87B479F55285F413D96B5A45 /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6CD5194C7EEB1B621758398 /* ofxSecondWindow.cpp */; };
 		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
 		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
@@ -130,6 +131,14 @@
 		846F11471B36873D0071ADAC /* Xml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xml.h; sourceTree = "<group>"; };
 		846F11601B368A010071ADAC /* YourCustomPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = YourCustomPattern.cpp; sourceTree = "<group>"; };
 		846F11611B368A010071ADAC /* YourCustomPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YourCustomPattern.h; sourceTree = "<group>"; };
+		84BCC19F1B374BDE00CCC5F3 /* ofxLayerMask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxLayerMask.cpp; sourceTree = "<group>"; };
+		84BCC1A01B374BDE00CCC5F3 /* ofxLayerMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxLayerMask.h; sourceTree = "<group>"; };
+		84BCC1A21B374BDE00CCC5F3 /* alphaMask_ES2.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = alphaMask_ES2.frag; sourceTree = "<group>"; };
+		84BCC1A31B374BDE00CCC5F3 /* alphaMask_ES2.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = alphaMask_ES2.vert; sourceTree = "<group>"; };
+		84BCC1A41B374BDE00CCC5F3 /* alphaMask_GL2.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = alphaMask_GL2.frag; sourceTree = "<group>"; };
+		84BCC1A51B374BDE00CCC5F3 /* alphaMask_GL2.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = alphaMask_GL2.vert; sourceTree = "<group>"; };
+		84BCC1A61B374BDE00CCC5F3 /* alphaMask_GL3.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = alphaMask_GL3.frag; sourceTree = "<group>"; };
+		84BCC1A71B374BDE00CCC5F3 /* alphaMask_GL3.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = alphaMask_GL3.vert; sourceTree = "<group>"; };
 		95CC17619159CA7FBA37A39F /* assert.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = assert.cpp; path = ../../../addons/ofxTriangle/libs/Triangle/src/assert.cpp; sourceTree = SOURCE_ROOT; };
 		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -381,6 +390,38 @@
 			path = Patterns;
 			sourceTree = "<group>";
 		};
+		84BCC19D1B374BDE00CCC5F3 /* ofxLayerMask */ = {
+			isa = PBXGroup;
+			children = (
+				84BCC19E1B374BDE00CCC5F3 /* src */,
+			);
+			name = ofxLayerMask;
+			sourceTree = "<group>";
+		};
+		84BCC19E1B374BDE00CCC5F3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				84BCC19F1B374BDE00CCC5F3 /* ofxLayerMask.cpp */,
+				84BCC1A01B374BDE00CCC5F3 /* ofxLayerMask.h */,
+				84BCC1A11B374BDE00CCC5F3 /* shader */,
+			);
+			name = src;
+			path = ../../ofxLayerMask/src;
+			sourceTree = "<group>";
+		};
+		84BCC1A11B374BDE00CCC5F3 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				84BCC1A21B374BDE00CCC5F3 /* alphaMask_ES2.frag */,
+				84BCC1A31B374BDE00CCC5F3 /* alphaMask_ES2.vert */,
+				84BCC1A41B374BDE00CCC5F3 /* alphaMask_GL2.frag */,
+				84BCC1A51B374BDE00CCC5F3 /* alphaMask_GL2.vert */,
+				84BCC1A61B374BDE00CCC5F3 /* alphaMask_GL3.frag */,
+				84BCC1A71B374BDE00CCC5F3 /* alphaMask_GL3.vert */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 		97DC4EE352691FC2C5556C7B /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +434,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				84BCC19D1B374BDE00CCC5F3 /* ofxLayerMask */,
 				846F111D1B36873D0071ADAC /* ofxProjectionMask */,
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				EDD1D727C7914867117F6F92 /* ofxSecondWindow */,
@@ -592,6 +634,7 @@
 				846F114D1B36873D0071ADAC /* Mouse.cpp in Sources */,
 				846F11501B36873D0071ADAC /* PointObject.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				84BCC1A81B374BDE00CCC5F3 /* ofxLayerMask.cpp in Sources */,
 				846F11521B36873D0071ADAC /* ofxProjectionMask.cpp in Sources */,
 				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
 				846F114C1B36873D0071ADAC /* SafeDeque.cpp in Sources */,
