@@ -78,8 +78,8 @@ const char* developmentStorageDirectory = "development";
 const char* productionSecondWindowName = "openFrameworks Window 2";
 const int productionSecondWindowX = 1680; //The second window begins at the far right (full width) of the left screen
 const int productionSecondWindowY = 0;
-const int productionSecondWindowWidth = 2560;
-const int productionSecondWindowHeight = 1600;
+const int productionSecondWindowWidth = 1920;
+const int productionSecondWindowHeight = 1080;
 
 const int productionNumGridLinesX = 60;
 const int productionNumGridLinesY = 46;

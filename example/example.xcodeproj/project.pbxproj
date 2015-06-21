@@ -7,31 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84137DDB19E9D2A60035A71B /* ofxTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DCE19E9D2A60035A71B /* ofxTriangle.cpp */; };
-		84137DDC19E9D2A60035A71B /* assert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DD919E9D2A60035A71B /* assert.cpp */; };
-		84137DDD19E9D2A60035A71B /* del_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DDA19E9D2A60035A71B /* del_impl.cpp */; };
-		84137DE719E9D2D60035A71B /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE019E9D2D60035A71B /* ofxXmlSettings.cpp */; };
-		84137DE819E9D2D60035A71B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE319E9D2D60035A71B /* tinyxml.cpp */; };
-		84137DE919E9D2D60035A71B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE519E9D2D60035A71B /* tinyxmlerror.cpp */; };
-		84137DEA19E9D2D60035A71B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84137DE619E9D2D60035A71B /* tinyxmlparser.cpp */; };
-		842929891A7C0A5B004A1E20 /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842929871A7C0A5B004A1E20 /* ofxSecondWindow.cpp */; };
-		B470214019EB60FB00C1227C /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470211D19EB60FB00C1227C /* Canvas.cpp */; };
-		B470214119EB60FB00C1227C /* MaskFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470211F19EB60FB00C1227C /* MaskFrame.cpp */; };
-		B470214219EB60FB00C1227C /* TextArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212119EB60FB00C1227C /* TextArea.cpp */; };
-		B470214319EB60FB00C1227C /* CanvasContents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212419EB60FB00C1227C /* CanvasContents.cpp */; };
-		B470214419EB60FB00C1227C /* SafeDeque.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212619EB60FB00C1227C /* SafeDeque.cpp */; };
-		B470214519EB60FB00C1227C /* Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212819EB60FB00C1227C /* Mouse.cpp */; };
-		B470214619EB60FB00C1227C /* DragHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212B19EB60FB00C1227C /* DragHandle.cpp */; };
-		B470214719EB60FB00C1227C /* MaskPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212D19EB60FB00C1227C /* MaskPoint.cpp */; };
-		B470214819EB60FB00C1227C /* PointObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470212F19EB60FB00C1227C /* PointObject.cpp */; };
-		B470214919EB60FB00C1227C /* ofExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213119EB60FB00C1227C /* ofExtensions.cpp */; };
-		B470214A19EB60FB00C1227C /* ofxProjectionMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213319EB60FB00C1227C /* ofxProjectionMask.cpp */; };
-		B470214B19EB60FB00C1227C /* BufferPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213619EB60FB00C1227C /* BufferPattern.cpp */; };
-		B470214C19EB60FB00C1227C /* HueCyclePattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213919EB60FB00C1227C /* HueCyclePattern.cpp */; };
-		B470214D19EB60FB00C1227C /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213B19EB60FB00C1227C /* Presets.cpp */; };
-		B470214E19EB60FB00C1227C /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470213E19EB60FB00C1227C /* Xml.cpp */; };
-		B470215219EB938B00C1227C /* SetupPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470215019EB938B00C1227C /* SetupPattern.cpp */; };
-		B470215519EB964A00C1227C /* ArgumentPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B470215319EB964A00C1227C /* ArgumentPattern.cpp */; };
+		071D631BBDA00BB0980E88BC /* del_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B58BF03F54854C49C0E8D21 /* del_impl.cpp */; };
+		1D29183493968A6745214489 /* ofxTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B928DEF9B0ED0E1AEFA99EE /* ofxTriangle.cpp */; };
+		5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */; };
+		63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */; };
+		846F11481B36873D0071ADAC /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11211B36873D0071ADAC /* Canvas.cpp */; };
+		846F11491B36873D0071ADAC /* MaskFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11231B36873D0071ADAC /* MaskFrame.cpp */; };
+		846F114A1B36873D0071ADAC /* TextArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11251B36873D0071ADAC /* TextArea.cpp */; };
+		846F114B1B36873D0071ADAC /* CanvasContents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11281B36873D0071ADAC /* CanvasContents.cpp */; };
+		846F114C1B36873D0071ADAC /* SafeDeque.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F112A1B36873D0071ADAC /* SafeDeque.cpp */; };
+		846F114D1B36873D0071ADAC /* Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F112C1B36873D0071ADAC /* Mouse.cpp */; };
+		846F114E1B36873D0071ADAC /* DragHandle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F112F1B36873D0071ADAC /* DragHandle.cpp */; };
+		846F114F1B36873D0071ADAC /* MaskPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11311B36873D0071ADAC /* MaskPoint.cpp */; };
+		846F11501B36873D0071ADAC /* PointObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11331B36873D0071ADAC /* PointObject.cpp */; };
+		846F11511B36873D0071ADAC /* ofExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11351B36873D0071ADAC /* ofExtensions.cpp */; };
+		846F11521B36873D0071ADAC /* ofxProjectionMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11371B36873D0071ADAC /* ofxProjectionMask.cpp */; };
+		846F11531B36873D0071ADAC /* BufferPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F113A1B36873D0071ADAC /* BufferPattern.cpp */; };
+		846F11541B36873D0071ADAC /* ArgumentPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F113D1B36873D0071ADAC /* ArgumentPattern.cpp */; };
+		846F11551B36873D0071ADAC /* HueCyclePattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F113F1B36873D0071ADAC /* HueCyclePattern.cpp */; };
+		846F11561B36873D0071ADAC /* SetupPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11411B36873D0071ADAC /* SetupPattern.cpp */; };
+		846F11571B36873D0071ADAC /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11431B36873D0071ADAC /* Presets.cpp */; };
+		846F11581B36873D0071ADAC /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11461B36873D0071ADAC /* Xml.cpp */; };
+		87B479F55285F413D96B5A45 /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6CD5194C7EEB1B621758398 /* ofxSecondWindow.cpp */; };
+		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
+		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -51,6 +50,7 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		F433A9855079F16673B77E7B /* assert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95CC17619159CA7FBA37A39F /* assert.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,58 +84,53 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		84137DCE19E9D2A60035A71B /* ofxTriangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTriangle.cpp; sourceTree = "<group>"; };
-		84137DCF19E9D2A60035A71B /* ofxTriangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTriangle.h; sourceTree = "<group>"; };
-		84137DD319E9D2A60035A71B /* assert.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = assert.hpp; sourceTree = "<group>"; };
-		84137DD419E9D2A60035A71B /* del_interface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = del_interface.hpp; sourceTree = "<group>"; };
-		84137DD519E9D2A60035A71B /* dpoint.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dpoint.hpp; sourceTree = "<group>"; };
-		84137DD619E9D2A60035A71B /* triangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
-		84137DD719E9D2A60035A71B /* triangle_impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = triangle_impl.hpp; sourceTree = "<group>"; };
-		84137DD919E9D2A60035A71B /* assert.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = assert.cpp; sourceTree = "<group>"; };
-		84137DDA19E9D2A60035A71B /* del_impl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = del_impl.cpp; sourceTree = "<group>"; };
-		84137DE019E9D2D60035A71B /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
-		84137DE119E9D2D60035A71B /* ofxXmlSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
-		84137DE319E9D2D60035A71B /* tinyxml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
-		84137DE419E9D2D60035A71B /* tinyxml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
-		84137DE519E9D2D60035A71B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
-		84137DE619E9D2D60035A71B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
-		842929871A7C0A5B004A1E20 /* ofxSecondWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSecondWindow.cpp; sourceTree = "<group>"; };
-		842929881A7C0A5B004A1E20 /* ofxSecondWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxSecondWindow.h; sourceTree = "<group>"; };
-		B470211D19EB60FB00C1227C /* Canvas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
-		B470211E19EB60FB00C1227C /* Canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
-		B470211F19EB60FB00C1227C /* MaskFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaskFrame.cpp; sourceTree = "<group>"; };
-		B470212019EB60FB00C1227C /* MaskFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskFrame.h; sourceTree = "<group>"; };
-		B470212119EB60FB00C1227C /* TextArea.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextArea.cpp; sourceTree = "<group>"; };
-		B470212219EB60FB00C1227C /* TextArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextArea.h; sourceTree = "<group>"; };
-		B470212419EB60FB00C1227C /* CanvasContents.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CanvasContents.cpp; sourceTree = "<group>"; };
-		B470212519EB60FB00C1227C /* CanvasContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasContents.h; sourceTree = "<group>"; };
-		B470212619EB60FB00C1227C /* SafeDeque.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SafeDeque.cpp; sourceTree = "<group>"; };
-		B470212719EB60FB00C1227C /* SafeDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeDeque.h; sourceTree = "<group>"; };
-		B470212819EB60FB00C1227C /* Mouse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mouse.cpp; sourceTree = "<group>"; };
-		B470212919EB60FB00C1227C /* Mouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
-		B470212B19EB60FB00C1227C /* DragHandle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DragHandle.cpp; sourceTree = "<group>"; };
-		B470212C19EB60FB00C1227C /* DragHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragHandle.h; sourceTree = "<group>"; };
-		B470212D19EB60FB00C1227C /* MaskPoint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaskPoint.cpp; sourceTree = "<group>"; };
-		B470212E19EB60FB00C1227C /* MaskPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskPoint.h; sourceTree = "<group>"; };
-		B470212F19EB60FB00C1227C /* PointObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointObject.cpp; sourceTree = "<group>"; };
-		B470213019EB60FB00C1227C /* PointObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointObject.h; sourceTree = "<group>"; };
-		B470213119EB60FB00C1227C /* ofExtensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofExtensions.cpp; sourceTree = "<group>"; };
-		B470213219EB60FB00C1227C /* ofExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
-		B470213319EB60FB00C1227C /* ofxProjectionMask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProjectionMask.cpp; sourceTree = "<group>"; };
-		B470213419EB60FB00C1227C /* ofxProjectionMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxProjectionMask.h; sourceTree = "<group>"; };
-		B470213619EB60FB00C1227C /* BufferPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BufferPattern.cpp; sourceTree = "<group>"; };
-		B470213719EB60FB00C1227C /* BufferPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferPattern.h; sourceTree = "<group>"; };
-		B470213919EB60FB00C1227C /* HueCyclePattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HueCyclePattern.cpp; sourceTree = "<group>"; };
-		B470213A19EB60FB00C1227C /* HueCyclePattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HueCyclePattern.h; sourceTree = "<group>"; };
-		B470213B19EB60FB00C1227C /* Presets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Presets.cpp; sourceTree = "<group>"; };
-		B470213C19EB60FB00C1227C /* Presets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presets.h; sourceTree = "<group>"; };
-		B470213E19EB60FB00C1227C /* Xml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xml.cpp; sourceTree = "<group>"; };
-		B470213F19EB60FB00C1227C /* Xml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xml.h; sourceTree = "<group>"; };
-		B470215019EB938B00C1227C /* SetupPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetupPattern.cpp; sourceTree = "<group>"; };
-		B470215119EB938B00C1227C /* SetupPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupPattern.h; sourceTree = "<group>"; };
-		B470215319EB964A00C1227C /* ArgumentPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArgumentPattern.cpp; sourceTree = "<group>"; };
-		B470215419EB964A00C1227C /* ArgumentPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgumentPattern.h; sourceTree = "<group>"; };
+		01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxXmlSettings.h; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.h; sourceTree = SOURCE_ROOT; };
+		22D06D986AE2C99CD284FF3B /* triangle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = triangle.h; path = ../../../addons/ofxTriangle/libs/Triangle/include/triangle.h; sourceTree = SOURCE_ROOT; };
+		2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
+		2F690304855C0AC1251BA32E /* assert.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = assert.hpp; path = ../../../addons/ofxTriangle/libs/Triangle/include/assert.hpp; sourceTree = SOURCE_ROOT; };
+		3E5DE2C3B5B2F24F019ECAC9 /* triangle_impl.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = triangle_impl.hpp; path = ../../../addons/ofxTriangle/libs/Triangle/include/triangle_impl.hpp; sourceTree = SOURCE_ROOT; };
+		50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxXmlSettings.cpp; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.cpp; sourceTree = SOURCE_ROOT; };
+		5B58BF03F54854C49C0E8D21 /* del_impl.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = del_impl.cpp; path = ../../../addons/ofxTriangle/libs/Triangle/src/del_impl.cpp; sourceTree = SOURCE_ROOT; };
+		7B928DEF9B0ED0E1AEFA99EE /* ofxTriangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTriangle.cpp; path = ../../../addons/ofxTriangle/src/ofxTriangle.cpp; sourceTree = SOURCE_ROOT; };
+		832BDC407620CDBA568B713D /* tinyxmlerror.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlerror.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlerror.cpp; sourceTree = SOURCE_ROOT; };
+		846F11211B36873D0071ADAC /* Canvas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
+		846F11221B36873D0071ADAC /* Canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
+		846F11231B36873D0071ADAC /* MaskFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaskFrame.cpp; sourceTree = "<group>"; };
+		846F11241B36873D0071ADAC /* MaskFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskFrame.h; sourceTree = "<group>"; };
+		846F11251B36873D0071ADAC /* TextArea.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextArea.cpp; sourceTree = "<group>"; };
+		846F11261B36873D0071ADAC /* TextArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextArea.h; sourceTree = "<group>"; };
+		846F11281B36873D0071ADAC /* CanvasContents.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CanvasContents.cpp; sourceTree = "<group>"; };
+		846F11291B36873D0071ADAC /* CanvasContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasContents.h; sourceTree = "<group>"; };
+		846F112A1B36873D0071ADAC /* SafeDeque.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SafeDeque.cpp; sourceTree = "<group>"; };
+		846F112B1B36873D0071ADAC /* SafeDeque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeDeque.h; sourceTree = "<group>"; };
+		846F112C1B36873D0071ADAC /* Mouse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mouse.cpp; sourceTree = "<group>"; };
+		846F112D1B36873D0071ADAC /* Mouse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mouse.h; sourceTree = "<group>"; };
+		846F112F1B36873D0071ADAC /* DragHandle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DragHandle.cpp; sourceTree = "<group>"; };
+		846F11301B36873D0071ADAC /* DragHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragHandle.h; sourceTree = "<group>"; };
+		846F11311B36873D0071ADAC /* MaskPoint.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaskPoint.cpp; sourceTree = "<group>"; };
+		846F11321B36873D0071ADAC /* MaskPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskPoint.h; sourceTree = "<group>"; };
+		846F11331B36873D0071ADAC /* PointObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointObject.cpp; sourceTree = "<group>"; };
+		846F11341B36873D0071ADAC /* PointObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointObject.h; sourceTree = "<group>"; };
+		846F11351B36873D0071ADAC /* ofExtensions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofExtensions.cpp; sourceTree = "<group>"; };
+		846F11361B36873D0071ADAC /* ofExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
+		846F11371B36873D0071ADAC /* ofxProjectionMask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProjectionMask.cpp; sourceTree = "<group>"; };
+		846F11381B36873D0071ADAC /* ofxProjectionMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxProjectionMask.h; sourceTree = "<group>"; };
+		846F113A1B36873D0071ADAC /* BufferPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BufferPattern.cpp; sourceTree = "<group>"; };
+		846F113B1B36873D0071ADAC /* BufferPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferPattern.h; sourceTree = "<group>"; };
+		846F113D1B36873D0071ADAC /* ArgumentPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ArgumentPattern.cpp; sourceTree = "<group>"; };
+		846F113E1B36873D0071ADAC /* ArgumentPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArgumentPattern.h; sourceTree = "<group>"; };
+		846F113F1B36873D0071ADAC /* HueCyclePattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HueCyclePattern.cpp; sourceTree = "<group>"; };
+		846F11401B36873D0071ADAC /* HueCyclePattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HueCyclePattern.h; sourceTree = "<group>"; };
+		846F11411B36873D0071ADAC /* SetupPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SetupPattern.cpp; sourceTree = "<group>"; };
+		846F11421B36873D0071ADAC /* SetupPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupPattern.h; sourceTree = "<group>"; };
+		846F11431B36873D0071ADAC /* Presets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Presets.cpp; sourceTree = "<group>"; };
+		846F11441B36873D0071ADAC /* Presets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presets.h; sourceTree = "<group>"; };
+		846F11461B36873D0071ADAC /* Xml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xml.cpp; sourceTree = "<group>"; };
+		846F11471B36873D0071ADAC /* Xml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xml.h; sourceTree = "<group>"; };
+		95CC17619159CA7FBA37A39F /* assert.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = assert.cpp; path = ../../../addons/ofxTriangle/libs/Triangle/src/assert.cpp; sourceTree = SOURCE_ROOT; };
+		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		C20C3D6ECADBDED32AF7A858 /* ofxTriangle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTriangle.h; path = ../../../addons/ofxTriangle/src/ofxTriangle.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -158,6 +153,11 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		EA106A0D1EE95638A8C8AE12 /* dpoint.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dpoint.hpp; path = ../../../addons/ofxTriangle/libs/Triangle/include/dpoint.hpp; sourceTree = SOURCE_ROOT; };
+		EBFC66C6B2C360ED715A393B /* del_interface.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = del_interface.hpp; path = ../../../addons/ofxTriangle/libs/Triangle/include/del_interface.hpp; sourceTree = SOURCE_ROOT; };
+		F6CD5194C7EEB1B621758398 /* ofxSecondWindow.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSecondWindow.cpp; path = ../../../addons/ofxSecondWindow/src/ofxSecondWindow.cpp; sourceTree = SOURCE_ROOT; };
+		F905D46EF2AE96B79CEF0609 /* ofxSecondWindow.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSecondWindow.h; path = ../../../addons/ofxSecondWindow/src/ofxSecondWindow.h; sourceTree = SOURCE_ROOT; };
+		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,226 +187,204 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84137DCC19E9D2A60035A71B /* ofxTriangle */ = {
+		098126D627B3CF52BE4C8ED0 /* ofxTriangle */ = {
 			isa = PBXGroup;
 			children = (
-				84137DCD19E9D2A60035A71B /* src */,
-				84137DD019E9D2A60035A71B /* libs */,
+				229F56F912BE6E2F785205DA /* src */,
+				40AFB95CB9B438A51A7006FA /* libs */,
 			);
 			name = ofxTriangle;
 			sourceTree = "<group>";
 		};
-		84137DCD19E9D2A60035A71B /* src */ = {
+		1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */ = {
 			isa = PBXGroup;
 			children = (
-				84137DCE19E9D2A60035A71B /* ofxTriangle.cpp */,
-				84137DCF19E9D2A60035A71B /* ofxTriangle.h */,
-			);
-			name = src;
-			path = ../../ofxTriangle/src;
-			sourceTree = "<group>";
-		};
-		84137DD019E9D2A60035A71B /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				84137DD119E9D2A60035A71B /* Triangle */,
-			);
-			name = libs;
-			path = ../../ofxTriangle/libs;
-			sourceTree = "<group>";
-		};
-		84137DD119E9D2A60035A71B /* Triangle */ = {
-			isa = PBXGroup;
-			children = (
-				84137DD219E9D2A60035A71B /* include */,
-				84137DD819E9D2A60035A71B /* src */,
-			);
-			path = Triangle;
-			sourceTree = "<group>";
-		};
-		84137DD219E9D2A60035A71B /* include */ = {
-			isa = PBXGroup;
-			children = (
-				84137DD319E9D2A60035A71B /* assert.hpp */,
-				84137DD419E9D2A60035A71B /* del_interface.hpp */,
-				84137DD519E9D2A60035A71B /* dpoint.hpp */,
-				84137DD619E9D2A60035A71B /* triangle.h */,
-				84137DD719E9D2A60035A71B /* triangle_impl.hpp */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		84137DD819E9D2A60035A71B /* src */ = {
-			isa = PBXGroup;
-			children = (
-				84137DD919E9D2A60035A71B /* assert.cpp */,
-				84137DDA19E9D2A60035A71B /* del_impl.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		84137DDE19E9D2D60035A71B /* ofxXmlSettings */ = {
-			isa = PBXGroup;
-			children = (
-				84137DDF19E9D2D60035A71B /* src */,
-				84137DE219E9D2D60035A71B /* libs */,
+				6ECEF0D76BC33727823EADFF /* src */,
+				6E54289412D2D94F45A05113 /* libs */,
 			);
 			name = ofxXmlSettings;
 			sourceTree = "<group>";
 		};
-		84137DDF19E9D2D60035A71B /* src */ = {
+		229F56F912BE6E2F785205DA /* src */ = {
 			isa = PBXGroup;
 			children = (
-				84137DE019E9D2D60035A71B /* ofxXmlSettings.cpp */,
-				84137DE119E9D2D60035A71B /* ofxXmlSettings.h */,
+				7B928DEF9B0ED0E1AEFA99EE /* ofxTriangle.cpp */,
+				C20C3D6ECADBDED32AF7A858 /* ofxTriangle.h */,
 			);
 			name = src;
-			path = ../../ofxXmlSettings/src;
 			sourceTree = "<group>";
 		};
-		84137DE219E9D2D60035A71B /* libs */ = {
+		37EEFE9F7B252EA155DFB073 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				84137DE319E9D2D60035A71B /* tinyxml.cpp */,
-				84137DE419E9D2D60035A71B /* tinyxml.h */,
-				84137DE519E9D2D60035A71B /* tinyxmlerror.cpp */,
-				84137DE619E9D2D60035A71B /* tinyxmlparser.cpp */,
+				2F690304855C0AC1251BA32E /* assert.hpp */,
+				EBFC66C6B2C360ED715A393B /* del_interface.hpp */,
+				EA106A0D1EE95638A8C8AE12 /* dpoint.hpp */,
+				22D06D986AE2C99CD284FF3B /* triangle.h */,
+				3E5DE2C3B5B2F24F019ECAC9 /* triangle_impl.hpp */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		40AFB95CB9B438A51A7006FA /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				D913B0E7F83503091319881D /* Triangle */,
 			);
 			name = libs;
-			path = ../../ofxXmlSettings/libs;
 			sourceTree = "<group>";
 		};
-		842929851A7C0A5B004A1E20 /* ofxSecondWindow */ = {
+		4373A30F72067F000063CFF4 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				842929861A7C0A5B004A1E20 /* src */,
-			);
-			name = ofxSecondWindow;
-			sourceTree = "<group>";
-		};
-		842929861A7C0A5B004A1E20 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				842929871A7C0A5B004A1E20 /* ofxSecondWindow.cpp */,
-				842929881A7C0A5B004A1E20 /* ofxSecondWindow.h */,
+				F6CD5194C7EEB1B621758398 /* ofxSecondWindow.cpp */,
+				F905D46EF2AE96B79CEF0609 /* ofxSecondWindow.h */,
 			);
 			name = src;
-			path = ../../ofxSecondWindow/src;
 			sourceTree = "<group>";
 		};
-		B470211919EB60FB00C1227C /* ofxProjectionMask */ = {
+		6E54289412D2D94F45A05113 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				B470211A19EB60FB00C1227C /* src */,
+				2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */,
+				B21E7E5F548EEA92F368040B /* tinyxml.h */,
+				832BDC407620CDBA568B713D /* tinyxmlerror.cpp */,
+				FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		6ECEF0D76BC33727823EADFF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */,
+				01DCC0911400F9ACF5B65578 /* ofxXmlSettings.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		846F111D1B36873D0071ADAC /* ofxProjectionMask */ = {
+			isa = PBXGroup;
+			children = (
+				846F111E1B36873D0071ADAC /* src */,
 			);
 			name = ofxProjectionMask;
 			sourceTree = "<group>";
 		};
-		B470211A19EB60FB00C1227C /* src */ = {
+		846F111E1B36873D0071ADAC /* src */ = {
 			isa = PBXGroup;
 			children = (
-				B470211B19EB60FB00C1227C /* Drawing */,
-				B470213119EB60FB00C1227C /* ofExtensions.cpp */,
-				B470213219EB60FB00C1227C /* ofExtensions.h */,
-				B470213319EB60FB00C1227C /* ofxProjectionMask.cpp */,
-				B470213419EB60FB00C1227C /* ofxProjectionMask.h */,
-				B470213519EB60FB00C1227C /* Patterns */,
-				B470213B19EB60FB00C1227C /* Presets.cpp */,
-				B470213C19EB60FB00C1227C /* Presets.h */,
-				B470213D19EB60FB00C1227C /* Storage */,
+				846F111F1B36873D0071ADAC /* Drawing */,
+				846F11351B36873D0071ADAC /* ofExtensions.cpp */,
+				846F11361B36873D0071ADAC /* ofExtensions.h */,
+				846F11371B36873D0071ADAC /* ofxProjectionMask.cpp */,
+				846F11381B36873D0071ADAC /* ofxProjectionMask.h */,
+				846F11391B36873D0071ADAC /* Patterns */,
+				846F11431B36873D0071ADAC /* Presets.cpp */,
+				846F11441B36873D0071ADAC /* Presets.h */,
+				846F11451B36873D0071ADAC /* Storage */,
 			);
 			name = src;
-			path = ../src;
+			path = ../../../addons/ofxProjectionMask/src;
 			sourceTree = "<group>";
 		};
-		B470211B19EB60FB00C1227C /* Drawing */ = {
+		846F111F1B36873D0071ADAC /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				B470211C19EB60FB00C1227C /* Areas */,
-				B470212319EB60FB00C1227C /* Collections */,
-				B470212819EB60FB00C1227C /* Mouse.cpp */,
-				B470212919EB60FB00C1227C /* Mouse.h */,
-				B470212A19EB60FB00C1227C /* Points */,
+				846F11201B36873D0071ADAC /* Areas */,
+				846F11271B36873D0071ADAC /* Collections */,
+				846F112C1B36873D0071ADAC /* Mouse.cpp */,
+				846F112D1B36873D0071ADAC /* Mouse.h */,
+				846F112E1B36873D0071ADAC /* Points */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
 		};
-		B470211C19EB60FB00C1227C /* Areas */ = {
+		846F11201B36873D0071ADAC /* Areas */ = {
 			isa = PBXGroup;
 			children = (
-				B470211D19EB60FB00C1227C /* Canvas.cpp */,
-				B470211E19EB60FB00C1227C /* Canvas.h */,
-				B470211F19EB60FB00C1227C /* MaskFrame.cpp */,
-				B470212019EB60FB00C1227C /* MaskFrame.h */,
-				B470212119EB60FB00C1227C /* TextArea.cpp */,
-				B470212219EB60FB00C1227C /* TextArea.h */,
+				846F11211B36873D0071ADAC /* Canvas.cpp */,
+				846F11221B36873D0071ADAC /* Canvas.h */,
+				846F11231B36873D0071ADAC /* MaskFrame.cpp */,
+				846F11241B36873D0071ADAC /* MaskFrame.h */,
+				846F11251B36873D0071ADAC /* TextArea.cpp */,
+				846F11261B36873D0071ADAC /* TextArea.h */,
 			);
 			path = Areas;
 			sourceTree = "<group>";
 		};
-		B470212319EB60FB00C1227C /* Collections */ = {
+		846F11271B36873D0071ADAC /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				B470212419EB60FB00C1227C /* CanvasContents.cpp */,
-				B470212519EB60FB00C1227C /* CanvasContents.h */,
-				B470212619EB60FB00C1227C /* SafeDeque.cpp */,
-				B470212719EB60FB00C1227C /* SafeDeque.h */,
+				846F11281B36873D0071ADAC /* CanvasContents.cpp */,
+				846F11291B36873D0071ADAC /* CanvasContents.h */,
+				846F112A1B36873D0071ADAC /* SafeDeque.cpp */,
+				846F112B1B36873D0071ADAC /* SafeDeque.h */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
 		};
-		B470212A19EB60FB00C1227C /* Points */ = {
+		846F112E1B36873D0071ADAC /* Points */ = {
 			isa = PBXGroup;
 			children = (
-				B470212B19EB60FB00C1227C /* DragHandle.cpp */,
-				B470212C19EB60FB00C1227C /* DragHandle.h */,
-				B470212D19EB60FB00C1227C /* MaskPoint.cpp */,
-				B470212E19EB60FB00C1227C /* MaskPoint.h */,
-				B470212F19EB60FB00C1227C /* PointObject.cpp */,
-				B470213019EB60FB00C1227C /* PointObject.h */,
+				846F112F1B36873D0071ADAC /* DragHandle.cpp */,
+				846F11301B36873D0071ADAC /* DragHandle.h */,
+				846F11311B36873D0071ADAC /* MaskPoint.cpp */,
+				846F11321B36873D0071ADAC /* MaskPoint.h */,
+				846F11331B36873D0071ADAC /* PointObject.cpp */,
+				846F11341B36873D0071ADAC /* PointObject.h */,
 			);
 			path = Points;
 			sourceTree = "<group>";
 		};
-		B470213519EB60FB00C1227C /* Patterns */ = {
+		846F11391B36873D0071ADAC /* Patterns */ = {
 			isa = PBXGroup;
 			children = (
-				B470213619EB60FB00C1227C /* BufferPattern.cpp */,
-				B470213719EB60FB00C1227C /* BufferPattern.h */,
-				B470213819EB60FB00C1227C /* TestPatterns */,
+				846F113A1B36873D0071ADAC /* BufferPattern.cpp */,
+				846F113B1B36873D0071ADAC /* BufferPattern.h */,
+				846F113C1B36873D0071ADAC /* TestPatterns */,
 			);
 			path = Patterns;
 			sourceTree = "<group>";
 		};
-		B470213819EB60FB00C1227C /* TestPatterns */ = {
+		846F113C1B36873D0071ADAC /* TestPatterns */ = {
 			isa = PBXGroup;
 			children = (
-				B470215319EB964A00C1227C /* ArgumentPattern.cpp */,
-				B470215419EB964A00C1227C /* ArgumentPattern.h */,
-				B470213919EB60FB00C1227C /* HueCyclePattern.cpp */,
-				B470213A19EB60FB00C1227C /* HueCyclePattern.h */,
-				B470215019EB938B00C1227C /* SetupPattern.cpp */,
-				B470215119EB938B00C1227C /* SetupPattern.h */,
+				846F113D1B36873D0071ADAC /* ArgumentPattern.cpp */,
+				846F113E1B36873D0071ADAC /* ArgumentPattern.h */,
+				846F113F1B36873D0071ADAC /* HueCyclePattern.cpp */,
+				846F11401B36873D0071ADAC /* HueCyclePattern.h */,
+				846F11411B36873D0071ADAC /* SetupPattern.cpp */,
+				846F11421B36873D0071ADAC /* SetupPattern.h */,
 			);
 			path = TestPatterns;
 			sourceTree = "<group>";
 		};
-		B470213D19EB60FB00C1227C /* Storage */ = {
+		846F11451B36873D0071ADAC /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				B470213E19EB60FB00C1227C /* Xml.cpp */,
-				B470213F19EB60FB00C1227C /* Xml.h */,
+				846F11461B36873D0071ADAC /* Xml.cpp */,
+				846F11471B36873D0071ADAC /* Xml.h */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		97DC4EE352691FC2C5556C7B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95CC17619159CA7FBA37A39F /* assert.cpp */,
+				5B58BF03F54854C49C0E8D21 /* del_impl.cpp */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				842929851A7C0A5B004A1E20 /* ofxSecondWindow */,
-				B470211919EB60FB00C1227C /* ofxProjectionMask */,
-				84137DDE19E9D2D60035A71B /* ofxXmlSettings */,
-				84137DCC19E9D2A60035A71B /* ofxTriangle */,
+				846F111D1B36873D0071ADAC /* ofxProjectionMask */,
+				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
+				EDD1D727C7914867117F6F92 /* ofxSecondWindow */,
+				098126D627B3CF52BE4C8ED0 /* ofxTriangle */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -438,6 +416,15 @@
 				BBAB23BE13894E4700AA2426 /* GLUT.framework */,
 			);
 			name = "3rd party frameworks";
+			sourceTree = "<group>";
+		};
+		D913B0E7F83503091319881D /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				37EEFE9F7B252EA155DFB073 /* include */,
+				97DC4EE352691FC2C5556C7B /* src */,
+			);
+			name = Triangle;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -487,6 +474,14 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		EDD1D727C7914867117F6F92 /* ofxSecondWindow */ = {
+			isa = PBXGroup;
+			children = (
+				4373A30F72067F000063CFF4 /* src */,
+			);
+			name = ofxSecondWindow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,33 +571,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B470214C19EB60FB00C1227C /* HueCyclePattern.cpp in Sources */,
-				B470215219EB938B00C1227C /* SetupPattern.cpp in Sources */,
-				B470214919EB60FB00C1227C /* ofExtensions.cpp in Sources */,
-				84137DE819E9D2D60035A71B /* tinyxml.cpp in Sources */,
-				B470214719EB60FB00C1227C /* MaskPoint.cpp in Sources */,
-				B470214419EB60FB00C1227C /* SafeDeque.cpp in Sources */,
-				84137DE719E9D2D60035A71B /* ofxXmlSettings.cpp in Sources */,
-				84137DDB19E9D2A60035A71B /* ofxTriangle.cpp in Sources */,
-				B470214219EB60FB00C1227C /* TextArea.cpp in Sources */,
-				B470214B19EB60FB00C1227C /* BufferPattern.cpp in Sources */,
-				B470214E19EB60FB00C1227C /* Xml.cpp in Sources */,
-				B470214A19EB60FB00C1227C /* ofxProjectionMask.cpp in Sources */,
-				B470214319EB60FB00C1227C /* CanvasContents.cpp in Sources */,
-				B470214519EB60FB00C1227C /* Mouse.cpp in Sources */,
-				842929891A7C0A5B004A1E20 /* ofxSecondWindow.cpp in Sources */,
-				84137DDC19E9D2A60035A71B /* assert.cpp in Sources */,
+				846F11481B36873D0071ADAC /* Canvas.cpp in Sources */,
+				846F11561B36873D0071ADAC /* SetupPattern.cpp in Sources */,
+				846F11491B36873D0071ADAC /* MaskFrame.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				B470214619EB60FB00C1227C /* DragHandle.cpp in Sources */,
-				84137DEA19E9D2D60035A71B /* tinyxmlparser.cpp in Sources */,
-				84137DE919E9D2D60035A71B /* tinyxmlerror.cpp in Sources */,
-				B470214D19EB60FB00C1227C /* Presets.cpp in Sources */,
-				B470214019EB60FB00C1227C /* Canvas.cpp in Sources */,
+				846F114D1B36873D0071ADAC /* Mouse.cpp in Sources */,
+				846F11501B36873D0071ADAC /* PointObject.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
-				B470214119EB60FB00C1227C /* MaskFrame.cpp in Sources */,
-				84137DDD19E9D2A60035A71B /* del_impl.cpp in Sources */,
-				B470214819EB60FB00C1227C /* PointObject.cpp in Sources */,
-				B470215519EB964A00C1227C /* ArgumentPattern.cpp in Sources */,
+				846F11521B36873D0071ADAC /* ofxProjectionMask.cpp in Sources */,
+				63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */,
+				846F114C1B36873D0071ADAC /* SafeDeque.cpp in Sources */,
+				933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */,
+				846F114A1B36873D0071ADAC /* TextArea.cpp in Sources */,
+				9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */,
+				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
+				846F11541B36873D0071ADAC /* ArgumentPattern.cpp in Sources */,
+				846F114B1B36873D0071ADAC /* CanvasContents.cpp in Sources */,
+				87B479F55285F413D96B5A45 /* ofxSecondWindow.cpp in Sources */,
+				1D29183493968A6745214489 /* ofxTriangle.cpp in Sources */,
+				846F11531B36873D0071ADAC /* BufferPattern.cpp in Sources */,
+				846F114F1B36873D0071ADAC /* MaskPoint.cpp in Sources */,
+				846F114E1B36873D0071ADAC /* DragHandle.cpp in Sources */,
+				846F11551B36873D0071ADAC /* HueCyclePattern.cpp in Sources */,
+				F433A9855079F16673B77E7B /* assert.cpp in Sources */,
+				846F11511B36873D0071ADAC /* ofExtensions.cpp in Sources */,
+				846F11581B36873D0071ADAC /* Xml.cpp in Sources */,
+				846F11571B36873D0071ADAC /* Presets.cpp in Sources */,
+				071D631BBDA00BB0980E88BC /* del_impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,8 +634,15 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
-					../../../addons/ofxProjectionMask/libs,
-					../../../addons/ofxProjectionMask/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+					../../../addons/ofxSecondWindow/libs,
+					../../../addons/ofxSecondWindow/src,
+					../../../addons/ofxTriangle/libs,
+					../../../addons/ofxTriangle/libs/Triangle,
+					../../../addons/ofxTriangle/libs/Triangle/include,
+					../../../addons/ofxTriangle/libs/Triangle/src,
+					../../../addons/ofxTriangle/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -675,8 +677,15 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
-					../../../addons/ofxProjectionMask/libs,
-					../../../addons/ofxProjectionMask/src,
+					../../../addons/ofxXmlSettings/libs,
+					../../../addons/ofxXmlSettings/src,
+					../../../addons/ofxSecondWindow/libs,
+					../../../addons/ofxSecondWindow/src,
+					../../../addons/ofxTriangle/libs,
+					../../../addons/ofxTriangle/libs/Triangle,
+					../../../addons/ofxTriangle/libs/Triangle/include,
+					../../../addons/ofxTriangle/libs/Triangle/src,
+					../../../addons/ofxTriangle/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -770,7 +779,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
-				USER_HEADER_SEARCH_PATHS = ../../ofxTriangle/libs/Triangle/include/;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -856,7 +865,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = ../../ofxTriangle/libs/Triangle/include/;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,1 +1,3 @@
-ofxProjectionMask
+ofxXmlSettings
+ofxSecondWindow
+ofxTriangle
