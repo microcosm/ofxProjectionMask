@@ -12,6 +12,16 @@ void ofxProjectionMask::setup(BufferPattern* _pattern){
     setup();
 }
 
+void ofxProjectionMask::setup(vector<ofxLayerMask> _patterns){
+    patterns = _patterns;
+    setup();
+}
+
+void ofxProjectionMask::setup(ofxLayerMask pattern){
+    patterns.push_back(pattern);
+    setup();
+}
+
 void ofxProjectionMask::setup(){
     displayMode = Design;
     
@@ -177,6 +187,11 @@ void ofxProjectionMask::setVolumes(float *playbackVolume, vector<float> *nonPlay
     textArea.setVolumes(playbackVolume, nonPlaybackVolumes);
 }
 
+ofxLayerMask* ofxProjectionMask::nextPattern() {
+    int patternId = (canvasContents.getMaskFrames()->size()) % patterns.size();
+    &patterns.at(patternId);
+}
+
 //Protected
 void ofxProjectionMask::undo(){
     canvasContents.undo();
@@ -199,6 +214,7 @@ void ofxProjectionMask::createNewMaskFrame(){
     MaskFrame maskFrame;
     maskFrame.assignCanvases(designCanvas, liveCanvas);
     maskFrame.setBuffers(pattern->getBuffers());
+    maskFrame.setPattern(nextPattern());
     maskFrame.setSize(presets.newMaskFrameWidth, presets.newMaskFrameHeight);
     maskFrame.setPosition(mouse.x, mouse.y);
     canvasContents.add(&maskFrame);

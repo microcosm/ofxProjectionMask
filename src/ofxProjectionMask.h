@@ -1,6 +1,7 @@
 #pragma once
 #include "ofMain.h"
 #include "ofxSecondWindow.h"
+#include "ofxLayerMask.h"
 #include "CanvasContents.h"
 #include "MaskFrame.h"
 #include "TextArea.h"
@@ -14,6 +15,8 @@ public:
     
     void setup(BufferPattern* pattern, PresetMode _mode);
     void setup(BufferPattern* pattern);
+    void setup(vector<ofxLayerMask> patterns);
+    void setup(ofxLayerMask pattern);
     void setup();
     void layout();
     void update(int mouseX, int mouseY);
@@ -25,7 +28,8 @@ public:
     void mouseReleased();
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
-    
+    ofxLayerMask* nextPattern();
+
 protected:
     Presets presets;
     DisplayMode displayMode;
@@ -34,6 +38,7 @@ protected:
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
     BufferPattern *pattern;
+    vector<ofxLayerMask> patterns;
     
     Mouse mouse;
     MaskFrame *selectedMaskFrame;

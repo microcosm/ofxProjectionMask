@@ -7,6 +7,7 @@
 #include "ofExtensions.h"
 #include "SafeDeque.h"
 #include "ofxTriangle.h"
+#include "ofxLayerMask.h"
 
 enum DisplayMode { Design, HalfLive, Live };
 
@@ -25,6 +26,7 @@ public:
     void setId(int newId);
     void assignCanvases(Canvas& designCanvas, Canvas& liveCanvas);
     void setBuffers(vector<ofFbo> *buffers);
+    void setPattern(ofxLayerMask *pattern);
     
     void highlightIfCloseTo(int absoluteX, int absoluteY);
     void setHighlighted(bool isHighlighted);
@@ -94,6 +96,7 @@ protected:
     MaskPoint* selectedMaskPoint;
     MaskPoint ghostPoint;
     vector<ofFbo> *buffers;
+    ofxLayerMask *pattern;
     ofxTriangle triangleCreator;
     
     int designWidth;

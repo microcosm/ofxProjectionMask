@@ -26,6 +26,10 @@ void MaskFrame::setBuffers(vector<ofFbo> *buffers){
     this->buffers = buffers;
 }
 
+void MaskFrame::setPattern(ofxLayerMask *pattern){
+    this->pattern = pattern;
+}
+
 void MaskFrame::highlightIfCloseTo(int absoluteX, int absoluteY){
     this->highlightDragHandlesIfCloseTo(absoluteX, absoluteY);
     if(this->hasHighlightedDragHandle()){
