@@ -28,6 +28,7 @@
 		846F11561B36873D0071ADAC /* SetupPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11411B36873D0071ADAC /* SetupPattern.cpp */; };
 		846F11571B36873D0071ADAC /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11431B36873D0071ADAC /* Presets.cpp */; };
 		846F11581B36873D0071ADAC /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11461B36873D0071ADAC /* Xml.cpp */; };
+		846F11621B368B3D0071ADAC /* YourCustomPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11601B368A010071ADAC /* YourCustomPattern.cpp */; };
 		87B479F55285F413D96B5A45 /* ofxSecondWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6CD5194C7EEB1B621758398 /* ofxSecondWindow.cpp */; };
 		933A2227713C720CEFF80FD9 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B40EDA85BEB63E46785BC29 /* tinyxml.cpp */; };
 		9D44DC88EF9E7991B4A09951 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 832BDC407620CDBA568B713D /* tinyxmlerror.cpp */; };
@@ -127,6 +128,8 @@
 		846F11441B36873D0071ADAC /* Presets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presets.h; sourceTree = "<group>"; };
 		846F11461B36873D0071ADAC /* Xml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xml.cpp; sourceTree = "<group>"; };
 		846F11471B36873D0071ADAC /* Xml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xml.h; sourceTree = "<group>"; };
+		846F11601B368A010071ADAC /* YourCustomPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = YourCustomPattern.cpp; sourceTree = "<group>"; };
+		846F11611B368A010071ADAC /* YourCustomPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YourCustomPattern.h; sourceTree = "<group>"; };
 		95CC17619159CA7FBA37A39F /* assert.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = assert.cpp; path = ../../../addons/ofxTriangle/libs/Triangle/src/assert.cpp; sourceTree = SOURCE_ROOT; };
 		B21E7E5F548EEA92F368040B /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -369,6 +372,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		846F115F1B368A010071ADAC /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				846F11601B368A010071ADAC /* YourCustomPattern.cpp */,
+				846F11611B368A010071ADAC /* YourCustomPattern.h */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
 		97DC4EE352691FC2C5556C7B /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +475,7 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				846F115F1B368A010071ADAC /* Patterns */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -571,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846F11621B368B3D0071ADAC /* YourCustomPattern.cpp in Sources */,
 				846F11481B36873D0071ADAC /* Canvas.cpp in Sources */,
 				846F11561B36873D0071ADAC /* SetupPattern.cpp in Sources */,
 				846F11491B36873D0071ADAC /* MaskFrame.cpp in Sources */,

@@ -5,6 +5,7 @@
 #include "HueCyclePattern.h"
 #include "SetupPattern.h"
 #include "ArgumentPattern.h"
+#include "YourCustomPattern.h"
 
 class ofApp : public ofBaseApp{
 
@@ -30,4 +31,5 @@ public:
     //SetupPattern pattern;  //plain white
     //ArgumentPattern pattern; //control the pattern with args, plus multiple buffers
     //If you uncomment ArgumentPattern, go and uncomment the line in ofApp::update()
+    //YourCustomPattern pattern; //Build your patterns based on this template
 };
