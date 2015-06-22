@@ -12,13 +12,8 @@ void ofxProjectionMask::setup(BufferPattern* _pattern){
     setup();
 }
 
-void ofxProjectionMask::setup(vector<ofxLayerMask*> _patterns){
-    patterns = _patterns;
-    setup();
-}
-
-void ofxProjectionMask::setup(ofxLayerMask* pattern){
-    patterns.push_back(pattern);
+void ofxProjectionMask::setup(vector<ofxLayerMask> *patterns){
+    this->patterns = patterns;
     setup();
 }
 
@@ -38,7 +33,7 @@ void ofxProjectionMask::setup(){
     
     selectedMaskFrame = 0;
     
-    xml.setup(&designCanvas, &liveCanvas, &canvasContents, pattern->getBuffers(), presets.storageDirectory);
+    xml.setup(&designCanvas, &liveCanvas, &canvasContents, patterns, presets.storageDirectory);
     xml.load();
     mouse.setup(&designCanvas);
 }
@@ -124,6 +119,7 @@ void ofxProjectionMask::keyReleased(int key){
     }else if(key == 127 || key == 8){
         deleteHighlightedItem();
         xml.autoSave();
+        xml.load();
     }else if(key == 356){
         nudge(Left);
         xml.autoSave();
@@ -188,8 +184,8 @@ void ofxProjectionMask::setVolumes(float *playbackVolume, vector<float> *nonPlay
 }
 
 ofxLayerMask* ofxProjectionMask::nextPattern() {
-    int patternId = (canvasContents.getMaskFrames()->size()) % patterns.size();
-    return patterns.at(patternId);
+    int patternId = (canvasContents.getMaskFrames()->size()) % patterns->size();
+    return &patterns->at(patternId);
 }
 
 //Protected

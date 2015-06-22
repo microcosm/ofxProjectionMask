@@ -2,11 +2,11 @@
 #include "ofxXmlSettings.h"
 #include "Canvas.h"
 #include "CanvasContents.h"
-
+#include "ofxLayerMask.h"
 
 class Xml{
 public:
-    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers, string directory);
+    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask> *patterns, string directory);
     void save();
     void autoSave();
     void load();
@@ -16,7 +16,7 @@ protected:
     int sourceLiveCanvasWidth, sourceLiveCanvasHeight;
     int sourceMaskFrameWidth, sourceMaskFrameHeight;
     CanvasContents *canvasContents;
-    vector<ofFbo> *buffers;
+    vector<ofxLayerMask> *patterns;
     string xmlSubPath;
     
     void save(bool autoSave);
@@ -44,4 +44,6 @@ protected:
     int getMaskFrameLiveY(ofxXmlSettings *xml);
     int getMaskPointLiveX(ofxXmlSettings *xml, MaskFrame *maskFrame);
     int getMaskPointLiveY(ofxXmlSettings *xml, MaskFrame *maskFrame);
+
+    ofxLayerMask* nextPattern();
 };

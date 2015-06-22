@@ -41,11 +41,11 @@ const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 
-void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofFbo> *buffers, string directory){
+void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask> *patterns, string directory){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
-    this->buffers = buffers;
+    this->patterns = patterns;
     this->xmlSubPath = directory;
 }
 
@@ -244,7 +244,7 @@ void Xml::loadMaskFrame(ofxXmlSettings *xml, SafeDeque<MaskFrame> *maskFrames, i
     maskFrame.setId(getMaskFrameId(xml));
     
     maskFrame.assignCanvases(*designCanvas, *liveCanvas);
-    maskFrame.setBuffers(buffers);
+    maskFrame.setPattern(nextPattern());
     
     int liveWidth = getMaskFrameLiveWidth(xml);
     int liveHeight = getMaskFrameLiveHeight(xml);
@@ -321,4 +321,9 @@ int Xml::getMaskPointLiveX(ofxXmlSettings *xml, MaskFrame *maskFrame){
 int Xml::getMaskPointLiveY(ofxXmlSettings *xml, MaskFrame *maskFrame){
     int maskPointLiveY = xml->getValue(liveYTag, 0);
     return ofMap(maskPointLiveY, 0, sourceMaskFrameHeight, 0, maskFrame->getHeight());
+}
+
+ofxLayerMask* Xml::nextPattern() {
+    int patternId = (canvasContents->getMaskFrames()->size()) % patterns->size();
+    return &patterns->at(patternId);
 }
