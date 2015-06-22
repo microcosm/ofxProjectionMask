@@ -12,12 +12,12 @@ void ofxProjectionMask::setup(BufferPattern* _pattern){
     setup();
 }
 
-void ofxProjectionMask::setup(vector<ofxLayerMask> _patterns){
+void ofxProjectionMask::setup(vector<ofxLayerMask*> _patterns){
     patterns = _patterns;
     setup();
 }
 
-void ofxProjectionMask::setup(ofxLayerMask pattern){
+void ofxProjectionMask::setup(ofxLayerMask* pattern){
     patterns.push_back(pattern);
     setup();
 }
@@ -189,7 +189,7 @@ void ofxProjectionMask::setVolumes(float *playbackVolume, vector<float> *nonPlay
 
 ofxLayerMask* ofxProjectionMask::nextPattern() {
     int patternId = (canvasContents.getMaskFrames()->size()) % patterns.size();
-    &patterns.at(patternId);
+    return patterns.at(patternId);
 }
 
 //Protected
@@ -254,7 +254,7 @@ void ofxProjectionMask::drawLiveCursor(){
 }
 
 void ofxProjectionMask::drawBufferPreviews(){
-    ofPushMatrix();
+    /*ofPushMatrix();
     ofTranslate(presets.bufferPreviewX, presets.bufferPreviewY);
     
     ofSetColor(255, 255, 255, 255);
@@ -271,7 +271,7 @@ void ofxProjectionMask::drawBufferPreviews(){
         x = presets.bufferPreviewWidth + presets.bufferMargin;
     }
     
-    ofPopMatrix();
+    ofPopMatrix();*/
 }
 
 bool ofxProjectionMask::isTransforming(){

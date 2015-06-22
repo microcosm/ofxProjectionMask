@@ -180,62 +180,49 @@ void MaskFrame::drawLive(DisplayMode mode){
     ofTranslate(this->livePosition.x, this->livePosition.y);
     
     if(this->canDrawLive()){
-        if(mode == Design){
+        /*if(mode == Design){
             this->clearBuffer();
-        }
-        
-        ofSetColor(255, 255, 255, 255);
-        
-        triangleCreator.clear();
-        vector<ofPoint> points;
-        for (int i = 0; i < maskPoints.size(); i++){
-            ofPoint point;
-            point.x = maskPoints[i]->getLiveX();
-            point.y = maskPoints[i]->getLiveY();
-            point.z = 0;
-            points.push_back(point);
-        }
-        
-        triangleCreator.triangulate(points);
-        
-        int bufferIndex = frameId % buffers->size();
-        if(ofGetFrameNum() > bufferStartFrameNum){
-            buffers->at(bufferIndex).getTextureReference().bind();
-            glBegin(GL_TRIANGLES);
-            for (int i = 0; i < triangleCreator.nTriangles; i++){
-                
-                glTexCoord2f(triangleCreator.triangles[i].a.x, triangleCreator.triangles[i].a.y);
-                glVertex2f(triangleCreator.triangles[i].a.x, triangleCreator.triangles[i].a.y);
-                
-                glTexCoord2f(triangleCreator.triangles[i].b.x, triangleCreator.triangles[i].b.y);
-                glVertex2f(triangleCreator.triangles[i].b.x, triangleCreator.triangles[i].b.y);
-                
-                glTexCoord2f(triangleCreator.triangles[i].c.x, triangleCreator.triangles[i].c.y);
-                glVertex2f(triangleCreator.triangles[i].c.x, triangleCreator.triangles[i].c.y);
+        }*/
+
+        pattern->beginMask();
+        ofPushStyle();
+        {
+            ofFill();
+            ofBackground(ofColor::black);
+            ofSetColor(ofColor::white);
+            ofBeginShape();
+            for(int i = 0; i < maskPoints.size(); i++){
+                ofVertex(maskPoints[i]->getLiveX(), maskPoints[i]->getLiveY());
             }
-            glEnd();
-            buffers->at(bufferIndex).getTextureReference().unbind();
+            ofEndShape();
         }
+        ofPopStyle();
+        pattern->endMask();
+
+        pattern->draw();
     }
     
     if(mode != Live){
         
         bool hasHighlightedDragHandle = this->hasHighlightedDragHandle();
         bool hasHighlightedMaskPoint = this->hasHighlightedMaskPoint();
-        
-        if((highlighted || hasHighlightedDragHandle || getTransformState() == Scaling) && !hasHighlightedMaskPoint){
-            ofSetColor(highlightedColor);
-        }else{
-            ofSetColor(notHighlightedColor);   
-        }
-        
-        ofRect(0, 0, this->liveWidth, this->liveHeight);
-        
-        if((highlighted || hasHighlightedDragHandle) && !hasHighlightedMaskPoint){
-            for(int i = 0; i < dragHandles.size(); i++){
-                dragHandles[i]->drawLive();
+
+        ofPushStyle();
+        {
+            if((highlighted || hasHighlightedDragHandle || getTransformState() == Scaling) && !hasHighlightedMaskPoint){
+                ofSetColor(highlightedColor);
+            }else{
+                ofSetColor(notHighlightedColor);
+            }
+            ofRect(0, 0, this->liveWidth, this->liveHeight);
+
+            if((highlighted || hasHighlightedDragHandle) && !hasHighlightedMaskPoint){
+                for(int i = 0; i < dragHandles.size(); i++){
+                    dragHandles[i]->drawLive();
+                }
             }
         }
+        ofPopStyle();
     }
         
     if(mode == Design){
@@ -669,14 +656,14 @@ void MaskFrame::deselectMaskPoint(){
     selectedMaskPoint = 0;
 }
 
-void MaskFrame::clearBuffer(){
+/*void MaskFrame::clearBuffer(){
     for(int i = 0; i < buffers->size(); i++){
         buffers->at(i).begin();
         ofClear(0, 0, 0);
         ofClearAlpha();
         buffers->at(i).end();
     }
-}
+}*/
 
 void MaskFrame::insert(MaskPoint *maskPoint){
     if(maskPoints.size() < 3){

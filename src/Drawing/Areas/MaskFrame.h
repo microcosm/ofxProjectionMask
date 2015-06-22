@@ -119,7 +119,7 @@ protected:
     void unhighlightAllMaskPoints();
     void selectHighlightedMaskPoint();
     void deselectMaskPoint();
-    void clearBuffer();
+    //void clearBuffer();
     
     void insert(MaskPoint* maskPoint);
     int getInsertionIndex(MaskPoint* maskPoint);
