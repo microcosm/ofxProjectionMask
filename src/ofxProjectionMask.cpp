@@ -12,17 +12,17 @@ void ofxProjectionMask::setup(BufferPattern* _pattern){
     setup();
 }*/
 
-void ofxProjectionMask::setup(ofxLayerMask* pattern){
+void ofxProjectionMask::setup(ofxLayerMask* pattern, StretchMode _stretchMode){
     add(pattern);
-    setup();
+    setup(stretchMode);
 }
 
-void ofxProjectionMask::setup(vector<ofxLayerMask*> patterns){
+void ofxProjectionMask::setup(vector<ofxLayerMask*> patterns, StretchMode _stretchMode){
     this->patterns = patterns;
-    setup();
+    setup(stretchMode);
 }
 
-void ofxProjectionMask::setup(){
+void ofxProjectionMask::setup(StretchMode _stretchMode){
     displayMode = Design;
     
     ofSetHexColor(0xFFFFFF);
@@ -37,6 +37,7 @@ void ofxProjectionMask::setup(){
     }
     
     selectedMaskFrame = 0;
+    stretchMode = _stretchMode;
     
     xml.setup(&designCanvas, &liveCanvas, &canvasContents, &patterns, presets.storageDirectory);
     if(patterns.size() > 0) {
@@ -105,7 +106,7 @@ void ofxProjectionMask::draw(){
     if(displayMode == Design){
         liveCanvas.draw();
     }
-    canvasContents.drawLive(displayMode);
+    canvasContents.drawLive(displayMode, stretchMode);
     ofPopMatrix();
     drawLiveCursor();
     if(presets.isProductionMode()) {

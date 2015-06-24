@@ -10,6 +10,10 @@
 #include "ofxLayerMask.h"
 
 enum DisplayMode { Design, HalfLive, Live };
+enum StretchMode {
+    DO_NOT_STRETCH,
+    STRETCH_TO_MASKFRAME
+};
 
 class MaskFrame{
 public:
@@ -45,7 +49,7 @@ public:
     void setTransformState(TransformState transformState);
     
     void drawDesign();
-    void drawLive(DisplayMode mode);
+    void drawLive(DisplayMode mode, StretchMode stretchMode);
     
     void setSize(int width, int height);
     void setSize(int width, int height, Corner movingCorner);
@@ -107,6 +111,7 @@ protected:
     ofVec2f livePosition;
     Canvas* designCanvas;
     Canvas* liveCanvas;
+    float x, y;
     
     SafeDeque<DragHandle> dragHandles;
     SafeDeque<MaskPoint> maskPoints;

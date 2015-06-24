@@ -15,9 +15,9 @@ public:
     
     /*void setup(BufferPattern* pattern, PresetMode _mode);
     void setup(BufferPattern* pattern);*/
-    void setup(vector<ofxLayerMask*> patterns);
-    void setup(ofxLayerMask* pattern);
-    void setup();
+    void setup(vector<ofxLayerMask*> patterns, StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
+    void setup(ofxLayerMask* pattern, StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
+    void setup(StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
     void add(ofxLayerMask* pattern);
     void layout();
     void update(int mouseX, int mouseY);
@@ -34,6 +34,7 @@ public:
 protected:
     Presets presets;
     DisplayMode displayMode;
+    StretchMode stretchMode;
     
     ofxSecondWindow secondWindow;
     Canvas designCanvas, liveCanvas;
@@ -44,7 +45,6 @@ protected:
     Mouse mouse;
     MaskFrame *selectedMaskFrame;
     TextArea textArea;
-    
     Xml xml;
     
     void undo();

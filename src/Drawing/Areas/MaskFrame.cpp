@@ -175,7 +175,7 @@ void MaskFrame::drawDesign(){
     ofPopMatrix();
 }
 
-void MaskFrame::drawLive(DisplayMode mode){
+void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
     ofPushMatrix();
     ofTranslate(this->livePosition.x, this->livePosition.y);
     
@@ -192,14 +192,20 @@ void MaskFrame::drawLive(DisplayMode mode){
             ofSetColor(ofColor::white);
             ofBeginShape();
             for(int i = 0; i < maskPoints.size(); i++){
-                ofVertex(maskPoints[i]->getLiveX(), maskPoints[i]->getLiveY());
+                x = ofMap(maskPoints[i]->getLiveX(), 0, getLiveWidth(), 0, pattern->getWidth());
+                y = ofMap(maskPoints[i]->getLiveY(), 0, getLiveHeight(), 0, pattern->getHeight());
+                ofVertex(x, y);
             }
             ofEndShape();
         }
         ofPopStyle();
         pattern->endMask();
-
-        pattern->draw();
+        
+        if(stretchMode == DO_NOT_STRETCH) {
+            pattern->draw();
+        } else {
+            pattern->draw(0, 0, getLiveWidth(), getLiveHeight());
+        }
     }
     
     if(mode != Live){
