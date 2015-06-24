@@ -1,7 +1,7 @@
 #include "ofxProjectionMask.h"
 
 //Public
-void ofxProjectionMask::setup(BufferPattern* _pattern, PresetMode _mode){
+/*void ofxProjectionMask::setup(BufferPattern* _pattern, PresetMode _mode){
     presets.setMode(_mode);
     pattern = _pattern;
     setup();
@@ -10,9 +10,14 @@ void ofxProjectionMask::setup(BufferPattern* _pattern, PresetMode _mode){
 void ofxProjectionMask::setup(BufferPattern* _pattern){
     pattern = _pattern;
     setup();
+}*/
+
+void ofxProjectionMask::setup(ofxLayerMask* pattern){
+    add(pattern);
+    setup();
 }
 
-void ofxProjectionMask::setup(vector<ofxLayerMask> *patterns){
+void ofxProjectionMask::setup(vector<ofxLayerMask*> patterns){
     this->patterns = patterns;
     setup();
 }
@@ -33,9 +38,16 @@ void ofxProjectionMask::setup(){
     
     selectedMaskFrame = 0;
     
-    xml.setup(&designCanvas, &liveCanvas, &canvasContents, patterns, presets.storageDirectory);
-    xml.load();
+    xml.setup(&designCanvas, &liveCanvas, &canvasContents, &patterns, presets.storageDirectory);
+    if(patterns.size() > 0) {
+        xml.load();
+    }
     mouse.setup(&designCanvas);
+}
+
+void ofxProjectionMask::add(ofxLayerMask* pattern){
+    patterns.push_back(pattern);
+    xml.load();
 }
 
 void ofxProjectionMask::layout() {
@@ -184,8 +196,8 @@ void ofxProjectionMask::setVolumes(float *playbackVolume, vector<float> *nonPlay
 }
 
 ofxLayerMask* ofxProjectionMask::nextPattern() {
-    int patternId = (canvasContents.getMaskFrames()->size()) % patterns->size();
-    return &patterns->at(patternId);
+    int patternId = (canvasContents.getMaskFrames()->size()) % patterns.size();
+    return patterns.at(patternId);
 }
 
 //Protected

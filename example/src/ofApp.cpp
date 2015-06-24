@@ -58,28 +58,40 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
     ofEnableSmoothing();
-    
-    //First, we set up our pattern, which sets up its buffer(s)
-    pattern.setupSingleLayer(500, 500);
-    patterns.push_back(pattern);
+
+    pattern1.setup(500, 500, 1);
+    pattern2.setup(500, 500, 1);
+
+    designer.setup();
+    designer.add(&pattern1);
+    designer.add(&pattern2);
 
     //Then we assign the pattern to the designer, which displays
     //canvas and drawing tools, and renders the buffers.
     //designer.setup((BufferPattern*)&pattern);
-    designer.setup(&patterns);
+    //designer.setup(&patterns);
     //designer.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION); //explained below
 }
 
 void ofApp::update(){
     //Try switching the pattern in ofApp.h
-    patterns.at(0).beginLayer();
+    pattern1.beginLayer();
     {
         ofFill();
         ofBackground(ofColor::black);
         ofSetColor(ofColor::white);
         ofRect(50, 50, 300, 300);
     }
-    patterns.at(0).endLayer();
+    pattern1.endLayer();
+
+    pattern2.beginLayer();
+    {
+        ofFill();
+        ofBackground(ofColor::black);
+        ofSetColor(ofColor::red);
+        ofRect(50, 50, 300, 300);
+    }
+    pattern2.endLayer();
 
     designer.update(mouseX, mouseY);
 
@@ -89,7 +101,6 @@ void ofApp::update(){
 
 void ofApp::draw(){
     designer.draw();
-    patterns.at(0).drawOverlay();
 }
 
 void ofApp::keyReleased(int key){

@@ -41,7 +41,7 @@ const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 
-void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask> *patterns, string directory){
+void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask*> *patterns, string directory){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
@@ -325,5 +325,5 @@ int Xml::getMaskPointLiveY(ofxXmlSettings *xml, MaskFrame *maskFrame){
 
 ofxLayerMask* Xml::nextPattern() {
     int patternId = (canvasContents->getMaskFrames()->size()) % patterns->size();
-    return &patterns->at(patternId);
+    return patterns->at(patternId);
 }

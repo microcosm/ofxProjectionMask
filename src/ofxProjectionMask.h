@@ -13,11 +13,12 @@
 class ofxProjectionMask{
 public:
     
-    void setup(BufferPattern* pattern, PresetMode _mode);
-    void setup(BufferPattern* pattern);
-    void setup(vector<ofxLayerMask> *patterns);
+    /*void setup(BufferPattern* pattern, PresetMode _mode);
+    void setup(BufferPattern* pattern);*/
+    void setup(vector<ofxLayerMask*> patterns);
     void setup(ofxLayerMask* pattern);
     void setup();
+    void add(ofxLayerMask* pattern);
     void layout();
     void update(int mouseX, int mouseY);
     void draw();
@@ -38,7 +39,7 @@ protected:
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
     BufferPattern *pattern;
-    vector<ofxLayerMask> *patterns;
+    vector<ofxLayerMask*> patterns;
     
     Mouse mouse;
     MaskFrame *selectedMaskFrame;

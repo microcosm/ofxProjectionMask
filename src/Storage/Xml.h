@@ -6,7 +6,7 @@
 
 class Xml{
 public:
-    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask> *patterns, string directory);
+    void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask*> *patterns, string directory);
     void save();
     void autoSave();
     void load();
@@ -16,7 +16,7 @@ protected:
     int sourceLiveCanvasWidth, sourceLiveCanvasHeight;
     int sourceMaskFrameWidth, sourceMaskFrameHeight;
     CanvasContents *canvasContents;
-    vector<ofxLayerMask> *patterns;
+    vector<ofxLayerMask*> *patterns;
     string xmlSubPath;
     
     void save(bool autoSave);

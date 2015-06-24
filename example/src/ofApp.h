@@ -23,8 +23,7 @@ public:
     void gotMessage(ofMessage msg);
 	
     ofxProjectionMask designer; //essentially, the UI
-    vector<ofxLayerMask> patterns;
-    ofxLayerMask pattern;
+    ofxLayerMask pattern1, pattern2;
 
     //Uncomment these one at a time to try them:
     //HueCyclePattern pattern; //cycle rainbow colors - default
