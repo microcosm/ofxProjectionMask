@@ -1,12 +1,12 @@
-ofxProjectionMask v0.2.0
-========================
+ofxProjectionMask
+=================
 ofxProjectionMask is an addon allowing you to mask projected light over real-world objects, from anything you draw in [openFrameworks](http://openframeworks.cc/).
 
 ![A screenshot of the mask designer UI](screenshot.png)
 
 Unlike projection mapping, this is not about creating the illusion that a light surface is 'mapped onto' a physical object; instead this addon simply prevents the light from 'bleeding' outside of the mask.
 
-In other words, this addon separates out the [masking from the mapping](http://jahya.net/blog/?2014-10-projection-masking-not-projection), and only does the former without doing the latter. You can of course, still pre-transform your patterns in code if you want to achieve traditional projection mapping.
+In other words, this addon separates out the [masking from the mapping](http://jahya.net/blog/projection-masking-not-projection), and focuses on the former rather than the latter.
 
 Why?
 ----
@@ -16,14 +16,77 @@ Sometimes you [don't want to map, you just want to mask](http://jahya.net/blog/?
 
 Also, there is a difference in emphasis here. This isn't about 'creating an illusion', this is about experimenting with projected media in the form of light. From this perspective, things don't have to match up in the way we expect them to in the real world - in fact it's better if they don't.
 
+However, you do a have a set of options for how you would like the light to be shaped over the object, including homography and stretch. These options are explained below.
+
 How does it work?
 -----------------
-There is a design UI allowing you to slice out a shape with your mouse, representing some physical object within view of your projector. At the same time you can draw() anything you like into a pattern class that you will create, based on a template included in the addon.
+Use the design UI (illustrated above) to carve out shapes at runtime. The UI will be fed by patterns you draw patterns into the addon like this:
 
-The addon has full instructions and samples in the example project, along with information about running fullscreen/dualscreen.
+```cpp
+ofxProjectionMask designer;
+ofxLayerMask *pattern1, *pattern2;
+
+void ofApp::setup(){
+    designer.setup();
+}
+
+void ofApp::update(){
+    pattern1->begin();
+    {
+        //Draw a pattern here
+    }
+    pattern1->end();
+
+    pattern2->begin();
+    {
+        //Draw another pattern
+    }
+    pattern2->end();
+}
+
+void ofApp::draw(){
+    designer.draw();
+}
+```
+
+You can choose from three drawing modes, which apply to the live canvas and change how your pattern is rendered.
+
+```cpp
+void ofApp::setup(){
+    designer.setup(DO_NOT_STRETCH);
+    //or
+    designer.setup(STRETCH_TO_MASKFRAME);
+    //or
+    designer.setup(HOMOGRAPHY);
+}
+```
+
+The drawing modes can only be set on `setup()` and apply to all patterns in the `ofxProjectionMask` instance. Each option affects how patterns are rendered:
+
+- ### DO_NOT_STRETCH
+  Draw the pattern exactly as specified, pixel-perfect to how it was drawn into the pattern buffer
+
+- ### STRETCH_TO_MASKFRAME
+  Stretch the given pattern so that it matches the boundaries of the 'mask frame' which contains it - you will learn about mask frames when you launch the UI
+
+- ### HOMOGRAPHY
+  Stretch the pattern so that it matches four arbitrary points within a mask frame. This is the closest we get to projection *mapping*, this essentially allows you to 'pre-warp' your pattern to match a rectangular target surface
+
+  Note: HOMOGRAPHY mode only works when you have exactly 4 mask points inside your mask frame. If you have more than 4 then it falls back to DO_NOT_STRETCH
+
+Check out the `ofApp.cpp` file for a full set of instructions and examples.
+
+Can I run this fullscreen and with a projector?
+-----------------------------------------------
+Of course! That's what this is all about. Check out `ofApp.cpp` for full instructions.
 
 Versions
 --------
+- 0.3.0
+  - Switches rendering from ofxTriangle to ofxLayerMask
+  - Adds support for homography and stretching to mask frames
+  - Simplifies API for drawing patterns
+  - Moves example patterns to `ofApp.cpp` to demonstrate
 - 0.2.0
   - New screen management with ofxSecondWindow
   - Splits XML storage locations based on preset mode
@@ -32,7 +95,7 @@ Versions
 
 Project dependencies
 --------------------
-- [ofxTriangle](https://github.com/obviousjim/ofxTriangle) to build renderable triangles out of the points in your mask
+- [ofxLayerMask](https://github.com/microcosm/ofxLayerMask) to mask patterns based on the points you select
 - [ofxSecondWindow](https://github.com/genekogan/ofxSecondWindow) to allow for a dualscreen setup with a projector
 - [ofxXmlSettings](http://www.openframeworks.cc/documentation/ofxXmlSettings/ofxXmlSettings.html) to store masks as you draw them - it's part of the openFrameworks core
 - Tested against [openFrameworks 0.8.4](http://openframeworks.cc/download/)
