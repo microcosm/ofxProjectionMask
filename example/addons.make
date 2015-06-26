@@ -1,3 +1,3 @@
 ofxXmlSettings
 ofxSecondWindow
-ofxTriangle
+ofxLayerMask
