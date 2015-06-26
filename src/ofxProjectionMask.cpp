@@ -251,24 +251,23 @@ void ofxProjectionMask::drawLiveCursor(){
 }
 
 void ofxProjectionMask::drawBufferPreviews(){
-    /*ofPushMatrix();
+    ofPushMatrix();
     ofTranslate(presets.bufferPreviewX, presets.bufferPreviewY);
     
     ofSetColor(255, 255, 255, 255);
     ofNoFill();
     
     int x = 0, y = 0, count = 0;
-    vector<ofFbo>* buffers = pattern->getBuffers();
     
-    for(int i = 0; i < buffers->size(); i++){
+    for(int i = 0; i < patterns.size(); i++){
         ofTranslate(x, y);
-        buffers->at(i).draw(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
+        patterns.at(i)->drawLayer(0, 0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight, false);
         ofRect(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         ofDrawBitmapString("Buffer " + ofToString(i + 1), 0, presets.bufferPreviewHeight + presets.bufferMargin);
         x = presets.bufferPreviewWidth + presets.bufferMargin;
     }
     
-    ofPopMatrix();*/
+    ofPopMatrix();
 }
 
 bool ofxProjectionMask::isTransforming(){
