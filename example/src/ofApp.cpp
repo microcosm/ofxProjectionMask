@@ -77,7 +77,7 @@ void ofApp::update(){
     designer.update(mouseX, mouseY);
 
     //Let's draw a hue-cycle in our first pattern
-    pattern1->beginLayer();
+    pattern1->begin();
     {
         currentHue += 0.2;
         if(currentHue >= 256){
@@ -92,10 +92,10 @@ void ofApp::update(){
             }
         }
     }
-    pattern1->endLayer();
+    pattern1->end();
 
     //Let's draw a grid in the second pattern
-    pattern2->beginLayer();
+    pattern2->begin();
     {
         ofBackground(ofColor::black);
         for(int i = 40; i < pattern2->getWidth(); i += 80){
@@ -106,7 +106,7 @@ void ofApp::update(){
             }
         }
     }
-    pattern2->endLayer();
+    pattern2->end();
     
     //That's it!! The rest is boilerplate, copy the lines
     //below to make the designer work in your apps
