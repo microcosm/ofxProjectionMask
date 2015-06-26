@@ -5,6 +5,7 @@ template <class T> class SafeDeque{
 public:
     SafeDeque(){
         cursor = 0;
+        hasUndoList = false;
     }
     T* operator[](const int i);
     void push_back(T item);
@@ -20,6 +21,7 @@ protected:
     std::deque <T> items;
     std::deque < std::deque<T> > undoList;
     int cursor;
+    bool hasUndoList;
     void backupTopItem();
 };
 
@@ -60,7 +62,7 @@ template <class T> void SafeDeque<T>::undo(){
 }
 
 template <class T> void SafeDeque<T>::redo(){
-    if(cursor < undoList.size() - 1){
+    if(hasUndoList && cursor < undoList.size() - 1){
         cursor++;
         items = undoList[cursor];
     }
@@ -70,10 +72,12 @@ template <class T> void SafeDeque<T>::backup(){
     undoList.erase(undoList.begin() + cursor, undoList.end());
     undoList.push_back(items);
     cursor = undoList.size();
+    hasUndoList = true;
 }
 
 template <class T> void SafeDeque<T>::backupTopItem(){
     if(cursor == undoList.size()){
         undoList.push_back(items);
+        hasUndoList = true;
     }
 }
