@@ -1,11 +1,12 @@
 #include "ofxProjectionMask.h"
 
 //Public
-void ofxProjectionMask::setup(StretchMode _stretchMode){
+void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
+    presets.setMode(presetMode);
     displayMode = Design;
     
     ofSetHexColor(0xFFFFFF);
-	ofBackground(0, 0, 0);
+    ofBackground(0, 0, 0);
     ofSetWindowPosition(0, 0);
     ofSetWindowShape(presets.soloWindowWidth, presets.soloWindowHeight);
     ofEnableAlphaBlending();
