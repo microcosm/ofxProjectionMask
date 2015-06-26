@@ -28,6 +28,8 @@ ofxLayerMask *pattern1, *pattern2;
 
 void ofApp::setup(){
     designer.setup();
+    pattern1 = designer.newPattern(640, 480); //Each pattern can have
+    pattern2 = designer.newPattern(1024, 1024); //unique dimensions
 }
 
 void ofApp::update(){
