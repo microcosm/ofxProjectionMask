@@ -176,9 +176,9 @@ void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
     
     if(this->canDrawLive()){
         homographyMode = stretchMode == HOMOGRAPHY && maskPoints.size() == 4;
+        ofSetColor(ofColor::white);
         
         if(homographyMode) {
-            ofSetColor(ofColor::white);
             prepareHomography();
             homography.begin(input, output);
             pattern->drawLayer(0, false);
@@ -189,7 +189,6 @@ void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
             {
                 ofFill();
                 ofBackground(ofColor::black);
-                ofSetColor(ofColor::white);
                 ofBeginShape();
                 for(int i = 0; i < maskPoints.size(); i++){
                     if(stretchMode == STRETCH_TO_MASKFRAME) {
