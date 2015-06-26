@@ -11,6 +11,7 @@
 		1D29183493968A6745214489 /* ofxTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B928DEF9B0ED0E1AEFA99EE /* ofxTriangle.cpp */; };
 		5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */; };
 		63B57AC5BF4EF088491E0317 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50DF87D612C5AAE17AAFA6C0 /* ofxXmlSettings.cpp */; };
+		84206A0A1B3A66AC00DEB5B4 /* Homography.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84206A091B3A66AC00DEB5B4 /* Homography.cpp */; };
 		846F11481B36873D0071ADAC /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11211B36873D0071ADAC /* Canvas.cpp */; };
 		846F11491B36873D0071ADAC /* MaskFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11231B36873D0071ADAC /* MaskFrame.cpp */; };
 		846F114A1B36873D0071ADAC /* TextArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 846F11251B36873D0071ADAC /* TextArea.cpp */; };
@@ -95,6 +96,8 @@
 		5B58BF03F54854C49C0E8D21 /* del_impl.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = del_impl.cpp; path = ../../../addons/ofxTriangle/libs/Triangle/src/del_impl.cpp; sourceTree = SOURCE_ROOT; };
 		7B928DEF9B0ED0E1AEFA99EE /* ofxTriangle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTriangle.cpp; path = ../../../addons/ofxTriangle/src/ofxTriangle.cpp; sourceTree = SOURCE_ROOT; };
 		832BDC407620CDBA568B713D /* tinyxmlerror.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlerror.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlerror.cpp; sourceTree = SOURCE_ROOT; };
+		84206A081B3A654E00DEB5B4 /* Homography.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Homography.h; sourceTree = "<group>"; };
+		84206A091B3A66AC00DEB5B4 /* Homography.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Homography.cpp; sourceTree = "<group>"; };
 		846F11211B36873D0071ADAC /* Canvas.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
 		846F11221B36873D0071ADAC /* Canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		846F11231B36873D0071ADAC /* MaskFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaskFrame.cpp; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				846F112C1B36873D0071ADAC /* Mouse.cpp */,
 				846F112D1B36873D0071ADAC /* Mouse.h */,
 				846F112E1B36873D0071ADAC /* Points */,
+				84206A091B3A66AC00DEB5B4 /* Homography.cpp */,
+				84206A081B3A654E00DEB5B4 /* Homography.h */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846F11621B368B3D0071ADAC /* YourCustomPattern.cpp in Sources */,
+				84206A0A1B3A66AC00DEB5B4 /* Homography.cpp in Sources */,
 				846F11481B36873D0071ADAC /* Canvas.cpp in Sources */,
 				846F11561B36873D0071ADAC /* SetupPattern.cpp in Sources */,
 				846F11491B36873D0071ADAC /* MaskFrame.cpp in Sources */,

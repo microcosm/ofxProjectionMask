@@ -180,31 +180,42 @@ void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
     ofTranslate(this->livePosition.x, this->livePosition.y);
     
     if(this->canDrawLive()){
-        /*if(mode == Design){
-            this->clearBuffer();
-        }*/
-
-        pattern->beginMask();
-        ofPushStyle();
-        {
-            ofFill();
-            ofBackground(ofColor::black);
-            ofSetColor(ofColor::white);
-            ofBeginShape();
-            for(int i = 0; i < maskPoints.size(); i++){
-                x = ofMap(maskPoints[i]->getLiveX(), 0, getLiveWidth(), 0, pattern->getWidth());
-                y = ofMap(maskPoints[i]->getLiveY(), 0, getLiveHeight(), 0, pattern->getHeight());
-                ofVertex(x, y);
-            }
-            ofEndShape();
-        }
-        ofPopStyle();
-        pattern->endMask();
+        homographyMode = stretchMode == HOMOGRAPHY && maskPoints.size() == 4;
         
-        if(stretchMode == DO_NOT_STRETCH) {
-            pattern->draw();
+        if(homographyMode) {
+            ofSetColor(ofColor::white);
+            prepareHomography();
+            homography.begin(input, output);
+            pattern->drawLayer(0, false);
+            homography.end();
         } else {
-            pattern->draw(0, 0, getLiveWidth(), getLiveHeight());
+            pattern->beginMask();
+            ofPushStyle();
+            {
+                ofFill();
+                ofBackground(ofColor::black);
+                ofSetColor(ofColor::white);
+                ofBeginShape();
+                for(int i = 0; i < maskPoints.size(); i++){
+                    if(stretchMode == STRETCH_TO_MASKFRAME) {
+                        x = ofMap(maskPoints[i]->getLiveX(), 0, getLiveWidth(), 0, pattern->getWidth());
+                        y = ofMap(maskPoints[i]->getLiveY(), 0, getLiveHeight(), 0, pattern->getHeight());
+                    } else {
+                        x = maskPoints[i]->getLiveX();
+                        y = maskPoints[i]->getLiveY();
+                    }
+                    ofVertex(x, y);
+                }
+                ofEndShape();
+            }
+            ofPopStyle();
+            pattern->endMask();
+            
+            if(stretchMode == STRETCH_TO_MASKFRAME) {
+                pattern->draw(0, 0, getLiveWidth(), getLiveHeight());
+            } else {
+                pattern->draw();
+            }
         }
     }
     
@@ -596,6 +607,18 @@ void MaskFrame::transposeToDesignCanvas(){
 }
 
 //Protected
+void MaskFrame::prepareHomography() {
+    input[0] = ofPoint(0, 0);
+    input[1] = ofPoint(pattern->getWidth(), 0);
+    input[2] = ofPoint(pattern->getWidth(), pattern->getHeight());
+    input[3] = ofPoint(0, pattern->getHeight());
+    for(int i = 0; i < 4; i++) {
+        x = maskPoints[i]->getLiveX();
+        y = maskPoints[i]->getLiveY();
+        output[i] = ofPoint(x, y);
+    }
+}
+
 void MaskFrame::findGhostPointIfCloseTo(int absoluteX, int absoluteY){
     int maskFrameX = absoluteX - this->getX();
     int maskFrameY = absoluteY - this->getY();

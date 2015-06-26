@@ -6,13 +6,15 @@
 #include "PointObject.h"
 #include "ofExtensions.h"
 #include "SafeDeque.h"
+#include "Homography.h"
 #include "ofxTriangle.h"
 #include "ofxLayerMask.h"
 
 enum DisplayMode { Design, HalfLive, Live };
 enum StretchMode {
     DO_NOT_STRETCH,
-    STRETCH_TO_MASKFRAME
+    STRETCH_TO_MASKFRAME,
+    HOMOGRAPHY
 };
 
 class MaskFrame{
@@ -95,6 +97,7 @@ protected:
     int frameId;
     bool highlighted;
     bool hasAGhostPoint;
+    bool homographyMode;
     int ghostPointIndex;
     TransformState transformState;
     MaskPoint* selectedMaskPoint;
@@ -102,6 +105,7 @@ protected:
     vector<ofFbo> *buffers;
     ofxLayerMask *pattern;
     ofxTriangle triangleCreator;
+    Homography homography;
     
     int designWidth;
     int designHeight;
@@ -112,10 +116,13 @@ protected:
     Canvas* designCanvas;
     Canvas* liveCanvas;
     float x, y;
+    ofPoint input[4];
+    ofPoint output[4];
     
     SafeDeque<DragHandle> dragHandles;
     SafeDeque<MaskPoint> maskPoints;
     
+    void prepareHomography();
     void findGhostPointIfCloseTo(int absoluteX, int absoluteY);
     void highlightRectIfCloseTo(int absoluteX, int absoluteY);
     void highlightDragHandlesIfCloseTo(int absoluteX, int absoluteY);
