@@ -25,10 +25,6 @@
 		84A7F44D1B3CFFF400F4303F /* PointObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F42F1B3CFFF400F4303F /* PointObject.cpp */; };
 		84A7F44E1B3CFFF400F4303F /* ofExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F4311B3CFFF400F4303F /* ofExtensions.cpp */; };
 		84A7F44F1B3CFFF400F4303F /* ofxProjectionMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F4331B3CFFF400F4303F /* ofxProjectionMask.cpp */; };
-		84A7F4501B3CFFF400F4303F /* BufferPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F4361B3CFFF400F4303F /* BufferPattern.cpp */; };
-		84A7F4511B3CFFF400F4303F /* ArgumentPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F4391B3CFFF400F4303F /* ArgumentPattern.cpp */; };
-		84A7F4521B3CFFF400F4303F /* HueCyclePattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F43B1B3CFFF400F4303F /* HueCyclePattern.cpp */; };
-		84A7F4531B3CFFF400F4303F /* SetupPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F43D1B3CFFF400F4303F /* SetupPattern.cpp */; };
 		84A7F4541B3CFFF400F4303F /* Presets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F43F1B3CFFF400F4303F /* Presets.cpp */; };
 		84A7F4551B3CFFF400F4303F /* Xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84A7F4421B3CFFF400F4303F /* Xml.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -123,14 +119,6 @@
 		84A7F4321B3CFFF400F4303F /* ofExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofExtensions.h; sourceTree = "<group>"; };
 		84A7F4331B3CFFF400F4303F /* ofxProjectionMask.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxProjectionMask.cpp; sourceTree = "<group>"; };
 		84A7F4341B3CFFF400F4303F /* ofxProjectionMask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxProjectionMask.h; sourceTree = "<group>"; };
-		84A7F4361B3CFFF400F4303F /* BufferPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BufferPattern.cpp; sourceTree = "<group>"; };
-		84A7F4371B3CFFF400F4303F /* BufferPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BufferPattern.h; sourceTree = "<group>"; };
-		84A7F4391B3CFFF400F4303F /* ArgumentPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ArgumentPattern.cpp; sourceTree = "<group>"; };
-		84A7F43A1B3CFFF400F4303F /* ArgumentPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArgumentPattern.h; sourceTree = "<group>"; };
-		84A7F43B1B3CFFF400F4303F /* HueCyclePattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HueCyclePattern.cpp; sourceTree = "<group>"; };
-		84A7F43C1B3CFFF400F4303F /* HueCyclePattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HueCyclePattern.h; sourceTree = "<group>"; };
-		84A7F43D1B3CFFF400F4303F /* SetupPattern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SetupPattern.cpp; sourceTree = "<group>"; };
-		84A7F43E1B3CFFF400F4303F /* SetupPattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupPattern.h; sourceTree = "<group>"; };
 		84A7F43F1B3CFFF400F4303F /* Presets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Presets.cpp; sourceTree = "<group>"; };
 		84A7F4401B3CFFF400F4303F /* Presets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presets.h; sourceTree = "<group>"; };
 		84A7F4421B3CFFF400F4303F /* Xml.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xml.cpp; sourceTree = "<group>"; };
@@ -280,14 +268,13 @@
 			isa = PBXGroup;
 			children = (
 				84A7F4191B3CFFF400F4303F /* Drawing */,
+				84A7F4411B3CFFF400F4303F /* Storage */,
 				84A7F4311B3CFFF400F4303F /* ofExtensions.cpp */,
 				84A7F4321B3CFFF400F4303F /* ofExtensions.h */,
 				84A7F4331B3CFFF400F4303F /* ofxProjectionMask.cpp */,
 				84A7F4341B3CFFF400F4303F /* ofxProjectionMask.h */,
-				84A7F4351B3CFFF400F4303F /* Patterns */,
 				84A7F43F1B3CFFF400F4303F /* Presets.cpp */,
 				84A7F4401B3CFFF400F4303F /* Presets.h */,
-				84A7F4411B3CFFF400F4303F /* Storage */,
 			);
 			name = src;
 			path = ../../../addons/ofxProjectionMask/src;
@@ -297,12 +284,12 @@
 			isa = PBXGroup;
 			children = (
 				84A7F41A1B3CFFF400F4303F /* Areas */,
+				84A7F42A1B3CFFF400F4303F /* Points */,
 				84A7F4211B3CFFF400F4303F /* Collections */,
 				84A7F4261B3CFFF400F4303F /* Homography.cpp */,
 				84A7F4271B3CFFF400F4303F /* Homography.h */,
 				84A7F4281B3CFFF400F4303F /* Mouse.cpp */,
 				84A7F4291B3CFFF400F4303F /* Mouse.h */,
-				84A7F42A1B3CFFF400F4303F /* Points */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -342,29 +329,6 @@
 				84A7F4301B3CFFF400F4303F /* PointObject.h */,
 			);
 			path = Points;
-			sourceTree = "<group>";
-		};
-		84A7F4351B3CFFF400F4303F /* Patterns */ = {
-			isa = PBXGroup;
-			children = (
-				84A7F4361B3CFFF400F4303F /* BufferPattern.cpp */,
-				84A7F4371B3CFFF400F4303F /* BufferPattern.h */,
-				84A7F4381B3CFFF400F4303F /* TestPatterns */,
-			);
-			path = Patterns;
-			sourceTree = "<group>";
-		};
-		84A7F4381B3CFFF400F4303F /* TestPatterns */ = {
-			isa = PBXGroup;
-			children = (
-				84A7F4391B3CFFF400F4303F /* ArgumentPattern.cpp */,
-				84A7F43A1B3CFFF400F4303F /* ArgumentPattern.h */,
-				84A7F43B1B3CFFF400F4303F /* HueCyclePattern.cpp */,
-				84A7F43C1B3CFFF400F4303F /* HueCyclePattern.h */,
-				84A7F43D1B3CFFF400F4303F /* SetupPattern.cpp */,
-				84A7F43E1B3CFFF400F4303F /* SetupPattern.h */,
-			);
-			path = TestPatterns;
 			sourceTree = "<group>";
 		};
 		84A7F4411B3CFFF400F4303F /* Storage */ = {
@@ -552,17 +516,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A7F4531B3CFFF400F4303F /* SetupPattern.cpp in Sources */,
 				84A7F44E1B3CFFF400F4303F /* ofExtensions.cpp in Sources */,
-				84A7F4521B3CFFF400F4303F /* HueCyclePattern.cpp in Sources */,
 				84A7F4021B3CFFD800F4303F /* ofxXmlSettings.cpp in Sources */,
 				84A7F44C1B3CFFF400F4303F /* MaskPoint.cpp in Sources */,
-				84A7F4511B3CFFF400F4303F /* ArgumentPattern.cpp in Sources */,
 				84A7F4031B3CFFD800F4303F /* tinyxml.cpp in Sources */,
 				84A7F4441B3CFFF400F4303F /* Canvas.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				84A7F4111B3CFFDE00F4303F /* ofxLayerMask.cpp in Sources */,
-				84A7F4501B3CFFF400F4303F /* BufferPattern.cpp in Sources */,
 				84A7F4491B3CFFF400F4303F /* Homography.cpp in Sources */,
 				84A7F44A1B3CFFF400F4303F /* Mouse.cpp in Sources */,
 				84A7F4451B3CFFF400F4303F /* MaskFrame.cpp in Sources */,
