@@ -6,7 +6,6 @@ const ofColor maskLineColor = ofColor(255, 255, 255, 128);
 const int minimumFrameSize = 6;
 const int frameMargin = 2;
 const int cursorMargin = 6;
-const int bufferStartFrameNum = 120;
 
 //Public
 int MaskFrame::getId(){
@@ -20,10 +19,6 @@ void MaskFrame::setId(int newId){
 void MaskFrame::assignCanvases(Canvas& designCanvas, Canvas& liveCanvas){
     this->designCanvas = &designCanvas;
     this->liveCanvas = &liveCanvas;
-}
-
-void MaskFrame::setBuffers(vector<ofFbo> *buffers){
-    this->buffers = buffers;
 }
 
 void MaskFrame::setPattern(ofxLayerMask *pattern){
@@ -684,15 +679,6 @@ void MaskFrame::selectHighlightedMaskPoint(){
 void MaskFrame::deselectMaskPoint(){
     selectedMaskPoint = 0;
 }
-
-/*void MaskFrame::clearBuffer(){
-    for(int i = 0; i < buffers->size(); i++){
-        buffers->at(i).begin();
-        ofClear(0, 0, 0);
-        ofClearAlpha();
-        buffers->at(i).end();
-    }
-}*/
 
 void MaskFrame::insert(MaskPoint *maskPoint){
     if(maskPoints.size() < 3){

@@ -1,17 +1,6 @@
 #include "ofxProjectionMask.h"
 
 //Public
-/*void ofxProjectionMask::setup(BufferPattern* _pattern, PresetMode _mode){
-    presets.setMode(_mode);
-    pattern = _pattern;
-    setup();
-}
-
-void ofxProjectionMask::setup(BufferPattern* _pattern){
-    pattern = _pattern;
-    setup();
-}*/
-
 void ofxProjectionMask::setup(ofxLayerMask* pattern, StretchMode _stretchMode){
     add(pattern);
     setup(stretchMode);
@@ -222,7 +211,6 @@ void ofxProjectionMask::toggleFrameNudge(){
 void ofxProjectionMask::createNewMaskFrame(){
     MaskFrame maskFrame;
     maskFrame.assignCanvases(designCanvas, liveCanvas);
-    maskFrame.setBuffers(pattern->getBuffers());
     maskFrame.setPattern(nextPattern());
     maskFrame.setSize(presets.newMaskFrameWidth, presets.newMaskFrameHeight);
     maskFrame.setPosition(mouse.x, mouse.y);

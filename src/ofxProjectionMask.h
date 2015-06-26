@@ -12,9 +12,6 @@
 
 class ofxProjectionMask{
 public:
-    
-    /*void setup(BufferPattern* pattern, PresetMode _mode);
-    void setup(BufferPattern* pattern);*/
     void setup(vector<ofxLayerMask*> patterns, StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
     void setup(ofxLayerMask* pattern, StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
     void setup(StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
@@ -39,7 +36,6 @@ protected:
     ofxSecondWindow secondWindow;
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
-    BufferPattern *pattern;
     vector<ofxLayerMask*> patterns;
     
     Mouse mouse;
