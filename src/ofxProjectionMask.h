@@ -11,10 +11,8 @@
 
 class ofxProjectionMask{
 public:
-    void setup(vector<ofxLayerMask*> patterns, StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
-    void setup(ofxLayerMask* pattern, StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
     void setup(StretchMode _stretchMode=STRETCH_TO_MASKFRAME);
-    void add(ofxLayerMask* pattern);
+    ofxLayerMask* newPattern(int width, int height);
     void layout();
     void update(int mouseX, int mouseY);
     void draw();
@@ -36,7 +34,7 @@ protected:
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
     vector<ofxLayerMask*> patterns;
-    
+
     Mouse mouse;
     MaskFrame *selectedMaskFrame;
     TextArea textArea;

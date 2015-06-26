@@ -50,26 +50,22 @@
 */
 
 void ofApp::setup(){
-    //Lets set up two patterns of different sizes
-    pattern1.setup(100, 100, 1);
-    pattern2.setup(800, 800, 1);
-
-    //Now let's set up the ofxProjectionMask designer
+    //First, set up the ofxProjectionMask designer
     designer.setup(); //Default is STRETCH_TO_MASKFRAME
     //designer.setup(DO_NOT_STRETCH); //Otherwise, explicitly state which mode you want
-    //designer.setup(STRETCH_TO_MASKFRAME);
+    //designer.setup(STRETCH_TO_MASKFRAME); //These are explained above
     //designer.setup(HOMOGRAPHY);
 
     //When you are ready to use this addon fullscreen with a
-    //projector you will need this line. (Scroll to the bottom
-    //of this file for more on how to do that
+    //projector you will need this line below. (Scroll to the
+    //bottom of this file for more on how to do that
     //designer.setup(DO_NOT_STRETCH, PRESETS_PRODUCTION);
 
-    //Now let's assign our two patterns to the designer
-    designer.add(&pattern1);
-    designer.add(&pattern2);
+    //Now lets set up two patterns of different sizes
+    pattern1 = designer.newPattern(200, 200);
+    pattern2 = designer.newPattern(800, 800);
 
-    //And let's init the variables our patterns are going to use
+    //And lets init the variables our patterns are going to use
     currentHue = 0;
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
@@ -81,7 +77,7 @@ void ofApp::update(){
     designer.update(mouseX, mouseY);
 
     //Let's draw a hue-cycle in our first pattern
-    pattern1.beginLayer();
+    pattern1->beginLayer();
     {
         currentHue += 0.2;
         if(currentHue >= 256){
@@ -89,28 +85,28 @@ void ofApp::update(){
         }
         
         ofBackground(ofColor::fromHsb(currentHue, 255, 255));
-        for(int i = 5; i < pattern1.getWidth(); i += 40){
-            for(int j = 15; j < pattern1.getHeight(); j += 40){
+        for(int i = 5; i < pattern1->getWidth(); i += 40){
+            for(int j = 15; j < pattern1->getHeight(); j += 40){
                 ofSetColor(ofColor::black);
                 ofDrawBitmapString(ofToString((int)currentHue), i, j);
             }
         }
     }
-    pattern1.endLayer();
+    pattern1->endLayer();
 
     //Let's draw a grid in the second pattern
-    pattern2.beginLayer();
+    pattern2->beginLayer();
     {
         ofBackground(ofColor::black);
-        for(int i = 40; i < pattern2.getWidth(); i += 80){
-            for(int j = 40; j < pattern2.getHeight(); j += 80){
+        for(int i = 40; i < pattern2->getWidth(); i += 80){
+            for(int j = 40; j < pattern2->getHeight(); j += 80){
                 ofSetColor(ofColor::white);
-                ofRect(0, i, pattern2.getWidth(), 20);
-                ofRect(j, 0, 20, pattern2.getHeight());
+                ofRect(0, i, pattern2->getWidth(), 20);
+                ofRect(j, 0, 20, pattern2->getHeight());
             }
         }
     }
-    pattern2.endLayer();
+    pattern2->endLayer();
     
     //That's it!! The rest is boilerplate, copy the lines
     //below to make the designer work in your apps

@@ -1,16 +1,6 @@
 #include "ofxProjectionMask.h"
 
 //Public
-void ofxProjectionMask::setup(ofxLayerMask* pattern, StretchMode _stretchMode){
-    add(pattern);
-    setup(stretchMode);
-}
-
-void ofxProjectionMask::setup(vector<ofxLayerMask*> patterns, StretchMode _stretchMode){
-    this->patterns = patterns;
-    setup(stretchMode);
-}
-
 void ofxProjectionMask::setup(StretchMode _stretchMode){
     displayMode = Design;
     
@@ -35,9 +25,12 @@ void ofxProjectionMask::setup(StretchMode _stretchMode){
     mouse.setup(&designCanvas);
 }
 
-void ofxProjectionMask::add(ofxLayerMask* pattern){
-    patterns.push_back(pattern);
+ofxLayerMask* ofxProjectionMask::newPattern(int width, int height){
+
+    patterns.push_back(new ofxLayerMask);
+    patterns.back()->setup(width, height, 1);
     xml.load();
+    return patterns.back();
 }
 
 void ofxProjectionMask::layout() {

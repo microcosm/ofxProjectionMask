@@ -22,7 +22,7 @@ public:
     void gotMessage(ofMessage msg);
 	
     ofxProjectionMask designer;
-    ofxLayerMask pattern1, pattern2;
+    ofxLayerMask *pattern1, *pattern2;
 
     float currentHue;
 };
