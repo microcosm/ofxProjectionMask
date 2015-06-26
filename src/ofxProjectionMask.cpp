@@ -67,6 +67,7 @@ void ofxProjectionMask::update(int mouseX, int mouseY){
 void ofxProjectionMask::draw(){
     ofPushStyle();
     {
+        ofBackground(ofColor::black);
         drawBufferPreviews();
         
         ofPushMatrix();
