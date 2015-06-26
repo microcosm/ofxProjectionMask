@@ -6,97 +6,117 @@
   areas of the real world onto which to project any light
   pattern you like.
 
-  Unlike projection mapping, this is not about creating the
-  illusion that a light surface is 'mapped onto' a physical
-  object; instead this addon simply prevents the light from
-  showing up anywhere outside of the mask you draw.
+  Unlike projection mapping, this addon is not specifically
+  about creating the 'illusion' that a light surface is
+  'mapped onto' some target physical object; instead this
+  addon simply masks - prevents the light patterns you specify
+  from showing up anywhere outside of the mask boundaries.
 
-  In other words, this addon separates out the masking from
-  the mapping, and only does the former without doing the
-  latter. You can of course, still pre-transform your patterns
-  in code if you want to achieve traditional projection mapping.
+  You can choose from three drawing modes:
 
-  Just want to get a quick taste?
-  -------------------------------
-  To get going quickly and see if this addon is for you, just
-  run it and follow the instructions to make your first shape.
+  1. DO_NOT_STRETCH        Draw the pattern exactly as specified,
+                           pixel-perfect to how it was drawn
 
-  You will see a default pattern which cycles through hues.
-  This is a good way to play with the UI and see what can
-  be done.
+  2. STRETCH_TO_MASKFRAME  Stretch the given pattern so that it
+                           matches the boundaries of the mask
+                           frame which contains it - you will
+                           learn about mask frames when you
+                           launch the UI
 
-  Ready to dig deeper?
-  --------------------
-  The addon consists of:
-  1. The ofxProjectionMask class, which is a designer UI
-     allowing you to slice out a shape with your mouse,
-     representing some physical object within view of your
-     projector.
-  2. Several sample ___Pattern classes, from the base class
-     BufferPattern. For example, the default pattern in this
-     example is HueCyclePattern, which simply runs through
-     the colors of the rainbow.
+  3. HOMOGRAPHY            Stretch the pattern so that it matches
+                           four arbitrary points within a mask
+                           frame. This is the closest we get to
+                           projection *mapping*, this essentially
+                           allows you to 'pre-warp' your pattern
+                           to match a rectangular target surface
 
-  To play with some of the other Pattern classes that come with
-  this addon, head over to ofApp.h and start uncommenting some
-  of the examples.
+                           Note: HOMOGRAPHY mode only works when
+                           you have exactly 4 mask points inside
+                           your mask frame. If you have more than
+                           4 then it falls back to DO_NOT_STRETCH
 
-  If you get the idea and are ready to make your own Patterns,
-  head to the bottom of this file, after the code. There are a
-  set of instructions there to get you started.
+  The idea of this addon is it separates out the masking from
+  the mapping, and focuses more on the former than the latter.
+  This is useful for situations in which you are more interested
+  in exploring certain properties of light, computer graphics
+  and physical space, than in creating an optical illusion.
 
-  Fullscreen/dual-screen setup
-  ----------------------------
-  By default this addon runs in 'development' mode, with all
-  the content squeezed into a single, floating window on a
-  single computer display. To run this app for real you'll
-  need to add a projector as your second display. There are
-  full instructions on that at the bottom of this file.
+  How to get started?
+  -------------------
+  Just launch the app! Instructions are on the left for how to 
+  use the UI. When you've had enough, scroll through this file
+  to see how to program your own patterns and run in fullscreen
+  on your favorite projector.
 */
 
 void ofApp::setup(){
-    ofSetVerticalSync(true);
-    ofSetFrameRate(60);
-    ofEnableSmoothing();
+    //Lets set up two patterns of different sizes
+    pattern1.setup(100, 100, 1);
+    pattern2.setup(800, 800, 1);
 
-    pattern1.setup(500, 500, 1);
-    pattern2.setup(500, 500, 1);
+    //Now let's set up the ofxProjectionMask designer
+    designer.setup(); //Default is STRETCH_TO_MASKFRAME
+    //designer.setup(DO_NOT_STRETCH); //Otherwise, explicitly state which mode you want
+    //designer.setup(STRETCH_TO_MASKFRAME);
+    //designer.setup(HOMOGRAPHY);
 
-    designer.setup();
+    //When you are ready to use this addon fullscreen with a
+    //projector you will need this line. (Scroll to the bottom
+    //of this file for more on how to do that
+    //designer.setup(DO_NOT_STRETCH, PRESETS_PRODUCTION);
+
+    //Now let's assign our two patterns to the designer
     designer.add(&pattern1);
     designer.add(&pattern2);
 
-    //Then we assign the pattern to the designer, which displays
-    //canvas and drawing tools, and renders the buffers.
-    //designer.setup((BufferPattern*)&pattern);
-    //designer.setup(&patterns);
-    //designer.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION); //explained below
+    //And let's init the variables our patterns are going to use
+    currentHue = 0;
+    ofSetVerticalSync(true);
+    ofSetFrameRate(60);
+    ofEnableSmoothing();
 }
 
 void ofApp::update(){
-    //Try switching the pattern in ofApp.h
+    //Tell the designer where your mouse is
+    designer.update(mouseX, mouseY);
+
+    //Let's draw a hue-cycle in our first pattern
     pattern1.beginLayer();
     {
-        ofFill();
-        ofBackground(ofColor::black);
-        ofSetColor(ofColor::white);
-        ofRect(50, 50, 300, 300);
+        currentHue += 0.2;
+        if(currentHue >= 256){
+            currentHue = 0;
+        }
+        
+        ofBackground(ofColor::fromHsb(currentHue, 255, 255));
+        for(int i = 5; i < pattern1.getWidth(); i += 40){
+            for(int j = 15; j < pattern1.getHeight(); j += 40){
+                ofSetColor(ofColor::black);
+                ofDrawBitmapString(ofToString((int)currentHue), i, j);
+            }
+        }
     }
     pattern1.endLayer();
 
+    //Let's draw a grid in the second pattern
     pattern2.beginLayer();
     {
-        ofFill();
         ofBackground(ofColor::black);
-        ofSetColor(ofColor::red);
-        ofRect(50, 50, 300, 300);
+        for(int i = 40; i < pattern2.getWidth(); i += 80){
+            for(int j = 40; j < pattern2.getHeight(); j += 80){
+                ofSetColor(ofColor::white);
+                ofRect(0, i, pattern2.getWidth(), 20);
+                ofRect(j, 0, 20, pattern2.getHeight());
+            }
+        }
     }
     pattern2.endLayer();
-
-    designer.update(mouseX, mouseY);
-
-    //When you switch to ArgumentPattern, uncomment this:
-    //pattern.mapToColors(mouseX, mouseY);
+    
+    //That's it!! The rest is boilerplate, copy the lines
+    //below to make the designer work in your apps
+    
+    //Now head down to the bottom of this file to learn about presets!
+    //You'll need to do this to start using the addon with a projector.
 }
 
 void ofApp::draw(){
@@ -126,122 +146,6 @@ void ofApp::gotMessage(ofMessage msg){}
 void ofApp::dragEvent(ofDragInfo dragInfo){}
 
 /*
-  How to draw your own patterns
-  =============================
-  Actually using the addon is easy enough, but you might
-  need to invest an hour to get started. Easiest way is to
-  follow these step-by-step instructions.
-
-  The setup pattern
-  -----------------
-  First, where are the graphics drawn? Take a look at this
-  file:
-
-    /addons/ofxProjectionMapper/src/Patterns/TestPatterns/
-    SetupPattern.cpp
-
-  This is the simplest test pattern, outputting only white.
-  It's helpful when you are actually drawing a mask for real
-  with the designer, as it shows up very clearly every pixel
-  right to the edges of your mask, so you can easily confirm
-  the shape.
-
-  Any number of buffers
-  ---------------------
-  Notice that SetupPattern above inherits from BufferPattern.
-  This base class handles a collection of buffers for you
-  (FBO's). You don't really need to know much about buffers,
-  other than to think of them as little virtual displays you
-  draw into, ready to render for real later.
-  http://www.openframeworks.cc/documentation/gl/ofFbo.html
-
-  SetupPattern has only one buffer, but you are about to make
-  your own pattern with two buffers. The first buffer will
-  provide the pattern for the first mask you draw. The second
-  buffer will fill the second mask. If you create a third mask,
-  there will be no third buffer to fill it, so it will be
-  filled with the contents of the first buffer.
-
-  Use a test pattern as a template
-  --------------------------------
-  1. Create a new cpp/h file duo in your own project's /src
-     folder, with names like this:
-
-         /src/MyCustomPattern.cpp
-         /src/MyCustomPattern.h
-
-  2. Copy the contents of the SetupPattern class files into
-     the respective custom pattern class files, and rename
-     the new classes to match their filenames:
-
-        class SetupPattern ~> class MyCustomPattern
-
-  3. Change the number of buffers to two:
-
-        const int numberOfBuffers = 2;
-
-  4. Now let's increase the size of the buffers in the
-     setup() method. This is the 'resolution' of the buffers,
-     or how many pixels they each hold:
-
-         width = 200; ~> width = 400;
-         height = 200; ~> height = 400;
-
-  5. Now edit the contents of the buffer to make your own
-     pattern. You can address each buffer individually with
-     a method like this:
-
-          void MyCustomPattern::update(){
-              ofFill();
-
-              //Fill buffer #1 with horizontal bars
-              buffers[0].begin();
-              for(int i = 0; i < 8; i++) {
-                  if(i % 2 == 0) ofSetColor(ofColor::blue);
-                  else ofSetColor(ofColor::red);
-                  ofRect(0, i * 50, width, 50);
-              }
-              buffers[0].end();
-
-              //Fill buffer #2 with vertical bars
-              buffers[1].begin();
-              for(int i = 0; i < 8; i++) {
-                  if(i % 2 == 0) ofSetColor(ofColor::yellow);
-                  else ofSetColor(ofColor::green);
-                  ofRect(i * 50, 0, 50, height);
-              }
-              buffers[1].end();
-          }
-
-  6. Create an instance of your custom pattern class in
-     ofApp.h:
-          //... other includes
-          #include "MyCustomPattern.h"
-
-          class ofApp : public ofBaseApp {
-          public:
-              //... etc
-              ofxProjectionMask designer;
-              MyCustomPattern myPattern;
-          };
-
-     And pass it to the mapper in ofApp.cpp:
-
-          void ofApp::setup(){
-              //... etc
-              myPattern.setup();
-              designer.setup((BufferPattern*)&myPattern);
-          }
-
-  7. Run the app and use the designer to create two or more
-     new masks. Your patterns are inside them!
-
-  That should give you enough to get going with your own
-  patterns. If you want to see how to pass input values, such
-  as from the mouse (or a Kinect!) to your patterns, see the
-  ArgumentPattern example.
-
-
   How to switch over to fullscreen/dual-screen setup
   ==================================================
   Ok, so you are done playing with the development mode and you
@@ -271,14 +175,7 @@ void ofApp::dragEvent(ofDragInfo dragInfo){}
 
       /addons/ofxProjectionMapper/src/Presets.cpp
 
-  When you have done that, you can come back to ofApp.cpp above,
-  and switch out this line:
-
-      mapper.setup((BufferPattern*)&pattern);
-
-  for this line:
-
-      mapper.setup((BufferPattern*)&pattern, PRESETS_PRODUCTION);
-
-  That's it! Report any issues via Github.
+  When you have done that, you can come back to this file and
+  switch to using the setup() call with the PRESETS_PRODUCTION
+  constant in it.
 */

@@ -6,7 +6,6 @@
 #include "MaskFrame.h"
 #include "TextArea.h"
 #include "Xml.h"
-#include "BufferPattern.h"
 #include "Presets.h"
 #include "Mouse.h"
 

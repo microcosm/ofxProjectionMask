@@ -72,37 +72,41 @@ void ofxProjectionMask::update(int mouseX, int mouseY){
 }
 
 void ofxProjectionMask::draw(){
-    drawBufferPreviews();
-    
-    ofPushMatrix();
-    ofTranslate(designCanvas.getX(), designCanvas.getY());
-    designCanvas.draw();
-    canvasContents.drawDesign();
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(presets.designCanvasLabelX, presets.designCanvasLabelY);
-    ofSetColor(ofColor::white);
-    ofDrawBitmapString("Design Canvas", ofPoint(0, 0));
-    ofPopMatrix();
-    
-    if(presets.isProductionMode()) {
-        secondWindow.begin();
-        ofBackground(0);
+    ofPushStyle();
+    {
+        drawBufferPreviews();
+        
+        ofPushMatrix();
+        ofTranslate(designCanvas.getX(), designCanvas.getY());
+        designCanvas.draw();
+        canvasContents.drawDesign();
+        ofPopMatrix();
+        
+        ofPushMatrix();
+        ofTranslate(presets.designCanvasLabelX, presets.designCanvasLabelY);
+        ofSetColor(ofColor::white);
+        ofDrawBitmapString("Design Canvas", ofPoint(0, 0));
+        ofPopMatrix();
+        
+        if(presets.isProductionMode()) {
+            secondWindow.begin();
+            ofBackground(0);
+        }
+        ofPushMatrix();
+        ofTranslate(liveCanvas.getX(), liveCanvas.getY());
+        if(displayMode == Design){
+            liveCanvas.draw();
+        }
+        canvasContents.drawLive(displayMode, stretchMode);
+        ofPopMatrix();
+        drawLiveCursor();
+        if(presets.isProductionMode()) {
+            secondWindow.end();
+        }
+        
+        textArea.draw();
     }
-    ofPushMatrix();
-    ofTranslate(liveCanvas.getX(), liveCanvas.getY());
-    if(displayMode == Design){
-        liveCanvas.draw();
-    }
-    canvasContents.drawLive(displayMode, stretchMode);
-    ofPopMatrix();
-    drawLiveCursor();
-    if(presets.isProductionMode()) {
-        secondWindow.end();
-    }
-    
-    textArea.draw();
+    ofPopStyle();
 }
 
 void ofxProjectionMask::keyReleased(int key){
