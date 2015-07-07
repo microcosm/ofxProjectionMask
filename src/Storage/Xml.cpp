@@ -40,13 +40,14 @@ const string filePath = "saved.xml";
 const string fileName = "saved-";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
+const string projectionMaskPath = "ProjectionMasks";
 
 void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask*> *patterns, string directory){
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
     this->patterns = patterns;
-    this->xmlSubPath = directory;
+    this->xmlSubPath = projectionMaskPath + directoryDivider + directory;
 }
 
 void Xml::save(){
@@ -108,10 +109,15 @@ void Xml::ensureDirectory(){
     ofDirectory directory;
     
     string dataDirectory = ofToDataPath("");
-	if(!directory.doesDirectoryExist(dataDirectory)){
+    if(!directory.doesDirectoryExist(dataDirectory)){
         directory.createDirectory(dataDirectory);
     }
     
+    string projectionMaskDirectory = ofToDataPath(projectionMaskPath);
+    if(!directory.doesDirectoryExist(projectionMaskDirectory)){
+        directory.createDirectory(projectionMaskDirectory);
+    }
+
     string xmlSubDirectory = ofToDataPath(xmlSubPath);
 	if(!directory.doesDirectoryExist(xmlSubDirectory)){
         directory.createDirectory(xmlSubDirectory);
