@@ -22,17 +22,17 @@ void ofCircleStroke(int x, int y, int radius, int stroke, ofColor fillColor, ofC
     
     ofSetColor(strokeColor);
     ofFill();
-    ofCircle(x, y, strokeRadius);
+    ofDrawCircle(x, y, strokeRadius);
     ofSetColor(strokeColor);
     ofNoFill();
-    ofCircle(x, y, strokeRadius);
+    ofDrawCircle(x, y, strokeRadius);
     
     ofSetColor(fillColor);
     ofFill();
-    ofCircle(x, y, radius);
+    ofDrawCircle(x, y, radius);
     ofSetColor(fillColor);
     ofNoFill();
-    ofCircle(x, y, radius);
+    ofDrawCircle(x, y, radius);
 }
 
 void ofCircleNoStroke(int x, int y, int radius, ofColor color){
@@ -41,10 +41,10 @@ void ofCircleNoStroke(int x, int y, int radius, ofColor color){
     
     ofSetColor(color);
     ofFill();
-    ofCircle(x, y, radius);
+    ofDrawCircle(x, y, radius);
     ofSetColor(color);
     ofNoFill();
-    ofCircle(x, y, radius);
+    ofDrawCircle(x, y, radius);
 }
 
 float clampFloat(float value, float lowerBoundary, float upperBoundary){

@@ -143,7 +143,7 @@ void MaskFrame::drawDesign(){
     }else{
         ofSetColor(notHighlightedColor);   
     }
-    ofRect(0, 0, this->designWidth, this->designHeight);
+    ofDrawRectangle(0, 0, this->designWidth, this->designHeight);
     
     if((highlighted || hasHighlightedDragHandle) && !hasHighlightedMaskPoint){
         for(int i = 0; i < dragHandles.size(); i++){
@@ -155,7 +155,7 @@ void MaskFrame::drawDesign(){
         ofSetColor(maskLineColor);
         for(int i = 0; i < maskPoints.size(); i++){
             int nextIndex = getNextIndex(i, maskPoints.size());
-            ofLine(maskPoints[i]->getX(), maskPoints[i]->getY(), maskPoints[nextIndex]->getX(), maskPoints[nextIndex]->getY());
+            ofDrawLine(maskPoints[i]->getX(), maskPoints[i]->getY(), maskPoints[nextIndex]->getX(), maskPoints[nextIndex]->getY());
         }
     }
     
@@ -225,7 +225,7 @@ void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
             }else{
                 ofSetColor(notHighlightedColor);
             }
-            ofRect(0, 0, this->liveWidth, this->liveHeight);
+            ofDrawRectangle(0, 0, this->liveWidth, this->liveHeight);
 
             if((highlighted || hasHighlightedDragHandle) && !hasHighlightedMaskPoint){
                 for(int i = 0; i < dragHandles.size(); i++){
@@ -241,7 +241,7 @@ void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
             ofSetColor(maskLineColor);
             for(int i = 0; i < maskPoints.size(); i++){
                 int nextIndex = getNextIndex(i, maskPoints.size());
-                ofLine(maskPoints[i]->getLiveX(), maskPoints[i]->getLiveY(), maskPoints[nextIndex]->getLiveX(), maskPoints[nextIndex]->getLiveY());
+                ofDrawLine(maskPoints[i]->getLiveX(), maskPoints[i]->getLiveY(), maskPoints[nextIndex]->getLiveX(), maskPoints[nextIndex]->getLiveY());
             }
         }
     }

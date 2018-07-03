@@ -53,12 +53,12 @@ void Canvas::calculateGridLineDistances(){
 void Canvas::draw(){
     ofNoFill();
     ofSetColor(outlineColor);
-    ofRect(0, 0, width, height);
+    ofDrawRectangle(0, 0, width, height);
     ofSetColor(interiorColor);
     for (int i = 0; i < width; i += this->gridLineDistanceX){
-        ofLine(i, 0, i, height);
+        ofDrawLine(i, 0, i, height);
     }
     for (int i = 0; i < height; i += this->gridLineDistanceY){
-        ofLine(0, i, width, i);
+        ofDrawLine(0, i, width, i);
     }
 }

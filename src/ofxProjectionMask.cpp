@@ -245,8 +245,8 @@ void ofxProjectionMask::drawLiveCursor(){
         int liveMouseX = ofMap(mouse.x, designCanvas.getX(), designCanvas.getX() + designCanvas.getWidth(), liveCanvas.getX(), liveCanvas.getX() + liveCanvas.getWidth());
         int liveMouseY = ofMap(mouse.y, designCanvas.getY(), designCanvas.getY() + designCanvas.getHeight(), liveCanvas.getY(), liveCanvas.getY() + liveCanvas.getHeight());
         
-        ofLine(liveMouseX - 5, liveMouseY - 5, liveMouseX + 5, liveMouseY + 5);
-        ofLine(liveMouseX + 5, liveMouseY - 5, liveMouseX - 5, liveMouseY + 5);
+        ofDrawLine(liveMouseX - 5, liveMouseY - 5, liveMouseX + 5, liveMouseY + 5);
+        ofDrawLine(liveMouseX + 5, liveMouseY - 5, liveMouseX - 5, liveMouseY + 5);
     }
 }
 
@@ -262,7 +262,7 @@ void ofxProjectionMask::drawBufferPreviews(){
     for(int i = 0; i < patterns.size(); i++){
         ofTranslate(x, y);
         patterns.at(i)->drawLayer(0, 0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight, false);
-        ofRect(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
+        ofDrawRectangle(0, 0, presets.bufferPreviewWidth, presets.bufferPreviewHeight);
         ofDrawBitmapString("Buffer " + ofToString(i + 1), 0, presets.bufferPreviewHeight + presets.bufferMargin);
         x = presets.bufferPreviewWidth + presets.bufferMargin;
     }

@@ -16,40 +16,40 @@ MaskPointType MaskPoint::getType(){
 void MaskPoint::drawDesign(){
     if(this->type == Real){
         ofSetColor(maskPointColor);
-        ofRect(this->getX(), this->getY(), 1, 1);
+        ofDrawRectangle(this->getX(), this->getY(), 1, 1);
         if(this->isHighlighted()){
             ofNoFill();
             ofSetColor(highlightColor);
-            ofCircle(this->getX(), this->getY(), this->getRadius());
+            ofDrawCircle(this->getX(), this->getY(), this->getRadius());
         }
     }
     if(this->type == Ghost){
         ofSetColor(maskPointColor);
-        ofRect(this->getX(), this->getY(), 1, 1);
+        ofDrawRectangle(this->getX(), this->getY(), 1, 1);
         ofNoFill();
         ofSetColor(ghostColor);
-        ofCircle(this->getX(), this->getY(), this->getRadius());
+        ofDrawCircle(this->getX(), this->getY(), this->getRadius());
     }
 }
 
 void MaskPoint::drawLive(){
     if(this->type == Real){
         ofSetColor(maskPointColor);
-        ofRect(this->getLiveX(), this->getLiveY(), 1, 1);
+        ofDrawRectangle(this->getLiveX(), this->getLiveY(), 1, 1);
         if(this->isHighlighted()){
             ofSetColor(highlightColor);
         }else{
             ofSetColor(nonHighlightColor);
         }
         ofNoFill();
-        ofCircle(this->getLiveX(), this->getLiveY(), this->getRadius());
+        ofDrawCircle(this->getLiveX(), this->getLiveY(), this->getRadius());
     }
     if(this->type == Ghost){
         ofSetColor(maskPointColor);
-        ofRect(this->getLiveX(), this->getLiveY(), 1, 1);
+        ofDrawRectangle(this->getLiveX(), this->getLiveY(), 1, 1);
         ofNoFill();
         ofSetColor(ghostColor);
-        ofCircle(this->getLiveX(), this->getLiveY(), this->getRadius());
+        ofDrawCircle(this->getLiveX(), this->getLiveY(), this->getRadius());
     }
 }
 

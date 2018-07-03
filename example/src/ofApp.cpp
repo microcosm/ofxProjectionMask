@@ -101,8 +101,8 @@ void ofApp::update(){
         for(int i = 40; i < pattern2->getWidth(); i += 80){
             for(int j = 40; j < pattern2->getHeight(); j += 80){
                 ofSetColor(ofColor::white);
-                ofRect(0, i, pattern2->getWidth(), 20);
-                ofRect(j, 0, 20, pattern2->getHeight());
+                ofDrawRectangle(0, i, pattern2->getWidth(), 20);
+                ofDrawRectangle(j, 0, 20, pattern2->getHeight());
             }
         }
     }

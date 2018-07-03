@@ -99,9 +99,9 @@ void TextArea::drawPlaybackVolume(){
     ofNoFill();
     string volumeText = playbackVolumeTag + ofToString(*playbackVolume, 2);
     ofDrawBitmapString(volumeText, playbackVolumeX, playbackVolumeY + numberBoxHeight + numberTagMargin);
-    ofRect(playbackVolumeX, playbackVolumeY, numberBoxWidth, numberBoxHeight);
+    ofDrawRectangle(playbackVolumeX, playbackVolumeY, numberBoxWidth, numberBoxHeight);
     ofFill();
-    ofRect(playbackVolumeX, playbackVolumeY, *playbackVolume * numberBoxWidth, numberBoxHeight);
+    ofDrawRectangle(playbackVolumeX, playbackVolumeY, *playbackVolume * numberBoxWidth, numberBoxHeight);
 }
 
 void TextArea::drawNonPlaybackVolumes(){
@@ -117,9 +117,9 @@ void TextArea::drawNonPlaybackVolumes(){
         rectY = nonPlaybackVolumeY - numberBoxHeight - ((numberBoxHeight + numberBoxMargin) * i);
         tagY = nonPlaybackVolumeY - round(numberBoxHeight * 0.5);
         ofNoFill();
-        ofRect(rectX, rectY, numberBoxWidth, numberBoxHeight);
+        ofDrawRectangle(rectX, rectY, numberBoxWidth, numberBoxHeight);
         ofFill();
-        ofRect(rectX, rectY, (*nonPlaybackVolumes)[volumeIndex - 1] * numberBoxWidth, numberBoxHeight);
+        ofDrawRectangle(rectX, rectY, (*nonPlaybackVolumes)[volumeIndex - 1] * numberBoxWidth, numberBoxHeight);
         ofDrawBitmapString(ofToString(volumeIndex), tagX, rectY + numberTagOffsetY);
     }
     
