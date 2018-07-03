@@ -1,3 +1,4 @@
-ofxXmlSettings
-ofxSecondWindow
 ofxLayerMask
+ofxProjectionMask
+ofxSecondWindow
+ofxXmlSettings
