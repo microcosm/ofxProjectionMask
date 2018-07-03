@@ -122,16 +122,16 @@ void ofxProjectionMask::keyReleased(int key){
         deleteHighlightedItem();
         xml.autoSave();
         xml.load();
-    }else if(key == 356){
+    }else if(key == OF_KEY_LEFT){
         nudge(Left);
         xml.autoSave();
-    }else if(key == 357){
+    }else if(key == OF_KEY_UP){
         nudge(Up);
         xml.autoSave();
-    }else if(key == 358){
+    }else if(key == OF_KEY_RIGHT){
         nudge(Right);
         xml.autoSave();
-    }else if(key == 359){
+    }else if(key == OF_KEY_DOWN){
         nudge(Down);
         xml.autoSave();
     }else if(key == 's' || key == 'S'){

@@ -520,7 +520,7 @@ void MaskFrame::nudgeDragHandle(Direction direction){
 
 void MaskFrame::nudgeMaskPoint(Direction direction){
     MaskPoint* highlightedMaskPoint = getHighlightedMaskPoint();
-    if(highlightedMaskPoint > 0){
+    if(highlightedMaskPoint != 0){
         
         int newX, newY;
         newX = highlightedMaskPoint->getLiveX();
