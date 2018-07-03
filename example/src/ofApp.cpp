@@ -115,32 +115,6 @@ void ofApp::update(){
     //You'll need to do this to start using the addon with a projector.
 }
 
-void ofApp::draw(){
-    designer.draw();
-}
-
-void ofApp::keyReleased(int key){
-    designer.keyReleased(key);
-}
-
-void ofApp::mouseDragged(int x, int y, int button){
-    designer.mouseDragged();
-}
-
-void ofApp::mousePressed(int x, int y, int button){
-    designer.mousePressed();
-}
-
-void ofApp::mouseReleased(int x, int y, int button){
-    designer.mouseReleased();
-}
-
-void ofApp::keyPressed(int key){}
-void ofApp::mouseMoved(int x, int y){}
-void ofApp::windowResized(int w, int h){}
-void ofApp::gotMessage(ofMessage msg){}
-void ofApp::dragEvent(ofDragInfo dragInfo){}
-
 /*
   How to switch over to fullscreen/dual-screen setup
   ==================================================

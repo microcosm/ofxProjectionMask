@@ -24,6 +24,11 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
         xml.load();
     }
     mouse.setup(&designCanvas);
+    ofAddListener(ofEvents().keyReleased, this, &ofxProjectionMask::keyReleased);
+    ofAddListener(ofEvents().draw, this, &ofxProjectionMask::draw);
+    ofAddListener(ofEvents().mouseDragged, this, &ofxProjectionMask::mouseDragged);
+    ofAddListener(ofEvents().mousePressed, this, &ofxProjectionMask::mousePressed);
+    ofAddListener(ofEvents().mouseReleased, this, &ofxProjectionMask::mouseReleased);
 }
 
 ofxLayerMask* ofxProjectionMask::newPattern(int width, int height){
@@ -65,7 +70,7 @@ void ofxProjectionMask::update(int mouseX, int mouseY){
     textArea.setPresetMode(presets.getMode());
 }
 
-void ofxProjectionMask::draw(){
+void ofxProjectionMask::draw(ofEventArgs& args){
     ofPushStyle();
     {
         ofSetLineWidth(1);
@@ -105,47 +110,47 @@ void ofxProjectionMask::draw(){
     ofPopStyle();
 }
 
-void ofxProjectionMask::keyReleased(int key){
-    if(key == 'f' || key == 'F'){
+void ofxProjectionMask::keyReleased(ofKeyEventArgs& args){
+    if(args.key == 'f' || args.key == 'F'){
         createNewMaskFrame();
         xml.autoSave();
-    }else if(key == 'p' || key == 'P'){
+    }else if(args.key == 'p' || args.key == 'P'){
         createNewMaskPoint();
         xml.autoSave();
-    }else if (key == ' '){
+    }else if (args.key == ' '){
         ofToggleFullscreen();
-    }else if(key == 'u' || key == 'U'){
+    }else if(args.key == 'u' || args.key == 'U'){
         undo();
-    }else if(key == 'r' || key == 'R'){
+    }else if(args.key == 'r' || args.key == 'R'){
         redo();
-    }else if(key == 127 || key == 8){
+    }else if(args.key == 127 || args.key == 8){
         deleteHighlightedItem();
         xml.autoSave();
         xml.load();
-    }else if(key == OF_KEY_LEFT){
+    }else if(args.key == OF_KEY_LEFT){
         nudge(Left);
         xml.autoSave();
-    }else if(key == OF_KEY_UP){
+    }else if(args.key == OF_KEY_UP){
         nudge(Up);
         xml.autoSave();
-    }else if(key == OF_KEY_RIGHT){
+    }else if(args.key == OF_KEY_RIGHT){
         nudge(Right);
         xml.autoSave();
-    }else if(key == OF_KEY_DOWN){
+    }else if(args.key == OF_KEY_DOWN){
         nudge(Down);
         xml.autoSave();
-    }else if(key == 's' || key == 'S'){
+    }else if(args.key == 's' || args.key == 'S'){
         xml.save();
-    }else if(key == 'l' || key == 'L'){
+    }else if(args.key == 'l' || args.key == 'L'){
         xml.load();
-    }else if(key == 'm' || key == 'M'){
+    }else if(args.key == 'm' || args.key == 'M'){
         cycleMode();
-    }else if(key == 'n' || key == 'N'){
+    }else if(args.key == 'n' || args.key == 'N'){
         toggleFrameNudge();
     }
 }
 
-void ofxProjectionMask::mouseDragged(){
+void ofxProjectionMask::mouseDragged(ofMouseEventArgs &args){
     if(selectedMaskFrame != 0){
         TransformState state = selectedMaskFrame->getTransformState();
         
@@ -168,14 +173,14 @@ void ofxProjectionMask::mouseDragged(){
     }
 }
 
-void ofxProjectionMask::mousePressed(){
+void ofxProjectionMask::mousePressed(ofMouseEventArgs &args){
     selectedMaskFrame = canvasContents.beginTransform();
     if(selectedMaskFrame != 0){
         mouse.setSelection(selectedMaskFrame);
     }
 }
 
-void ofxProjectionMask::mouseReleased(){
+void ofxProjectionMask::mouseReleased(ofMouseEventArgs &args){
     selectedMaskFrame = 0;
     canvasContents.endTransform();
     xml.autoSave();

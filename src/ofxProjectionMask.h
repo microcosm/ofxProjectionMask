@@ -15,12 +15,12 @@ public:
     ofxLayerMask* newPattern(int width, int height);
     void layout();
     void update(int mouseX, int mouseY);
-    void draw();
+    void draw(ofEventArgs& args);
     
-    void keyReleased(int key);
-    void mouseDragged();
-    void mousePressed();
-    void mouseReleased();
+    void keyReleased(ofKeyEventArgs& args);
+    void mouseDragged(ofMouseEventArgs &args);
+    void mousePressed(ofMouseEventArgs &args);
+    void mouseReleased(ofMouseEventArgs &args);
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
     ofxLayerMask* nextPattern();
