@@ -1,8 +1,8 @@
 #########################
 # ofApp
 #########################
-*/bin/data/ProjectionMasks/development/saved-*
-*/bin/data/ProjectionMasks/production/saved-*
+*/bin/data/ProjectionMasks/development/*-*
+*/bin/data/ProjectionMasks/production/*-*
 
 #########################
 # openFrameworks patterns
