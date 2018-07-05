@@ -7,6 +7,7 @@
 class Xml{
 public:
     void setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask*> *patterns, string directory);
+    void setFileName(string _fileName);
     void save();
     void autoSave();
     void load();

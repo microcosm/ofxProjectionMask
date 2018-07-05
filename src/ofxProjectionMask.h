@@ -12,6 +12,7 @@
 class ofxProjectionMask{
 public:
     void setup(StretchMode _stretchMode=STRETCH_TO_MASKFRAME, PresetMode presetMode=PRESETS_DEVELOPMENT);
+    void setStorageFileName(string fileName);
     ofxLayerMask* newPattern(int width, int height);
     void layout();
     void update(int mouseX, int mouseY);

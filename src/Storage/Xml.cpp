@@ -50,6 +50,11 @@ void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvas
     this->xmlSubPath = projectionMaskPath + directoryDivider + directory;
 }
 
+void Xml::setFileName(string _fileName){
+    fileName = _fileName;
+    load();
+}
+
 void Xml::save(){
     save(false);
 }

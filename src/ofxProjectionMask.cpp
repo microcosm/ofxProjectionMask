@@ -34,6 +34,10 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     ofAddListener(ofEvents().mouseReleased, this, &ofxProjectionMask::mouseReleased);
 }
 
+void ofxProjectionMask::setStorageFileName(string fileName){
+    xml.setFileName(fileName);
+}
+
 ofxLayerMask* ofxProjectionMask::newPattern(int width, int height){
 
     patterns.push_back(new ofxLayerMask);
