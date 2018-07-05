@@ -24,6 +24,9 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
         xml.load();
     }
     mouse.setup(&designCanvas);
+
+    background.setup(presets.liveCanvasWidth, presets.liveCanvasHeight, 1);
+
     ofAddListener(ofEvents().keyReleased, this, &ofxProjectionMask::keyReleased);
     ofAddListener(ofEvents().draw, this, &ofxProjectionMask::draw);
     ofAddListener(ofEvents().mouseDragged, this, &ofxProjectionMask::mouseDragged);
@@ -43,7 +46,7 @@ void ofxProjectionMask::layout() {
     designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
     designCanvas.setSize(presets.designCanvasWidth, presets.designCanvasHeight);
     designCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
-    
+
     liveCanvas.setPosition(presets.liveCanvasX, presets.liveCanvasY);
     liveCanvas.setSize(presets.liveCanvasWidth, presets.liveCanvasHeight);
     liveCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
@@ -79,6 +82,7 @@ void ofxProjectionMask::draw(ofEventArgs& args){
         
         ofPushMatrix();
         ofTranslate(designCanvas.getX(), designCanvas.getY());
+        drawBackground(designCanvas.getWidth(), designCanvas.getHeight(), 150);
         designCanvas.draw();
         canvasContents.drawDesign();
         ofPopMatrix();
@@ -98,6 +102,7 @@ void ofxProjectionMask::draw(ofEventArgs& args){
         if(displayMode == Design){
             liveCanvas.draw();
         }
+        drawBackground(liveCanvas.getWidth(), liveCanvas.getHeight(), 255);
         canvasContents.drawLive(displayMode, stretchMode);
         ofPopMatrix();
         drawLiveCursor();
@@ -108,6 +113,17 @@ void ofxProjectionMask::draw(ofEventArgs& args){
         textArea.draw();
     }
     ofPopStyle();
+}
+
+void ofxProjectionMask::drawBackground(int width, int height, int alpha){
+    if(background.numLayers() > 0){
+        background.draw(0, 0, width, height);
+        ofSetColor(ofColor::black, 255 - alpha);
+        ofFill();
+        ofDrawRectangle(0, 0, width, height);
+        ofSetColor(ofColor::white);
+        ofNoFill();
+    }
 }
 
 void ofxProjectionMask::keyReleased(ofKeyEventArgs& args){
@@ -193,6 +209,10 @@ void ofxProjectionMask::setVolumes(float *playbackVolume, vector<float> *nonPlay
 ofxLayerMask* ofxProjectionMask::nextPattern() {
     int patternId = (canvasContents.getMaskFrames()->size()) % patterns.size();
     return patterns.at(patternId);
+}
+
+ofxLayerMask* ofxProjectionMask::getBackground() {
+    return &background;
 }
 
 //Protected

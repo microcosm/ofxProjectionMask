@@ -16,7 +16,8 @@ public:
     void layout();
     void update(int mouseX, int mouseY);
     void draw(ofEventArgs& args);
-    
+    void drawBackground(int width, int height, int alpha);
+
     void keyReleased(ofKeyEventArgs& args);
     void mouseDragged(ofMouseEventArgs &args);
     void mousePressed(ofMouseEventArgs &args);
@@ -24,6 +25,7 @@ public:
     
     void setVolumes(float *volume, vector<float> *nonPlaybackVolumes);
     ofxLayerMask* nextPattern();
+    ofxLayerMask* getBackground();
 
 protected:
     Presets presets;
@@ -34,6 +36,7 @@ protected:
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
     vector<ofxLayerMask*> patterns;
+    ofxLayerMask background;
 
     Mouse mouse;
     MaskFrame *selectedMaskFrame;
