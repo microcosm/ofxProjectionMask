@@ -36,13 +36,13 @@ const string typeManual = "manual";
 
 const string defaultTimestamp = "no-timestamp-found";
 
-const string filePath = "saved.xml";
-const string fileName = "saved-";
+const string defaultFileName = "saved";
 const string fileExtension = ".xml";
 const string directoryDivider = "/";
 const string projectionMaskPath = "ProjectionMasks";
 
 void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvasContents, vector<ofxLayerMask*> *patterns, string directory){
+    fileName = defaultFileName;
     this->designCanvas = designCanvas;
     this->liveCanvas = liveCanvas;
     this->canvasContents = canvasContents;
@@ -62,7 +62,7 @@ void Xml::load(){
     
 	ofxXmlSettings xml;
     
-    if(xml.loadFile(xmlSubPath + directoryDivider + filePath)){
+    if(xml.loadFile(xmlSubPath + directoryDivider + fileName + fileExtension)){
         xml.pushTag(sessionTag);
         
         loadSourceCanvasDimensions(&xml);
@@ -90,17 +90,17 @@ void Xml::save(bool autoSave){
     
     xml.popTag();
     
-	xml.saveFile(xmlSubPath + directoryDivider + filePath);
+	xml.saveFile(xmlSubPath + directoryDivider + fileName + fileExtension);
 }
 
 void Xml::backupExistingFile(){
     
 	ofxXmlSettings xml;
     
-    if(xml.loadFile(xmlSubPath + directoryDivider + filePath)){
+    if(xml.loadFile(xmlSubPath + directoryDivider + fileName + fileExtension)){
         xml.pushTag(sessionTag);
         string timestamp = xml.getValue(timestampTag, defaultTimestamp);
-        xml.saveFile(xmlSubPath + directoryDivider + fileName + timestamp + fileExtension);
+        xml.saveFile(xmlSubPath + directoryDivider + fileName + "-" + timestamp + fileExtension);
     }
 }
 

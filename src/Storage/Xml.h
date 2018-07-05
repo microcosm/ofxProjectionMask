@@ -18,6 +18,8 @@ protected:
     CanvasContents *canvasContents;
     vector<ofxLayerMask*> *patterns;
     string xmlSubPath;
+
+    string fileName;
     
     void save(bool autoSave);
     void backupExistingFile();
