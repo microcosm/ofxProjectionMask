@@ -27,7 +27,7 @@ void CanvasContents::nudge(Direction direction){
     }
 }
 
-void CanvasContents::erase(){
+void CanvasContents::eraseHighlighted(){
     int i = getHighlightedMaskFrameIndex();
     if(i > -1){
         if(maskFrames[i]->hasHighlightedMaskPoint()){
@@ -38,6 +38,10 @@ void CanvasContents::erase(){
             maskFrames.deleteItem(i);
         }
     }
+}
+
+void CanvasContents::eraseAll(){
+    maskFrames.deleteAll();
 }
 
 void CanvasContents::createMaskPointAt(int x, int y){

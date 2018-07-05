@@ -251,7 +251,7 @@ void ofxProjectionMask::createNewMaskPoint(){
 }
 
 void ofxProjectionMask::deleteHighlightedItem(){
-    canvasContents.erase();
+    canvasContents.eraseHighlighted();
 }
 
 void ofxProjectionMask::cycleMode(){

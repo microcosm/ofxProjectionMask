@@ -10,7 +10,8 @@ public:
     }
     void add(MaskFrame *maskFrame);
     void nudge(Direction direction);
-    void erase();
+    void eraseHighlighted();
+    void eraseAll();
     
     void createMaskPointAt(int x, int y);
     void updateHighlights(int x, int y);

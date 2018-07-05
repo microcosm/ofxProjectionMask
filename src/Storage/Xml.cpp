@@ -52,6 +52,7 @@ void Xml::setup(Canvas *designCanvas, Canvas *liveCanvas, CanvasContents *canvas
 
 void Xml::setFileName(string _fileName){
     fileName = _fileName;
+    canvasContents->eraseAll();
     load();
 }
 
