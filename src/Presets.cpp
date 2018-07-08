@@ -9,7 +9,7 @@
  */
 const int developmentFirstWindowWidth = 800;
 const int developmentFirstWindowHeight = 800;
-const int developmentFirstWindowX = 0;
+const int developmentFirstWindowX = 816;
 const int developmentFirstWindowY = 0;
 
 const int developmentSecondWindowWidth = 616;
