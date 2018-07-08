@@ -108,6 +108,10 @@ void ofApp::update(){
     pattern2->end();
 }
 
+void ofApp::draw(){
+    designer.drawFirstWindow();
+}
+
 void ofApp::drawSecondWindow(ofEventArgs &args){
     designer.drawSecondWindow();
 }

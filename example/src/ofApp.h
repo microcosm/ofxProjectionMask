@@ -9,6 +9,7 @@ class ofApp : public ofBaseApp{
 public:
     void setup();
     void update();
+    void draw();
     void drawSecondWindow(ofEventArgs &args);
 
     ofxProjectionMask designer;

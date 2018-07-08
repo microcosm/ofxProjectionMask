@@ -20,7 +20,7 @@ public:
     void layoutSecondWindow();
     
     void update(int mouseX, int mouseY);
-    void draw(ofEventArgs& args);
+    void drawFirstWindow();
     void drawSecondWindow();
     void drawBackground(int width, int height, int alpha);
 

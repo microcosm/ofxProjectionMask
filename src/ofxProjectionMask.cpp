@@ -12,6 +12,7 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     stretchMode = _stretchMode;
     
     xml.setup(&designCanvas, &liveCanvas, &canvasContents, &patterns, presets.storageDirectory);
+    
     if(patterns.size() > 0) {
         xml.load();
     }
@@ -20,7 +21,6 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     background.setup(presets.liveCanvasWidth, presets.liveCanvasHeight, 1);
 
     ofAddListener(ofEvents().keyReleased, this, &ofxProjectionMask::keyReleased);
-    ofAddListener(ofEvents().draw, this, &ofxProjectionMask::draw);
     ofAddListener(ofEvents().mouseDragged, this, &ofxProjectionMask::mouseDragged);
     ofAddListener(ofEvents().mousePressed, this, &ofxProjectionMask::mousePressed);
     ofAddListener(ofEvents().mouseReleased, this, &ofxProjectionMask::mouseReleased);
@@ -98,7 +98,7 @@ void ofxProjectionMask::update(int mouseX, int mouseY){
     textArea.setPresetMode(presets.getMode());
 }
 
-void ofxProjectionMask::draw(ofEventArgs& args){
+void ofxProjectionMask::drawFirstWindow(){
     ofPushStyle();
     {
         ofSetLineWidth(1);
