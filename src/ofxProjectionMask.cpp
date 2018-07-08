@@ -4,13 +4,12 @@
 void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     presets.setMode(presetMode);
     displayMode = Design;
-    
-    ofSetHexColor(0xFFFFFF);
-    ofBackground(0, 0, 0);
-    ofSetWindowPosition(0, 0);
+
+    setupCommon();
+
     ofSetWindowShape(presets.firstWindowWidth, presets.firstWindowHeight);
-    ofEnableAlphaBlending();
-    
+    ofSetWindowPosition(presets.firstWindowX, presets.firstWindowY);
+
     layout();
     
     selectedMaskFrame = 0;
@@ -29,6 +28,20 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     ofAddListener(ofEvents().mouseDragged, this, &ofxProjectionMask::mouseDragged);
     ofAddListener(ofEvents().mousePressed, this, &ofxProjectionMask::mousePressed);
     ofAddListener(ofEvents().mouseReleased, this, &ofxProjectionMask::mouseReleased);
+}
+
+void ofxProjectionMask::setupSecondWindow(){
+    setupCommon();
+    ofSetWindowShape(presets.secondWindowWidth, presets.secondWindowHeight);
+    ofSetWindowPosition(presets.secondWindowX, presets.secondWindowY);
+    secondWindowSetup = true;
+}
+
+void ofxProjectionMask::setupCommon(){
+    ofSetHexColor(0xFFFFFF);
+    ofBackground(0, 0, 0);
+    ofSetWindowPosition(0, 0);
+    ofEnableAlphaBlending();
 }
 
 void ofxProjectionMask::setStorageFileName(string fileName){
@@ -99,7 +112,10 @@ void ofxProjectionMask::draw(ofEventArgs& args){
     ofPopStyle();
 }
 
-void ofxProjectionMask::drawProductionWindow(){
+void ofxProjectionMask::drawSecondWindow(){
+    if(!secondWindowSetup){
+        setupSecondWindow();
+    }
     ofPushMatrix();
     ofTranslate(liveCanvas.getX(), liveCanvas.getY());
     if(displayMode == Design){

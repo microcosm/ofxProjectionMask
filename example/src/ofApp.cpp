@@ -115,8 +115,8 @@ void ofApp::update(){
     //You'll need to do this to start using the addon with a projector.
 }
 
-void ofApp::drawProductionWindow(ofEventArgs &args){
-    designer.drawProductionWindow();
+void ofApp::drawSecondWindow(ofEventArgs &args){
+    designer.drawSecondWindow();
 }
 
 /*

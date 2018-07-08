@@ -16,7 +16,7 @@ int main(){
     secondWindow->setVerticalSync(false);
 
     shared_ptr<ofApp> mainApp(new ofApp);
-    ofAddListener(secondWindow->events().draw, mainApp.get(), &ofApp::drawProductionWindow);
+    ofAddListener(secondWindow->events().draw, mainApp.get(), &ofApp::drawSecondWindow);
 
     ofRunApp(mainWindow, mainApp);
     ofRunMainLoop();

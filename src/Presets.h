@@ -15,7 +15,7 @@ public:
     bool isDevelopmentMode();
     bool isProductionMode();
     
-    int firstWindowWidth, firstWindowHeight;
+    int firstWindowX, firstWindowY, firstWindowWidth, firstWindowHeight;
 
     int secondWindowX, secondWindowY, secondWindowWidth, secondWindowHeight;
 

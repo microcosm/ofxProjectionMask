@@ -20,6 +20,9 @@
  */
 const int developmentFirstWindowWidth = 800;
 const int developmentFirstWindowHeight = 800;
+const int developmentFirstWindowX = 0;
+const int developmentFirstWindowY = 0;
+
 const int developmentSecondWindowWidth = 616;
 const int developmentSecondWindowHeight = 416;
 const int developmentSecondWindowX = 816;
@@ -78,6 +81,11 @@ const char* developmentStorageDirectory = "development";
   Right:    Monoprice        (2560 x 1600px)  1050 +-----|       |
                                                          +-------+
 */
+
+const int productionFirstWindowX = 0;
+const int productionFirstWindowY = 0;
+const int productionFirstWindowWidth = 800;
+const int productionFirstWindowHeight = 800;
 
 const int productionSecondWindowX = 2880; //The second window begins at the far right (full width) of the left screen
 const int productionSecondWindowY = 0;
@@ -162,11 +170,13 @@ void Presets::load() {
 void Presets::loadDevelopmentValues() {
     firstWindowWidth = developmentFirstWindowWidth;
     firstWindowHeight = developmentFirstWindowHeight;
+    firstWindowX = developmentFirstWindowX;
+    firstWindowY = developmentFirstWindowY;
     
-    secondWindowX = developmentSecondWindowX;
-    secondWindowY = developmentSecondWindowY;
     secondWindowWidth = developmentSecondWindowWidth;
     secondWindowHeight = developmentSecondWindowHeight;
+    secondWindowX = developmentSecondWindowX;
+    secondWindowY = developmentSecondWindowY;
     
     numGridLinesX = developmentNumGridLinesX;
     numGridLinesY = developmentNumGridLinesY;
@@ -214,11 +224,13 @@ void Presets::loadDevelopmentValues() {
 void Presets::loadProductionValues() {
     //firstWindowWidth = productionFirstWindowWidth;
     //firstWindowHeight = productionFirstWindowHeight;
+    //firstWindowX = productionFirstWindowX;
+    //firstWindowY = productionFirstWindowY;
 
-    secondWindowX = productionSecondWindowX;
-    secondWindowY = productionSecondWindowY;
     secondWindowWidth = productionSecondWindowWidth;
     secondWindowHeight = productionSecondWindowHeight;
+    secondWindowX = productionSecondWindowX;
+    secondWindowY = productionSecondWindowY;
 
     numGridLinesX = productionNumGridLinesX;
     numGridLinesY = productionNumGridLinesY;
