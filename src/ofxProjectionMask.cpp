@@ -129,6 +129,7 @@ void ofxProjectionMask::drawSecondWindow(){
     }
     ofPushMatrix();
     ofTranslate(liveCanvas.getX(), liveCanvas.getY());
+    drawBackground(liveCanvas.getWidth(), liveCanvas.getHeight(), 255);
     if(displayMode == Design){
         liveCanvas.draw();
     }
