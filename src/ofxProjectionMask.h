@@ -12,11 +12,13 @@ class ofxProjectionMask{
 public:
     void setup(StretchMode _stretchMode=STRETCH_TO_MASKFRAME, PresetMode presetMode=PRESETS_DEVELOPMENT);
     void setupSecondWindow();
-    void setupCommon();
+    void setupCommon(int x, int y, int width, int height);
 
     void setStorageFileName(string fileName);
     ofxLayerMask* newPattern(int width, int height);
-    void layout();
+    void layoutFirstWindow();
+    void layoutSecondWindow();
+    
     void update(int mouseX, int mouseY);
     void draw(ofEventArgs& args);
     void drawSecondWindow();

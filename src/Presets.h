@@ -42,8 +42,7 @@ public:
     int numberTagOffsetX, numberTagOffsetY;
     
     int newMaskFrameWidth, newMaskFrameHeight;
-    
-    bool startFullscreen;
+
     const char* storageDirectory;
 
 protected:

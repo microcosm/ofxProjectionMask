@@ -5,12 +5,8 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     presets.setMode(presetMode);
     displayMode = Design;
 
-    setupCommon();
-
-    ofSetWindowShape(presets.firstWindowWidth, presets.firstWindowHeight);
-    ofSetWindowPosition(presets.firstWindowX, presets.firstWindowY);
-
-    layout();
+    setupCommon(presets.firstWindowX, presets.firstWindowY, presets.firstWindowWidth, presets.firstWindowHeight);
+    layoutFirstWindow();
     
     selectedMaskFrame = 0;
     stretchMode = _stretchMode;
@@ -31,17 +27,22 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
 }
 
 void ofxProjectionMask::setupSecondWindow(){
-    setupCommon();
-    ofSetWindowShape(presets.secondWindowWidth, presets.secondWindowHeight);
-    ofSetWindowPosition(presets.secondWindowX, presets.secondWindowY);
+    setupCommon(presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight);
+    layoutSecondWindow();
     secondWindowSetup = true;
 }
 
-void ofxProjectionMask::setupCommon(){
+void ofxProjectionMask::setupCommon(int x, int y, int width, int height){
     ofSetHexColor(0xFFFFFF);
     ofBackground(0, 0, 0);
-    ofSetWindowPosition(0, 0);
     ofEnableAlphaBlending();
+
+    if(presets.isProductionMode()){
+        ofSetFullscreen(true);
+    } else {
+        ofSetWindowPosition(x, y);
+        ofSetWindowShape(width, height);
+    }
 }
 
 void ofxProjectionMask::setStorageFileName(string fileName){
@@ -49,34 +50,44 @@ void ofxProjectionMask::setStorageFileName(string fileName){
 }
 
 ofxLayerMask* ofxProjectionMask::newPattern(int width, int height){
-
     patterns.push_back(new ofxLayerMask);
     patterns.back()->setup(width, height, 1);
     xml.load();
     return patterns.back();
 }
 
-void ofxProjectionMask::layout() {
+void ofxProjectionMask::layoutFirstWindow() {
+    if(presets.isProductionMode()){
+        presets.firstWindowWidth = ofGetWindowWidth();
+        presets.firstWindowHeight = ofGetWindowHeight();
+    }
+
     designCanvas.setPosition(presets.designCanvasX, presets.designCanvasY);
     designCanvas.setSize(presets.designCanvasWidth, presets.designCanvasHeight);
     designCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
 
-    liveCanvas.setPosition(presets.liveCanvasX, presets.liveCanvasY);
-    liveCanvas.setSize(presets.liveCanvasWidth, presets.liveCanvasHeight);
-    liveCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
-    
     textArea.setInstructionsPosition(presets.instructionsX, presets.instructionsY);
     textArea.setPlaybackVolumePosition(presets.playbackVolumeX, presets.playbackVolumeY);
     textArea.setNonPlaybackVolumesPosition(presets.nonPlaybackVolumeX, presets.nonPlaybackVolumeY);
     textArea.setNumberBoxSize(presets.numberBoxWidth, presets.numberBoxHeight);
     textArea.setOffsets(presets.numberTagOffsetX, presets.numberTagOffsetY);
     textArea.setMargins(presets.numberTagMargin, presets.numberBoxMargin);
-    
-    ofSetFullscreen(presets.startFullscreen);
+}
+
+void ofxProjectionMask::layoutSecondWindow() {
+    if(presets.isProductionMode()){
+        presets.secondWindowWidth = ofGetWindowWidth() - presets.firstWindowWidth;
+        presets.secondWindowHeight = ofGetWindowHeight();
+        presets.secondWindowX = presets.firstWindowWidth;
+        presets.secondWindowY = 0;
+    }
+
+    liveCanvas.setPosition(presets.secondWindowX, presets.secondWindowY);
+    liveCanvas.setSize(presets.secondWindowWidth, presets.secondWindowHeight);
+    liveCanvas.setNumGridLines(presets.numGridLinesX, presets.numGridLinesY);
 }
 
 void ofxProjectionMask::update(int mouseX, int mouseY){
-    
     mouse.set(mouseX, mouseY);
     
     if(!isTransforming()){

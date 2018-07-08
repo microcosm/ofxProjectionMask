@@ -6,17 +6,6 @@
   This file is full of presets to help you easily switch between when
   you are developing your patterns and when you want to display live
   on a projector.
-
-  For fuller instructions on dualscreen/fullscreen setup, check out
-  ofApp.cpp in the example project.
-
-  Development mode presets                                      |
-  ========================                                      |
-  You probably won't need to change this. Scroll down to find  \|/
-  'production' mode presets.                                    V
- 
-  In my case, it's a late 2011 MacBook Pro at (1680 x 1050px), so as
-  long as everything fits inside those dimensions:
  */
 const int developmentFirstWindowWidth = 800;
 const int developmentFirstWindowHeight = 800;
@@ -25,7 +14,7 @@ const int developmentFirstWindowY = 0;
 
 const int developmentSecondWindowWidth = 616;
 const int developmentSecondWindowHeight = 416;
-const int developmentSecondWindowX = 816;
+const int developmentSecondWindowX = 0;
 const int developmentSecondWindowY = 0;
 
 const int developmentNumGridLinesX = 14;
@@ -73,24 +62,7 @@ const char* developmentStorageDirectory = "development";
 /*
   Production mode presets
   =======================
-  Usually a laptop and a projector. These presets are for top-aligned
-  monitors:
-                                                   0    1680    4240
-  ---------------------------------              0 +-----+-------+
-  Left:     2011 MacBook Pro (1680 x 1050px)       |  L  |   R   |
-  Right:    Monoprice        (2560 x 1600px)  1050 +-----|       |
-                                                         +-------+
 */
-
-const int productionFirstWindowX = 0;
-const int productionFirstWindowY = 0;
-const int productionFirstWindowWidth = 800;
-const int productionFirstWindowHeight = 800;
-
-const int productionSecondWindowX = 2880; //The second window begins at the far right (full width) of the left screen
-const int productionSecondWindowY = 0;
-const int productionSecondWindowWidth = 1920;
-const int productionSecondWindowHeight = 1080;
 
 const int productionNumGridLinesX = 60;
 const int productionNumGridLinesY = 46;
@@ -101,11 +73,6 @@ const int productionDesignCanvasWidth = 1004;
 const int productionDesignCanvasHeight = 710;
 const int productionDesignCanvasLabelX = -1000;
 const int productionDesignCanvasLabelY = -1000;
-
-const int productionLiveCanvasX = 0;
-const int productionLiveCanvasY = 0;
-const int productionLiveCanvasWidth = productionSecondWindowWidth;
-const int productionLiveCanvasHeight = productionSecondWindowHeight;
 
 const int productionBufferPreviewX = 10;
 const int productionBufferPreviewY = 730;
@@ -217,21 +184,10 @@ void Presets::loadDevelopmentValues() {
     newMaskFrameWidth = developmentNewMaskFrameWidth;
     newMaskFrameHeight = developmentNewMaskFrameHeight;
     
-    startFullscreen = developmentStartFullscreen;
     storageDirectory = developmentStorageDirectory;
 }
 
 void Presets::loadProductionValues() {
-    //firstWindowWidth = productionFirstWindowWidth;
-    //firstWindowHeight = productionFirstWindowHeight;
-    //firstWindowX = productionFirstWindowX;
-    //firstWindowY = productionFirstWindowY;
-
-    secondWindowWidth = productionSecondWindowWidth;
-    secondWindowHeight = productionSecondWindowHeight;
-    secondWindowX = productionSecondWindowX;
-    secondWindowY = productionSecondWindowY;
-
     numGridLinesX = productionNumGridLinesX;
     numGridLinesY = productionNumGridLinesY;
     
@@ -241,12 +197,7 @@ void Presets::loadProductionValues() {
     designCanvasHeight = productionDesignCanvasHeight;
     designCanvasLabelX = productionDesignCanvasLabelX;
     designCanvasLabelY = productionDesignCanvasLabelY;
-    
-    liveCanvasX = productionLiveCanvasX;
-    liveCanvasY = productionLiveCanvasY;
-    liveCanvasWidth = productionLiveCanvasWidth;
-    liveCanvasHeight = productionLiveCanvasHeight;
-    
+
     bufferPreviewX = productionBufferPreviewX;
     bufferPreviewY = productionBufferPreviewY;
     bufferPreviewWidth = productionBufferPreviewWidth;
@@ -271,6 +222,5 @@ void Presets::loadProductionValues() {
     newMaskFrameWidth = productionNewMaskFrameWidth;
     newMaskFrameHeight = productionNewMaskFrameHeight;
     
-    startFullscreen = productionStartFullscreen;
     storageDirectory = productionStorageDirectory;
 }
