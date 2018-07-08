@@ -8,13 +8,10 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     ofSetHexColor(0xFFFFFF);
     ofBackground(0, 0, 0);
     ofSetWindowPosition(0, 0);
-    ofSetWindowShape(presets.soloWindowWidth, presets.soloWindowHeight);
+    ofSetWindowShape(presets.firstWindowWidth, presets.firstWindowHeight);
     ofEnableAlphaBlending();
     
     layout();
-    if(presets.isProductionMode()){
-        //secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
-    }
     
     selectedMaskFrame = 0;
     stretchMode = _stretchMode;
@@ -96,10 +93,6 @@ void ofxProjectionMask::draw(ofEventArgs& args){
         ofSetColor(ofColor::white);
         ofDrawBitmapString("Design Canvas", ofPoint(0, 0));
         ofPopMatrix();
-        
-        if(!presets.isProductionMode()) {
-            drawProductionWindow();
-        }
         
         textArea.draw();
     }

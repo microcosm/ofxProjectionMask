@@ -18,8 +18,12 @@
   In my case, it's a late 2011 MacBook Pro at (1680 x 1050px), so as
   long as everything fits inside those dimensions:
  */
-const int developmentSoloWindowWidth = 1100;
-const int developmentSoloWindowHeight = 800;
+const int developmentFirstWindowWidth = 800;
+const int developmentFirstWindowHeight = 800;
+const int developmentSecondWindowWidth = 616;
+const int developmentSecondWindowHeight = 416;
+const int developmentSecondWindowX = 816;
+const int developmentSecondWindowY = 0;
 
 const int developmentNumGridLinesX = 14;
 const int developmentNumGridLinesY = 10;
@@ -31,10 +35,10 @@ const int developmentDesignCanvasHeight = 180;
 const int developmentDesignCanvasLabelX = 402;
 const int developmentDesignCanvasLabelY = 204;
 
-const int developmentLiveCanvasX = 402;
-const int developmentLiveCanvasY = 340;
-const int developmentLiveCanvasWidth = 610;
-const int developmentLiveCanvasHeight = 410;
+const int developmentLiveCanvasX = 8;
+const int developmentLiveCanvasY = 8;
+const int developmentLiveCanvasWidth = 600;
+const int developmentLiveCanvasHeight = 400;
 
 const int developmentBufferPreviewX = 402;
 const int developmentBufferPreviewY = 224;
@@ -75,7 +79,6 @@ const char* developmentStorageDirectory = "development";
                                                          +-------+
 */
 
-const char* productionSecondWindowName = "openFrameworks Window 2";
 const int productionSecondWindowX = 2880; //The second window begins at the far right (full width) of the left screen
 const int productionSecondWindowY = 0;
 const int productionSecondWindowWidth = 1920;
@@ -149,8 +152,6 @@ bool Presets::isProductionMode(){
 }
 
 void Presets::load() {
-    loadContextIndependantValues();
-    
     if(mode == PRESETS_DEVELOPMENT) {
         loadDevelopmentValues();
     } else if(mode == PRESETS_PRODUCTION) {
@@ -158,18 +159,15 @@ void Presets::load() {
     }
 }
 
-void Presets::loadContextIndependantValues() {
-    soloWindowWidth = developmentSoloWindowWidth;
-    soloWindowHeight = developmentSoloWindowHeight;
-    
-    secondWindowName = productionSecondWindowName;
-    secondWindowX = productionSecondWindowX;
-    secondWindowY = productionSecondWindowY;
-    secondWindowWidth = productionSecondWindowWidth;
-    secondWindowHeight = productionSecondWindowHeight;
-}
-
 void Presets::loadDevelopmentValues() {
+    firstWindowWidth = developmentFirstWindowWidth;
+    firstWindowHeight = developmentFirstWindowHeight;
+    
+    secondWindowX = developmentSecondWindowX;
+    secondWindowY = developmentSecondWindowY;
+    secondWindowWidth = developmentSecondWindowWidth;
+    secondWindowHeight = developmentSecondWindowHeight;
+    
     numGridLinesX = developmentNumGridLinesX;
     numGridLinesY = developmentNumGridLinesY;
     
@@ -214,6 +212,14 @@ void Presets::loadDevelopmentValues() {
 }
 
 void Presets::loadProductionValues() {
+    //firstWindowWidth = productionFirstWindowWidth;
+    //firstWindowHeight = productionFirstWindowHeight;
+
+    secondWindowX = productionSecondWindowX;
+    secondWindowY = productionSecondWindowY;
+    secondWindowWidth = productionSecondWindowWidth;
+    secondWindowHeight = productionSecondWindowHeight;
+
     numGridLinesX = productionNumGridLinesX;
     numGridLinesY = productionNumGridLinesY;
     
