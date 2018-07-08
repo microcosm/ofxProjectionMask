@@ -43,10 +43,9 @@
 
   How to get started?
   -------------------
-  Just launch the app! Instructions are on the left for how to 
+  Just launch the app! Instructions are there for how to
   use the UI. When you've had enough, scroll through this file
-  to see how to program your own patterns and run in fullscreen
-  on your favorite projector.
+  to see how to program your own patterns.
 */
 
 void ofApp::setup(){
@@ -107,49 +106,8 @@ void ofApp::update(){
         }
     }
     pattern2->end();
-    
-    //That's it!! The rest is boilerplate, copy the lines
-    //below to make the designer work in your apps
-
-    //Now head down to the bottom of this file to learn about presets!
-    //You'll need to do this to start using the addon with a projector.
 }
 
 void ofApp::drawSecondWindow(ofEventArgs &args){
     designer.drawSecondWindow();
 }
-
-/*
-  How to switch over to fullscreen/dual-screen setup
-  ==================================================
-  Ok, so you are done playing with the development mode and you
-  want to get started with a projector! Good, that's not
-  unreasonable :)
-
-  This addon uses ofxSecondWindow to handle running fullscreen
-  with a projector. All you need to do is check your operating
-  system's dual-screen display settings, and enter the correct
-  values in the 'production' portion of the Presets.cpp file.
-
-  How to do that?
-  ---------------
-  You will probably want to arrange your dualscreens like this:
-
-        +--------+----------+ <-- top aligned
-        | design | for-real |
-        | canvas | mappings |
-        +--------|          |
-                 +----------+
-         screen 1  screen 2
-         (laptop) (projector)
-
-  When you have done that, take note of your screen and
-  projector screen resolutions, and plug in the numbers to
-  this file:
-
-      /addons/ofxProjectionMapper/src/Presets.cpp
-
-  When you have done that, you can come back to this file and
-  switch to using the setup() call with the PRESETS_PRODUCTION
-  constant in it.
-*/

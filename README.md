@@ -84,6 +84,10 @@ Of course! That's what this is all about. Check out `ofApp.cpp` for full instruc
 
 Versions
 --------
+- 0.3.1
+  - Removes dependency on ofxSecondWindow
+  - Bumps OF support to OF v0.10.0
+  - Simplifies usage via OF listeners
 - 0.3.0
   - Switches rendering from ofxTriangle to ofxLayerMask
   - Adds support for homography and stretching to mask frames
@@ -98,7 +102,6 @@ Versions
 Project dependencies
 --------------------
 - [ofxLayerMask](https://github.com/microcosm/ofxLayerMask) to mask patterns based on the points you select
-- [ofxSecondWindow](https://github.com/genekogan/ofxSecondWindow) to allow for a dualscreen setup with a projector
 - [ofxXmlSettings](http://www.openframeworks.cc/documentation/ofxXmlSettings/ofxXmlSettings.html) to store masks as you draw them - it's part of the openFrameworks core
 - Tested against [openFrameworks 0.10.0](http://openframeworks.cc/download/)
 
