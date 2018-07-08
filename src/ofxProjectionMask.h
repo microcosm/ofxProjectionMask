@@ -1,6 +1,5 @@
 #pragma once
 #include "ofMain.h"
-#include "ofxSecondWindow.h"
 #include "ofxLayerMask.h"
 #include "CanvasContents.h"
 #include "MaskFrame.h"
@@ -17,6 +16,7 @@ public:
     void layout();
     void update(int mouseX, int mouseY);
     void draw(ofEventArgs& args);
+    void drawProductionWindow();
     void drawBackground(int width, int height, int alpha);
 
     void keyReleased(ofKeyEventArgs& args);
@@ -33,7 +33,6 @@ protected:
     DisplayMode displayMode;
     StretchMode stretchMode;
     
-    ofxSecondWindow secondWindow;
     Canvas designCanvas, liveCanvas;
     CanvasContents canvasContents;
     vector<ofxLayerMask*> patterns;

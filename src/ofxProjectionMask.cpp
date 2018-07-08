@@ -13,7 +13,7 @@ void ofxProjectionMask::setup(StretchMode _stretchMode, PresetMode presetMode){
     
     layout();
     if(presets.isProductionMode()){
-        secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
+        //secondWindow.setup(presets.secondWindowName, presets.secondWindowX, presets.secondWindowY, presets.secondWindowWidth, presets.secondWindowHeight, true);
     }
     
     selectedMaskFrame = 0;
@@ -97,26 +97,24 @@ void ofxProjectionMask::draw(ofEventArgs& args){
         ofDrawBitmapString("Design Canvas", ofPoint(0, 0));
         ofPopMatrix();
         
-        if(presets.isProductionMode()) {
-            secondWindow.begin();
-            ofBackground(0);
-        }
-        ofPushMatrix();
-        ofTranslate(liveCanvas.getX(), liveCanvas.getY());
-        if(displayMode == Design){
-            liveCanvas.draw();
-        }
-        drawBackground(liveCanvas.getWidth(), liveCanvas.getHeight(), 255);
-        canvasContents.drawLive(displayMode, stretchMode);
-        ofPopMatrix();
-        drawLiveCursor();
-        if(presets.isProductionMode()) {
-            secondWindow.end();
+        if(!presets.isProductionMode()) {
+            drawProductionWindow();
         }
         
         textArea.draw();
     }
     ofPopStyle();
+}
+
+void ofxProjectionMask::drawProductionWindow(){
+    ofPushMatrix();
+    ofTranslate(liveCanvas.getX(), liveCanvas.getY());
+    if(displayMode == Design){
+        liveCanvas.draw();
+    }
+    canvasContents.drawLive(displayMode, stretchMode);
+    ofPopMatrix();
+    drawLiveCursor();
 }
 
 void ofxProjectionMask::drawBackground(int width, int height, int alpha){

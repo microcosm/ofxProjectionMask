@@ -256,7 +256,6 @@ void MaskFrame::drawLive(DisplayMode mode, StretchMode stretchMode){
             maskPoints[i]->drawLive();
         }
     }
-    
     ofPopMatrix();
 }
 

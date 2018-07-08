@@ -171,70 +171,6 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
-			<key>87B479F55285F413D96B5A45</key>
-			<dict>
-				<key>fileRef</key>
-				<string>F6CD5194C7EEB1B621758398</string>
-				<key>isa</key>
-				<string>PBXBuildFile</string>
-			</dict>
-			<key>F6CD5194C7EEB1B621758398</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.cpp.cpp</string>
-				<key>fileEncoding</key>
-				<string>4</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>ofxSecondWindow.cpp</string>
-				<key>path</key>
-				<string>../../../addons/ofxSecondWindow/src/ofxSecondWindow.cpp</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
-			<key>4373A30F72067F000063CFF4</key>
-			<dict>
-				<key>children</key>
-				<array>
-					<string>F905D46EF2AE96B79CEF0609</string>
-					<string>F6CD5194C7EEB1B621758398</string>
-				</array>
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>src</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
-			<key>EDD1D727C7914867117F6F92</key>
-			<dict>
-				<key>children</key>
-				<array>
-					<string>4373A30F72067F000063CFF4</string>
-				</array>
-				<key>isa</key>
-				<string>PBXGroup</string>
-				<key>name</key>
-				<string>ofxSecondWindow</string>
-				<key>sourceTree</key>
-				<string>&lt;group&gt;</string>
-			</dict>
-			<key>F905D46EF2AE96B79CEF0609</key>
-			<dict>
-				<key>explicitFileType</key>
-				<string>sourcecode.c.h</string>
-				<key>fileEncoding</key>
-				<string>4</string>
-				<key>isa</key>
-				<string>PBXFileReference</string>
-				<key>name</key>
-				<string>ofxSecondWindow.h</string>
-				<key>path</key>
-				<string>../../../addons/ofxSecondWindow/src/ofxSecondWindow.h</string>
-				<key>sourceTree</key>
-				<string>SOURCE_ROOT</string>
-			</dict>
 			<key>729840592B90C492EBB4EBDE</key>
 			<dict>
 				<key>fileRef</key>
@@ -1225,7 +1161,6 @@ fi
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Collections</string>
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Points</string>
 						<string>../../../addons/ofxProjectionMask/src/Storage</string>
-						<string>../../../addons/ofxSecondWindow/src</string>
 						<string>../../../addons/ofxXmlSettings/libs</string>
 						<string>../../../addons/ofxXmlSettings/src</string>
 					</array>
@@ -1296,7 +1231,6 @@ fi
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Collections</string>
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Points</string>
 						<string>../../../addons/ofxProjectionMask/src/Storage</string>
-						<string>../../../addons/ofxSecondWindow/src</string>
 						<string>../../../addons/ofxXmlSettings/libs</string>
 						<string>../../../addons/ofxXmlSettings/src</string>
 					</array>
@@ -1342,7 +1276,6 @@ fi
 				<array>
 					<string>DB48ECEB4A5AD24AB25E3141</string>
 					<string>3E01AADAE5C886DC8AEB011F</string>
-					<string>EDD1D727C7914867117F6F92</string>
 					<string>1F4FB5C423662B96ADFDCC0B</string>
 				</array>
 				<key>isa</key>
@@ -1507,7 +1440,6 @@ fi
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Collections</string>
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Points</string>
 						<string>../../../addons/ofxProjectionMask/src/Storage</string>
-						<string>../../../addons/ofxSecondWindow/src</string>
 						<string>../../../addons/ofxXmlSettings/libs</string>
 						<string>../../../addons/ofxXmlSettings/src</string>
 					</array>
@@ -1576,7 +1508,6 @@ fi
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Collections</string>
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Points</string>
 						<string>../../../addons/ofxProjectionMask/src/Storage</string>
-						<string>../../../addons/ofxSecondWindow/src</string>
 						<string>../../../addons/ofxXmlSettings/libs</string>
 						<string>../../../addons/ofxXmlSettings/src</string>
 					</array>
@@ -1656,7 +1587,6 @@ fi
 					<string>4C6FF3EB83F5CF320E2F44C0</string>
 					<string>0DB54D1D7240859E40204C01</string>
 					<string>729840592B90C492EBB4EBDE</string>
-					<string>87B479F55285F413D96B5A45</string>
 					<string>63B57AC5BF4EF088491E0317</string>
 					<string>5A4349E9754D6FA14C0F2A3A</string>
 					<string>9D44DC88EF9E7991B4A09951</string>
@@ -1755,7 +1685,6 @@ fi
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Collections</string>
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Points</string>
 						<string>../../../addons/ofxProjectionMask/src/Storage</string>
-						<string>../../../addons/ofxSecondWindow/src</string>
 						<string>../../../addons/ofxXmlSettings/libs</string>
 						<string>../../../addons/ofxXmlSettings/src</string>
 					</array>
@@ -1811,7 +1740,6 @@ fi
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Collections</string>
 						<string>../../../addons/ofxProjectionMask/src/Drawing/Points</string>
 						<string>../../../addons/ofxProjectionMask/src/Storage</string>
-						<string>../../../addons/ofxSecondWindow/src</string>
 						<string>../../../addons/ofxXmlSettings/libs</string>
 						<string>../../../addons/ofxXmlSettings/src</string>
 					</array>

@@ -110,9 +110,13 @@ void ofApp::update(){
     
     //That's it!! The rest is boilerplate, copy the lines
     //below to make the designer work in your apps
-    
+
     //Now head down to the bottom of this file to learn about presets!
     //You'll need to do this to start using the addon with a projector.
+}
+
+void ofApp::drawProductionWindow(ofEventArgs &args){
+    designer.drawProductionWindow();
 }
 
 /*
@@ -121,12 +125,12 @@ void ofApp::update(){
   Ok, so you are done playing with the development mode and you
   want to get started with a projector! Good, that's not
   unreasonable :)
- 
+
   This addon uses ofxSecondWindow to handle running fullscreen
   with a projector. All you need to do is check your operating
   system's dual-screen display settings, and enter the correct
   values in the 'production' portion of the Presets.cpp file.
-  
+
   How to do that?
   ---------------
   You will probably want to arrange your dualscreens like this:
