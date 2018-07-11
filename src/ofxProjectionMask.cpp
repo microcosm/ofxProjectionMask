@@ -76,9 +76,9 @@ void ofxProjectionMask::layoutFirstWindow() {
 
 void ofxProjectionMask::layoutSecondWindow() {
     if(presets.isProductionMode()){
-        presets.secondWindowWidth = ofGetWindowWidth() - presets.firstWindowWidth;
+        presets.secondWindowWidth = ofGetWindowWidth();
         presets.secondWindowHeight = ofGetWindowHeight();
-        presets.secondWindowX = presets.firstWindowWidth;
+        presets.secondWindowX = 0;
         presets.secondWindowY = 0;
     }
 
@@ -128,7 +128,7 @@ void ofxProjectionMask::drawSecondWindow(){
         setupSecondWindow();
     }
     ofPushMatrix();
-    ofTranslate(liveCanvas.getX(), liveCanvas.getY());
+    ofTranslate(0, 0);
     drawBackground(liveCanvas.getWidth(), liveCanvas.getHeight(), 255);
     if(displayMode == Design){
         liveCanvas.draw();

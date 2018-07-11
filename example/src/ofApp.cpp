@@ -50,7 +50,7 @@
 
 void ofApp::setup(){
     //First, set up the ofxProjectionMask designer
-    designer.setup(); //Default is STRETCH_TO_MASKFRAME
+    //designer.setup(); //Default is STRETCH_TO_MASKFRAME
     //designer.setup(DO_NOT_STRETCH); //Otherwise, explicitly state which mode you want
     //designer.setup(STRETCH_TO_MASKFRAME); //These are explained above
     //designer.setup(HOMOGRAPHY);
@@ -58,7 +58,7 @@ void ofApp::setup(){
     //When you are ready to use this addon fullscreen with a
     //projector you will need this line below. (Scroll to the
     //bottom of this file for more on how to do that
-    //designer.setup(DO_NOT_STRETCH, PRESETS_PRODUCTION);
+    designer.setup(DO_NOT_STRETCH, PRESETS_PRODUCTION);
 
     //Now lets set up two patterns of different sizes
     pattern1 = designer.newPattern(200, 200);

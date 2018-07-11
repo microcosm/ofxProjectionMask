@@ -2,16 +2,23 @@
 #include "ofApp.h"
 #include "ofAppGLFWWindow.h"
 
+int getNumScreens(){
+    CGDisplayCount displayCount;
+    CGDirectDisplayID displays[32];
+    CGGetActiveDisplayList(32, displays, &displayCount);
+    return displayCount;
+}
+
 int main(){
+    int numScreens = getNumScreens();
+
     ofGLFWWindowSettings settings;
-    settings.setSize(1024, 768);
-    settings.resizable = false;
+    settings.windowMode = OF_FULLSCREEN;
+    settings.monitor = 0;
     shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
-    
-    settings.setSize(1024, 768);
-    settings.resizable = false;
-    settings.multiMonitorFullScreen = true;
+
     settings.shareContextWith = mainWindow;
+    settings.monitor = numScreens > 1 ? 1 : settings.monitor;
     shared_ptr<ofAppBaseWindow> secondWindow = ofCreateWindow(settings);
     secondWindow->setVerticalSync(false);
 
