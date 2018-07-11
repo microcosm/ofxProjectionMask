@@ -13,7 +13,7 @@ int main(){
     int numScreens = getNumScreens();
 
     ofGLFWWindowSettings settings;
-    settings.windowMode = OF_FULLSCREEN;
+    //settings.windowMode = OF_FULLSCREEN;
     settings.monitor = 0;
     shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
 
